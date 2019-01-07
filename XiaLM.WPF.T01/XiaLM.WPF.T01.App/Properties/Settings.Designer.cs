@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XiaLM.WPF.T01._1.Properties
+namespace XiaLM.WPF.T01.App.Properties
 {
 
 

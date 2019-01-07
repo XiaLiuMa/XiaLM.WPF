@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace XiaLM.WPF.T01._1.Properties
+namespace XiaLM.WPF.T01.App.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace XiaLM.WPF.T01._1.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("XiaLM.WPF.T01._1.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("XiaLM.WPF.T01.App.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

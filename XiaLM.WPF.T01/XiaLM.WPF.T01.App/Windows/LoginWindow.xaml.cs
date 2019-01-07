@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XiaLM.WPF.T01._1
+namespace XiaLM.WPF.T01.App.Windows
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// LoginWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }

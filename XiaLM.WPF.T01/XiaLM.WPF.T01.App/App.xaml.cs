@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace XiaLM.WPF.T01._1
+namespace XiaLM.WPF.T01.App
 {
     /// <summary>
     /// App.xaml 的交互逻辑
