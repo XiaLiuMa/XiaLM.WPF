@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiaLM.WPF.T01.Utility", "Xi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiaLM.WPF.T01.Service", "XiaLM.WPF.T01.Service\XiaLM.WPF.T01.Service.csproj", "{2C1CD9F4-8FF4-4A9D-AC56-2BA55849CCD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiaLM.WPF.T01.Net", "XiaLM.WPF.T01.Net\XiaLM.WPF.T01.Net.csproj", "{D38E16ED-4130-4E65-BFBC-B72861D02E32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2C1CD9F4-8FF4-4A9D-AC56-2BA55849CCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C1CD9F4-8FF4-4A9D-AC56-2BA55849CCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C1CD9F4-8FF4-4A9D-AC56-2BA55849CCD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38E16ED-4130-4E65-BFBC-B72861D02E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38E16ED-4130-4E65-BFBC-B72861D02E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38E16ED-4130-4E65-BFBC-B72861D02E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38E16ED-4130-4E65-BFBC-B72861D02E32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

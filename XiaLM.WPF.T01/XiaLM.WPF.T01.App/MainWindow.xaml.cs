@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using XiaLM.WPF.T01.App.Windows;
 
 namespace XiaLM.WPF.T01.App
 {
@@ -23,6 +24,24 @@ namespace XiaLM.WPF.T01.App
         public MainWindow()
         {
             InitializeComponent();
+            //// 初始化登录窗口
+            //LoginWindow loginWindow = new LoginWindow();
+            //loginWindow.ShowDialog();
+            //if (string.IsNullOrEmpty(MainStaticData.AccessToken))
+            //{
+            //    Close();
+            //}
+            //else
+            //{
+            //    InitializeComponent();
+
+            //    DataContext = new MainWindowViewModel();
+
+            //}
+            //Init();
+            //CheckUpdate();
+            ////Tips("Welcome to WorkTimeManager!");
+
         }
     }
 }

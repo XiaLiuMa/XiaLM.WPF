@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XiaLM.WPF.T01.Utility
+namespace XiaLM.WPF.T01.App
 {
-    public class Class1
+    public class MainStaticData
     {
+        public static string AccessToken { get; set; }
     }
 }
