@@ -81,8 +81,24 @@
     </ApplicationDefinition>
     <Compile Include="MainRaalize.cs" />
     <Compile Include="MainStaticData.cs" />
+    <Compile Include="Models\WorkTimeData.cs" />
+    <Compile Include="Models\WorkTimeViewData.cs" />
+    <Compile Include="UiModels\AddItemModel.cs" />
+    <Compile Include="UiModels\AnotherCommandImplementation.cs" />
+    <Compile Include="UiModels\AutoCommand.cs" />
+    <Compile Include="UiModels\BaseViewModel.cs" />
+    <Compile Include="UiModels\ContorllerItem.cs" />
+    <Compile Include="UiModels\HomeModel.cs" />
+    <Compile Include="UiModels\MainViewModel.cs" />
     <Compile Include="Models\ReturnData.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="UiModels\NotifyPropertyChangedExtension.cs" />
+    <Compile Include="UserControls\AddItem.xaml.cs">
+      <DependentUpon>AddItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LoadDialog.xaml.cs">
       <DependentUpon>LoadDialog.xaml</DependentUpon>
     </Compile>
@@ -92,7 +108,15 @@
     <Compile Include="UserControls\TipDialog.xaml.cs">
       <DependentUpon>TipDialog.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="UserControls\AddItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -100,7 +124,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

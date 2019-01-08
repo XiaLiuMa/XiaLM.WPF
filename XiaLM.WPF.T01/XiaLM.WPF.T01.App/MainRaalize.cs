@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using XiaLM.WPF.T01.App.Windows;
 using XiaLM.WPF.T01.Db;
 using XiaLM.WPF.T01.Db.Manaments;
@@ -57,7 +52,6 @@ namespace XiaLM.WPF.T01.App
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.Show();
             }
-
         }
 
 

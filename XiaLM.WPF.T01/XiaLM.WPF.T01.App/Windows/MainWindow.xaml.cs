@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -14,12 +15,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using XiaLM.WPF.T01.App.Windows;
 
-namespace XiaLM.WPF.T01.App
+namespace XiaLM.WPF.T01.App.Windows
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
         public MainWindow()
         {
@@ -43,5 +44,43 @@ namespace XiaLM.WPF.T01.App
             ////Tips("Welcome to WorkTimeManager!");
 
         }
+
+
+
+        private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var dependencyObject = Mouse.Captured as DependencyObject;
+            while (dependencyObject != null)
+            {
+                if (dependencyObject is ScrollBar) return;
+                dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
+            }
+
+            MenuToggleButton.IsChecked = false;
+
+        }
+
+        private void Update_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("Update" + ".exe");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void CloseWindow_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

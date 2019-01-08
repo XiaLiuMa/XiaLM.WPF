@@ -158,33 +158,41 @@ namespace XiaLM.WPF.T01.App.Windows
             var loadDialog = new LoadDialog();
             var result = DialogHost.Show(loadDialog, "LoginDialog", delegate (object sed, DialogOpenedEventArgs args)
             {
-                Task.Factory.StartNew(() =>
+                bool flag = UserManament.GetInstance().UserSign(new Db.UiModels.UseSignData()
                 {
-                    //string url = $"https://api.bobdong.cn/time_manager/user/register?name={name}&pw={pw}";
-                    //var resultStr = HttpHelper.Get(url);
-                    //var resultObj = JsonConvert.DeserializeObject<ReturnData<User>>(resultStr);
-                    //this.BeginInvoke(delegate ()// 异步更新界面
-                    //{
-                    //    args.Session.Close(false);
-                    //    if (resultObj.code != 0)
-                    //    {
-                    //        MessageTips(resultObj.message);
-                    //    }
-                    //    else
-                    //    {
-                    //        //MainStaticData.AccessToken = resultObj.data.access_token;
-                    //        Close();
-                    //    }
-                    //});
-
-
-                    bool flag = UserManament.GetInstance().UserSign(new Db.UiModels.UseSignData()
-                    {
-                        Name = name,
-                        Pwd = pw
-                    });
-                    args.Session.Close(false);
+                    Name = name,
+                    Pwd = pw
                 });
+                args.Session.Close(false);
+                if (flag)
+                {
+                    return;
+                }
+                else
+                {
+                    MessageTips("注册失败");
+                }
+
+
+                //Task.Factory.StartNew(() =>
+                //{
+                //    string url = $"https://api.bobdong.cn/time_manager/user/register?name={name}&pw={pw}";
+                //    var resultStr = HttpHelper.Get(url);
+                //    var resultObj = JsonConvert.DeserializeObject<ReturnData<User>>(resultStr);
+                //    this.BeginInvoke(delegate ()// 异步更新界面
+                //    {
+                //        args.Session.Close(false);
+                //        if (resultObj.code != 0)
+                //        {
+                //            MessageTips(resultObj.message);
+                //        }
+                //        else
+                //        {
+                //            //MainStaticData.AccessToken = resultObj.data.access_token;
+                //            Close();
+                //        }
+                //    });
+                //});
             });
             #endregion
         }
