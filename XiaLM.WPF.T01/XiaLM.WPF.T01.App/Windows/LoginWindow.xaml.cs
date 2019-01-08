@@ -46,33 +46,42 @@ namespace XiaLM.WPF.T01.App.Windows
             var loadDialog = new LoadDialog();
             var result = DialogHost.Show(loadDialog, "LoginDialog", delegate (object sed, DialogOpenedEventArgs args)
             {
-                Task.Factory.StartNew(() =>
+                bool flag = UserManament.GetInstance().UserLogin(new Db.UiModels.UserLoginData()
                 {
-                    //string url = $"https://api.bobdong.cn/time_manager/user/login?name={name}&pw={pw}";
-                    //var resultStr = HttpHelper.Get(url);
-                    //var resultObj = JsonConvert.DeserializeObject<ReturnData<User>>(resultStr);
-                    //this.BeginInvoke(delegate ()// 异步更新界面
-                    //{
-                    //    args.Session.Close(false);
-                    //    if (resultObj.code != 0)
-                    //    {
-                    //        MessageTips(resultObj.message);
-                    //    }
-                    //    else
-                    //    {
-                    //        //MainStaticData.AccessToken = resultObj.data.access_token;
-                    //        this.Close();
-                    //    }
-                    //});
-
-
-                    bool flag = UserManament.GetInstance().UserLogin(new Db.UiModels.UserLoginData()
-                    {
-                        Name = name,
-                        Pwd = pw
-                    });
-                    args.Session.Close(false);
+                    Name = name,
+                    Pwd = pw
                 });
+                args.Session.Close(false);
+                if (flag)
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageTips("登陆失败");
+                }
+
+                //Task.Factory.StartNew(() =>
+                //{
+                //    string url = $"https://api.bobdong.cn/time_manager/user/login?name={name}&pw={pw}";
+                //    var resultStr = HttpHelper.Get(url);
+                //    var resultObj = JsonConvert.DeserializeObject<ReturnData<User>>(resultStr);
+                //    this.BeginInvoke(delegate ()// 异步更新界面
+                //    {
+                //        args.Session.Close(false);
+                //        if (resultObj.code != 0)
+                //        {
+                //            MessageTips(resultObj.message);
+                //        }
+                //        else
+                //        {
+                //            //MainStaticData.AccessToken = resultObj.data.access_token;
+                //            this.Close();
+                //        }
+                //    });
+                //});
             });
             #endregion
 

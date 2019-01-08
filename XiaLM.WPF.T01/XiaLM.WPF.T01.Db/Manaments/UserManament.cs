@@ -104,7 +104,7 @@ namespace XiaLM.WPF.T01.Db.Manaments
                     dbContext.Users.Add(new TB_User()
                     {
                         Name = user.Name,
-                        Pwd = user.Name,
+                        Pwd = user.Pwd,
                         SignTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
                         LoginTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")
                     });
