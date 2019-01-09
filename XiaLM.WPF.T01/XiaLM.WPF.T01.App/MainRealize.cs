@@ -5,11 +5,11 @@ using XiaLM.WPF.T01.Db.Manaments;
 
 namespace XiaLM.WPF.T01.App
 {
-    public class MainRaalize
+    public class MainRealize
     {
-        private static MainRaalize instance;
+        private static MainRealize instance;
         private readonly static object objLock = new object();
-        public static MainRaalize GetInstance()
+        public static MainRealize GetInstance()
         {
             if (instance == null)
             {
@@ -17,7 +17,7 @@ namespace XiaLM.WPF.T01.App
                 {
                     if (instance == null)
                     {
-                        instance = new MainRaalize();
+                        instance = new MainRealize();
                     }
                 }
             }
@@ -53,8 +53,5 @@ namespace XiaLM.WPF.T01.App
                 loginWindow.Show();
             }
         }
-
-
     }
-
 }

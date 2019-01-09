@@ -11,7 +11,6 @@ namespace XiaLM.WPF.T01.App.UiModels
     {
         public ContorllerItem[] Items { get; }
 
-
         public MainViewModel()
         {
             Items = new[]

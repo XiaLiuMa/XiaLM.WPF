@@ -79,7 +79,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MainRaalize.cs" />
+    <Compile Include="MainRealize.cs" />
     <Compile Include="MainStaticData.cs" />
     <Compile Include="Models\WorkTimeData.cs" />
     <Compile Include="Models\WorkTimeViewData.cs" />
@@ -107,6 +107,9 @@
     </Compile>
     <Compile Include="UserControls\TipDialog.xaml.cs">
       <DependentUpon>TipDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\UpdateWindow.xaml.cs">
+      <DependentUpon>UpdateWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="UserControls\AddItem.xaml">
       <SubType>Designer</SubType>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\TipDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UpdateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

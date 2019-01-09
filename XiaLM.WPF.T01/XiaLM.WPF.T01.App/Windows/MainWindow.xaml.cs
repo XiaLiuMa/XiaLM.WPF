@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using XiaLM.WPF.T01.App.UiModels;
 using XiaLM.WPF.T01.App.Windows;
 
 namespace XiaLM.WPF.T01.App.Windows
@@ -25,27 +26,8 @@ namespace XiaLM.WPF.T01.App.Windows
         public MainWindow()
         {
             InitializeComponent();
-            //// 初始化登录窗口
-            //LoginWindow loginWindow = new LoginWindow();
-            //loginWindow.ShowDialog();
-            //if (string.IsNullOrEmpty(MainStaticData.AccessToken))
-            //{
-            //    Close();
-            //}
-            //else
-            //{
-            //    InitializeComponent();
-
-            //    DataContext = new MainWindowViewModel();
-
-            //}
-            //Init();
-            //CheckUpdate();
-            ////Tips("Welcome to WorkTimeManager!");
-
+            this.DataContext = new MainViewModel(); //绑定数据上下文(对应xaml界面上的Binding Items)
         }
-
-
 
         private void UIElement_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

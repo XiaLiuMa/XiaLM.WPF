@@ -20,8 +20,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}">
     <controls:MetroWindow.RightWindowCommands>
         <controls:WindowCommands ShowLastSeparator="False">
-            <Button ToolTip="版本更新" 
-                    Content="更新" Click="Update_OnClick"/>
+            <Button ToolTip="版本更新" Content="更新" Click="Update_OnClick"/>
         </controls:WindowCommands>
     </controls:MetroWindow.RightWindowCommands>
 
@@ -36,8 +35,7 @@
                                   Height="30"
                                   Width="30"
                                         IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
-                    <ListBox SelectedIndex="0" PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp" ItemsSource="{Binding Items}" x:Name="ItemListBox"
-                              >
+                    <ListBox SelectedIndex="0" PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp" ItemsSource="{Binding Items}" x:Name="ItemListBox">
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="viewmodel:ContorllerItem">
                                 <TextBlock Text="{Binding Name}" Margin="32 0 32 0" />

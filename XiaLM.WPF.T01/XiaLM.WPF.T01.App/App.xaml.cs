@@ -21,8 +21,8 @@ namespace XiaLM.WPF.T01.App
         /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainRaalize.GetInstance().DbInit();   //初始化数据库
-            MainRaalize.GetInstance().UiInit(); //初始化UI
+            MainRealize.GetInstance().DbInit();   //初始化数据库
+            MainRealize.GetInstance().UiInit(); //初始化UI
         }
     }
 }
