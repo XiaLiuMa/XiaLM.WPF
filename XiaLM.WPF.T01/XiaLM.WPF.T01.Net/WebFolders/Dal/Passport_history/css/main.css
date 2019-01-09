@@ -1,0 +1,94 @@
+.iframe_map {
+	width: 1920px;
+	height: 1150px;
+	border: 0;
+	display: none;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+	z-index: 1;
+}
+
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.videoarea {
+	width: 1301px;
+	height: 813px;
+	position: absolute;
+	background: black;
+	top: 100px;
+	left: 310px;
+}
+
+.saomiao {
+	width: 1301px;
+	height: 813px;
+	position: absolute;
+	background: url(../images/saomiao.png);
+	top: 100px;
+	left: 310px;
+	z-index: 1;
+}
+
+.textarea {
+	width: 720px;
+	height: 100px;
+	position: absolute;
+	background: 0;
+	top: 770px;
+	left: 600px;
+	z-index: 2;
+	text-align: center;
+	font-size: 40px;
+}
+
+.h5video {
+	width: 100%;
+	height: 100%;
+}
+
+.startbtn {
+	height: 80px;
+	width: 400px;
+	font-size: 32px;
+	color: black;
+}
+
+@-webkit-keyframes gogogo {
+	0% {
+		top: 200px;
+	}
+	50% {
+		top: 600px;
+	}
+	100% {
+		top: 200px;
+	}
+}
+
+.light {
+	position: absolute;
+	left: 357px;
+	top: 200px;
+	display: none;
+}
+
+.lighting {
+	-webkit-animation: gogogo 3s infinite linear;
+}

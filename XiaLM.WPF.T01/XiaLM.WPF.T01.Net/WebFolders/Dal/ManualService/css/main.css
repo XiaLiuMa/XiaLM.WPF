@@ -1,0 +1,72 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.section {
+	text-align: center;
+}
+
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+}
+
+.logo {
+	width: 146px;
+	height: 189px;
+	position: absolute;
+	left: 887px;
+	top: 190px;
+	font-size: 80px;
+}
+
+.status {
+	width: 500px;
+	height: 189px;
+	text-align: center;
+	position: absolute;
+	left: 710px;
+	top: 430px;
+	font-size: 60px;
+}
+
+.on,
+.off {
+	width: 500px;
+	height: 189px;
+	text-align: center;
+	position: absolute;
+	left: 710px;
+	top: 580px;
+	font-size: 60px;
+}
+
+.off {
+	display: none;
+}
+
+.info {
+	width: 500px;
+	height: 189px;
+	text-align: center;
+	position: absolute;
+	left: 710px;
+	top: 800px;
+	font-size: 40px;
+}

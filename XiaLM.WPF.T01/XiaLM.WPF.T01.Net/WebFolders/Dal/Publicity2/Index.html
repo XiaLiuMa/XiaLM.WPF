@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/build.css" />
+		<link rel="stylesheet" href="css/v-black.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<style>
+			
+		</style>
+	</head>
+
+	<body>
+		<section id="app" class="section">
+			<div class="title">宣教</div>
+			<div class="MS">
+				<div id="videoarea" class="nofull">
+					<div class="videoarea_black">
+						<div class="emptydiv">
+							<img class="emptyimg" src="images/empty.png" width="183px" />
+							<p class="emptytxt">当前无视频</p>
+						</div>
+					</div>
+					<div class="audioui_black">
+						<div class="audiouidiv">
+							<img class="audioui_img" src="images/audio.gif" width="100%" />
+							<p class="audioui_txt"></p>
+						</div>
+					</div>
+					<video id="media" src="">
+					</video>
+					<audio id="audio" src="">
+					</audio>
+				</div>
+				<!--
+                	作者：46ha
+                	时间：2018-10-16
+                	描述：本地视频
+                -->
+				<div class="listarea" id="list">
+					<div class="list_title">播放列表</div>
+					<div class=" ">
+						<ul class="list_playlist">
+							<li class="relative playmenu" v-for="(playlist,index) in local_list">
+								<div class="menu_left"  :class="{ orangebg: (playlist.PlayState=='2')?active:'' }"  @click="play(playlist)"><marquee v-if="playlist.Name.length>8" scrollamount="10" SCROLLDELAY="1">{{playlist.Name|codeFormat}}</marquee><p v-if="playlist.Name.length<=8">{{playlist.Name|codeFormat}}</p></div>
+								<div class="menu_right" @click="deleteitem(playlist)"><img src="images/delunit.png"></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--    
+                	作者：46ha
+                	时间：2018-10-16
+                	描述：计划列表
+               	-->
+				<div class="listarea" id="list_dl">
+					<div class="list_title">计划列表</div>
+					<div class="list_dl_list">
+						
+					</div>
+					<button class="list_dl_btn btn" onclick="get.openaddlist()">添加计划</button>
+					<!--<li class="downloading" v-for="(dlist,dindex) in download_list">
+						<div class="menu_left">{{dlist.VideoName|codeFormat}}</div>
+						<span :class="dlist.SessionId">0%</span>
+					</li>
+					<div class="failed"></div>
+					<div class="fenge"></div>
+					<div class="center">
+						<button class="okey okey_dl" onclick="get.downloadlist(),$('.failed').empty();">添加计划</button>
+					</div>-->
+				</div>
+				<div id="menuarea">
+					<div class="menuicon local" onclick="get.GetPlayerItems();video.Changelist(true)">
+						<img src="images/list.png" width="44px" />
+						<p>列表</p>
+					</div>
+					<div class="menuicon none simple" onclick="loop_change('complex')">
+						<img src="images/1.png" width="44px" />
+						<p>单首</p>
+					</div>
+					<div class="menuicon complex" onclick="loop_change('random')">
+						<img src="images/2.png" width="44px" />
+						<p>列表</p>
+					</div>
+					<div class="menuicon none random" onclick="loop_change('simple')">
+						<img src="images/random.png" width="44px" />
+						<p>随机</p>
+					</div>
+					<div class="menuicon" onclick="video.fullscreen()">
+						<img src="images/full.png" width="44px" />
+						<p>全屏</p>
+					</div>
+					<div class="menuicon" onclick="get.RetrieveDiskFiles('',false)">
+						<img src="images/ino.png" width="44px" />
+						<p>导入</p>
+					</div>
+					<div class="menuicon" onclick="get.GetPlayPlanList();video.Changelist(false)">
+						<img src="images/playplane.png" width="44px" />
+						<p>计划</p>
+					</div>
+					<div class="menuicon startplay" onclick="startplay();">
+						<img src="images/stop.png" width="44px" />
+						<p>播放</p>
+					</div>
+					<div class="menuicon stopplay" onclick="stopplay()">
+						<img src="images/start.png" width="44px" />
+						<p>暂停</p>
+					</div>
+					<div class="menuicon delete" onclick="deletevideo()">
+						<img src="images/del.png" width="44px" />
+						<p>删除</p>
+					</div>
+				</div>
+				<div class="vp" onclick="setting.MediaVolumeUp();"><img src="images/vp.png" width="60px"></div>
+				<div class="vc" onclick="setting.MediaVolumeDown();"><img src="images/vc.png" width="60px"></div>
+				<div class="home" onclick="parent.BackHome();"><img src="images/home2.png" width="60px"></div>
+				<div id="Volumevalue"><img src="images/voice.png" width="100px">&nbsp;<span id="volumenum"></span>%</div>
+				<div class="exfull" onclick="video.ex_full()"><img src="images/small.png" width="43px"></div>
+
+				<div class="pushin">
+					<button class="close1 btn" onclick="$('.pushin').css('display','none')">X</button>
+					<div class="dtitle">文件导入</div>
+					<div class="dinfo">
+						<p class="dodgerblue">当前路径：<span class="lu"></span></p>
+						<p class="dinfotext">请点击下列列表选择文件或者文件夹，点击弹窗外可取消导入</p>
+					</div>
+					<div class="file-list">
+					</div>
+				</div>
+				<div class="tip">删除中..</div>
+				<!--
+                	作者：46ha
+                	时间：2018-10-16
+                	描述：txt文件导入弹框
+                -->
+				<div class="textwindowsty">
+					<button class="close1 btn" onclick="$('.textwindowsty').css('display','none')">X</button>
+					<div class="s-window">
+						<div style="margin-top: 0;">
+							<label>文本标题：</label>
+							<input class="textname" disabled="disabled" />
+						</div>
+						<div>
+							<label>文本文字：</label>
+							<textarea class="textinfo" disabled="disabled"></textarea>
+						</div>
+						<div>
+							<label>语言选项：</label>
+							<select class="languageselecter">
+								<option value="Mandarin">普通话</option>
+								<option value="English">英语</option>
+								<option value="Cantonese">粤语</option>
+							</select>
+						</div>
+						<div class="savebtn">
+							<button class="btn" onclick="get.SaveImportText()">保存</button>
+						</div>
+					</div>
+				</div>
+				<!--
+                	作者：46ha
+                	时间：2018-10-16
+                	描述：添加计划弹框
+                -->
+				<div class="smallwindowsty addlist">
+					<button class="close1 btn" onclick="$('.smallwindowsty').css('display','none')">X</button>
+					<div class="s-window2">
+						<div style="margin-top: 0;">
+							<label>计划名&nbsp;&nbsp;&nbsp;&nbsp;：</label>
+							<input type="text" class="planlistname"/>
+						</div>
+						<div class="add_block">
+							<label>选择列表：</label>
+							<div class="add_block_list">
+								<div class="add_block_list_box" v-for="(alist,index) in all_list">
+									<div class="add_block_list_btitle" >{{alist.Name}}</div>
+									<label class="demo--label download">
+									  <input type="checkbox" class="demo--radio" name="switch-add" :value="index">
+									  <span class="demo--checkbox demo--radioInput green--radioInput"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="savebtn">
+							<button class="btn" onclick="get.AddPlan()">保存</button>
+						</div>
+					</div>
+				</div>
+				<!--
+                	作者：46ha
+                	时间：2018-10-16
+                	描述：文件已存在弹框
+                -->
+				<div class="fileexitswindowsty">
+					<button class="close1 btn" onclick="$('.fileexitswindowsty').css('display','none');get.RestUpdata(false)">X</button>
+					<div class="s-window2">
+						<div style="margin-top: 50px;text-align: center;">
+							<label>文件：<span class="refilename"></span><br>已存在，是否替换此文件。</label>
+						</div>
+						<div class="savebtn">
+							<button class="btn" onclick="get.RestUpdata(true)">替换</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script type="text/javascript" src="JS/vue.js"></script>
+		<script type="text/javascript" src="JS/virtualkeyboard.js" ></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript" src="JS/player.js"></script>
+		<script type="text/javascript" src="JS/svgcheckbx.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+</html>

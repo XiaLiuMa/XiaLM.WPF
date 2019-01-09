@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/v-black.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">申报单</div>
+			<div class="MS">
+				<div id="page_1" class="sbdpage">
+					<div class="important_info">
+						<br>
+						<b>一、重要提示：</b>
+						<br /><br />
+						<p>1.没有携带应向海关申报物品的旅客，无需填写本申报单，可选择“无申报通道”（又称“绿色通道”，标识为“”）通关。</p>
+						<br />
+						<p>2.携带有应向海关申报物品的旅客，应当填写本申报单，向海关书面申报，并选择“申报通道”（又称“红色通道”，标识为“”） 通关。海关免予监管的人员以及随同成人旅行的16周岁以下旅客可不填写申报单。
+						</p>
+						<br />
+						<p>3.请妥善保管本申报单， 以便在返程时继续使用。</p><br />
+						<p>4.本申报单所称“居民旅客”系指其通常定居地在中国关境内的旅客，“非居民旅客”系指其通常定居在中国关境外的旅客。</p><br />
+						<p>5.不如实申报的旅客将承担相应法律责任。</p><br />
+						<b>二、中华人民共和国禁止进境物品：</b>
+						<br /><br />
+						<p>1.各种武器、仿真武器、弹药及爆炸物品;</p>
+						<br />
+						<p>2.伪造的货币及伪造的有价证券;
+						</p>
+						<br />
+						<p>3.对中国政治、经济、文化、道德有害的印刷品、胶卷、照片、唱片、影片、录音带、录像带、激光唱盘、激光视盘、 计片区机存储介质及其它物品;
+						</p><br />
+						<p>4.各种烈性毒药;</p><br />
+						<p>5.鸦片、吗啡、海洛因、大麻以及其它能使人成瘾的麻醉品、精神药物;</p><br />
+						<p>6、新鲜水果、茄科蔬菜、活动物（犬、猫除外）、动物产品、动植物病原体和害虫及其它有害生物、动物尸体、土壤、 转基因生物材料、动植物疫情流行的国家和地区的有关动植物及其产品和其它应检物;
+						</p><br />
+						<p>7、有碍人畜健康的、来自疫区的以及其它能传播疾病的食品、药品或其它物品。</p><br />
+						<b>三、中华人民共和国禁止出境物品：</b>
+						<br /><br />
+						<p>1.列入禁止进境范围的所有物品;</p>
+						<br />
+						<p>2.内容涉及国家秘密的手稿、印刷品、胶卷、照片、唱片、影片、录音带、录像带、激光唱盘、激光视盘、计算机存储 介质及其它物;
+						</p>
+						<br />
+						<p>3.珍贵文物及其它禁止出境的文物;</p><br />
+						<p>4.濒危的和珍贵的动植物（均含标本）及其种子和繁殖材料。</p><br />
+						<br />
+						<br />
+					</div>
+					<br />
+					<p style="text-align:center;"><button class="btn btn-warning btn-d" onclick="$('.sbdpage').css('display','none');$('#page_2').css('display','block');SetCanBrushPassport(true)">我同意</button></p>
+				</div>
+				<div id="page_2" class="sbdpage">
+					<div class="top">
+						<img class="left" src="images/logo.png">
+						<div class="logotit left">
+							<p class="p1">中华人民共和国</p>
+							<p class="p2">进出境旅客行李行李物品申报单</p>
+						</div>
+					</div>
+					<div class="tiptip">可刷护照填充信息</div>
+					<div class="inputarea d1">
+						<div class="left arealeft">
+							<p>个人信息</p>
+						</div>
+						<div class="left arearight">
+							<div class="i1">
+								<div class="inputunit">
+									<p class="left">姓名：</p>
+									<input class="left" type="text" id="name">
+								</div>
+							</div>
+							<div class="i2">
+								<div class="inputunit">
+									<p class="left ">性别：</p>
+									<select class="sex" id="sex">
+									<option value="男" selected="selected">男</option>
+									<option value="女">女</option>
+									</select>
+								</div>
+							</div>
+							<div class="i3">
+								<div class="inputunit">
+									<p class="left">出生日期：</p>
+									<input class="left" type="text" id="birthday_date">
+								</div>
+							</div>
+							<div class="i4">
+								<div class="inputunit">
+									<p class="left">国籍：</p>
+									<input class="left" type="text" id="country">
+								</div>
+							</div>
+							<div class="i5">
+								<div class="inputunit">
+									<p class="left ">护照：</p>
+									<input class="left" type="text" id="passport">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="inputarea d2">
+						<div class="left arealeft">
+							<p>出/入境信息</p>
+						</div>
+						<div class="left arearight">
+							<div class="i1">
+								<div class="inputunit">
+									<p class="left ">出/入境：</p>
+									<select class="io" id="io">
+									<option value="出境">出境</option>
+									<option value="入境" selected="selected">入境</option>
+									</select>
+								</div>
+							</div>
+							<div class="i2">
+								<div class="inputunit">
+									<p class="left">来自国：</p>
+									<input class="left" type="text" id="cfrom">
+								</div>
+							</div>
+							<div class="i3">
+								<div class="inputunit">
+									<p class="left">出入日期：</p>
+									<input class="left" type="text" id="io_date">
+									<!--<button class="qfdate btn-qfdate" id="io_date" value="">请输入日期</button>-->
+								</div>
+							</div>
+							<div class="i4">
+								<div class="inputunit">
+									<p class="left">航班：</p>
+									<input class="left" type="text" value="" id="hangban">
+								</div>
+							</div>
+						</div>
+					</div>
+					<button class="btn btn-warning btn-next btn-d" onclick="nextstap($('.io').val());SetCanBrushPassport(false)">下一步</button>
+					<div class="tip"></div>
+				</div>
+				<div id="page_3" class="sbdpage">
+					<div class="top">
+						<img class="left" src="images/logo.png">
+						<div class="logotit left">
+							<p class="p1">中华人民共和国</p>
+							<p class="p2">进出境旅客行李行李物品申报单</p>
+						</div>
+					</div>
+					
+					<div class="qusarea p20">
+						<b>入境携带有下列物品请对应点击下列文字，金色为携带有此物品。</b>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="动植物及其产品，微生物，生物制品，人体组织，血液及其制品。">1.动植物及其产品，微生物，生物制品，人体组织，血液及其制品。</button>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="居民旅客在境外获取总值超过人民币5000元的物品。">2.居民旅客在境外获取总值超过人民币5000元的物品。</button>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="非居民旅客拟留在境内总值超过2000元的物品。">3.非居民旅客拟留在境内总值超过2000元的物品。</button>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="超过1500毫升的酒精饮料（酒精含量12°以上），过超过400支香烟，或超过100支雪茄，或超过500克烟丝。">4.超过1500毫升的酒精饮料（酒精含量12°以上），过超过400支香烟，或超过100支雪茄，或超过500克烟丝。</button>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="超过20000元人民币现钞，或超过折和美元5000元的外币现钞。">5.超过20000元人民币现钞，或超过折和美元5000元的外币现钞。</button>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="分离运输行李，货物，货样，广告品。">6.分离运输行李，货物，货样，广告品。</button><br />
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="其他需要向海关申报的物品。">7.其他需要向海关申报的物品。</button>
+					</div>
+					<button class="btn btn-warning btn-next btn-d" onclick="$('.sbdpage').css('display','none');$('#page_4').css('display','block');">下一步</button>
+				</div>
+				<div id="page_32" class="sbdpage">
+					<div class="top">
+						<img class="left" src="images/logo.png">
+						<div class="logotit left">
+							<p class="p1">中华人民共和国</p>
+							<p class="p2">进出境旅客行李行李物品申报单</p>
+						</div>
+					</div>
+					<div class="qusarea p20">
+						<b>出境携带有下列物品请对应点击下列文字，金色为携带有此物品。</b>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="文物、濒危动植物及其制品、生物物种资源、金银等贵重金属">1.文物、濒危动植物及其制品、生物物种资源、金银等贵重金属。</button>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="居民旅客携带需复带进境的单价超过人民币5，000元的照相机、摄像机、手提电脑等旅行自用物品">居民旅客携带需复带进境的单价超过人民币5，000元的照相机、摄像机、手提电脑等旅行自用物品</button>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="超过20，000元人民币现钞，或超过折合美元5，000元外币现钞">3.超过20，000元人民币现钞，或超过折合美元5，000元外币现钞。</button>
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="货物、货样、广告品">4.货物、货样、广告品</button><br />
+                        <button class="sblist" onclick="changeselect(this,this.value)" value="其它需要向海关申报的物品">5.其它需要向海关申报的物品</button>
+					</div>
+					<button class="btn btn-warning btn-next btn-d" onclick="$('.sbdpage').css('display','none');$('#page_4').css('display','block');">下一步</button>
+				</div>
+				<div id="page_4" class="sbdpage">
+					<div class="top">
+						<img class="left" src="images/logo.png">
+						<div class="logotit left">
+							<p class="p1">中华人民共和国</p>
+							<p class="p2">进出境旅客行李行李物品申报单</p>
+						</div>
+					</div>
+					<div class="qusarea">
+						<table id="inner_table">
+							<tr>
+								<td class="row_tit row_input table-size">品种/币种</td>
+								<td class="row_tit row_input">型号</td>
+								<td class="row_tit row_input">数量</td>
+								<td class="row_tit row_input">金额</td>
+								<td class="row_tit row_input">海关批注</td>
+								<td class="row_tit row_input">操作</td>
+							</tr>
+						</table>
+					</div>
+					<button class="btn btn-warning btn-next btn-d" onclick="$('.sbdpage').css('display','none');$('#page_5').css('display','block');postlist();">打印</button>
+				</div>
+				<div id="page_5" class="sbdpage">
+					<div class="top">
+						<img class="left" src="images/logo.png">
+						<div class="logotit left">
+							<p class="p1">中华人民共和国</p>
+							<p class="p2">进出境旅客行李行李物品申报单</p>
+						</div>
+					</div>
+					<div class="finish">
+						<img src="images/sbd.png" />
+						<p class="status"></p>
+						<p class="msginfo"></p>
+					</div>
+				</div>
+				<div class="home" onclick="parent.BackHome();SetCanBrushPassport(false);"><img src="images/HOME.png" width="82px"></div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script type="text/javascript" src="Js/virtualkeyboard.js"></script>
+		<script src="Js/qfdate.js"></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

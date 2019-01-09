@@ -1,0 +1,238 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+}
+
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+	color: white;
+}
+
+.info_title {
+	position: absolute;
+	width: 1520px;
+	height: 60px;
+	line-height: 60px;
+	left: 200px;
+	top: 50px;
+	font-size: 40px;
+	text-align: center;
+}
+
+.wifiicon {
+	margin-right: 30px;
+}
+
+.wifiarea {
+	position: absolute;
+	left: 400px;
+	top: 0px;
+	width: 1120px;
+	height: 1100px;
+	
+	color: #fff;
+	z-index: 21;
+}
+
+.wifi_title {
+	width: 100%;
+	height: 120px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 42px;
+	line-height: 120px;
+}
+
+.wifi_now {
+	width: 100%;
+	height: 100px;
+	text-align: left;
+	font-family: "微软雅黑";
+	font-size: 32px;
+	line-height: 100px;
+	padding-left: 60px;
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.wnow {
+	padding-left: 40px;
+	width: 680px;
+}
+
+.wifi_list {
+	position: relative;
+	width: 100%;
+	text-align: left;
+	font-family: "微软雅黑";
+	font-size: 32px;
+	overflow: auto;
+}
+
+.wlist {
+	width: 1100px;
+	height: 1000px;
+	overflow: auto;
+	padding: 30px 10px;
+}
+
+.wunit {
+	width: 100%;
+	height: 80px;
+	clear: both;
+	border-bottom: 1px dashed rgba(255,255,255,0.3);
+	text-align: center;
+}
+.wtitle{
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	clear: both;
+}
+
+.wp {
+	color: white;
+	font-size: 35px;
+	text-align: center;
+	line-height: 60px;
+}
+
+.pas {
+	width: 500px;
+	background: rgba(255, 255, 255, 0.4);
+	border: 0;
+}
+
+.passsty {
+	width: 100px;
+	height: 60px;
+	background: 0;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	color: white;
+	margin: 0 30px;
+}
+
+.unitlock,
+.unitx {
+	width: 80px;
+	height: 80px;
+}
+
+.unittit {
+	width: 700px;
+	height: 80px;
+}
+.b-1{
+	width: 1000px;
+}
+.right{
+	float: right;
+}
+.eye{
+				width: 50px;
+				position: absolute;
+				top: 110px;
+				right: 70px;
+			}
+.l1{
+	width: 500px;
+	height: 100px;
+
+}
+.l2{
+	width: 250px;
+	height: 100px;
+  position: relative;
+}
+.l3{
+	width: 250px;
+	height: 100px;
+text-align: center;
+}
+.h70{
+	height: 70px;
+}
+.seed{
+	font-size: 25px;
+	margin: 0 10px;
+	line-height: 60px;
+	color: greenyellow;
+}
+.seed2{
+	font-size: 25px;
+	margin: 0 10px;
+	line-height: 60px;
+	color: #999;
+}
+.forbid{
+	z-index: 22;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width:1920px;
+	height: 1200px;
+	display: none;
+}
+.tip{
+	position: absolute;
+	width: 520px;
+	height: 200px;
+	left: 700px;
+	top: 300px;
+	background: rgba(255,255,255,0.75);
+	border-radius: 10px;
+	padding: 40px;
+	color: #002752;
+	font-size: 60px;
+	text-align: center;
+}
+.all{
+	position: absolute;
+	top: 50px;
+	left: 100px;
+	width: 300px;
+	height: 60px;
+	border-radius: 50px;
+	outline: none;
+	background: #3280E5;
+	border:0;
+	color: #fff;
+	font-size: 30px;
+}
+.some{
+	position: absolute;
+	top: 150px;
+	left: 100px;
+	width: 300px;
+	height: 60px;
+	border-radius: 50px;
+	outline: none;
+	background: #3280E5;
+	border:0;
+	color: #fff;
+	font-size: 30px;
+}
+.activebtn{
+	background: gold;
+}
+

@@ -1,0 +1,150 @@
+body {
+	background: #0144a5;
+	overflow: hidden;
+	font-family: "微软雅黑";
+}
+.section{
+	background: url(../img/BG.jpg);
+	color: white;
+}
+.SF_cn,.SF_en{
+	display: none;
+}
+.pingbao {
+	width: 1920px;
+	height: 1200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: black;
+    z-index: 100;
+    text-align: center;
+    display: none;
+}
+
+
+.pingbao-info {
+	font-family: "微软雅黑";
+	font-size: 50px;
+	color: white;
+	font-weight: 200;
+}
+
+.no-touch{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 99;
+	display: none;
+} 
+.no-touch-right{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	text-align: center;
+}   
+.no-touch-img{
+	opacity:0.7;
+}
+
+.no-touch-p{
+	font-family: "微软雅黑";
+	font-size: 50px;
+	color: white;
+	opacity:0.7;
+}
+
+#Z-background {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(100, 100, 100, 0.4);
+	position: absolute;
+	z-index: 97;
+	display: none;
+}
+#B-background{
+	width: 100vw;
+	height: 100vh;
+	background: rgba(100, 100, 100, 0.4);
+	position: absolute;
+	z-index: 98;
+	display: none;
+}
+#Zinfo {
+	width: 720px;
+	height: 300px;
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 15px;
+	position: absolute;
+	left: 600px;
+	top: 450px;
+	text-align: center;
+	padding: 30px;
+}
+
+#Zinfo h1 {
+	font-family: "微软雅黑";
+	color: #333;
+}
+
+#N-background {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.4);
+	position: absolute;
+	z-index: 96;
+	display: none;
+}
+
+#Ninfo {
+	width: 720px;
+	height: 300px;
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 15px;
+	position: absolute;
+	left: 600px;
+	top: 450px;
+	text-align: center;
+	padding: 30px;
+}
+
+#Ninfo h1 {
+	font-family: "微软雅黑";
+	color: #333;
+}
+
+*::-webkit-scrollbar {
+				width: 5px;
+				height: 5px;
+	}
+			
+*::-webkit-scrollbar-thumb {
+	background: rgba(12,25,33,0.5);
+}
+
+@-webkit-keyframes gogogo {
+			0% {
+				opacity: 1;
+			}
+			50% {
+				opacity: 0.2;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		.anime1{
+			-webkit-animation: gogogo 0.5s infinite linear;
+		}
+		
+.title {
+	height: 80px;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.1);
+	font-size: 50px;
+	text-align: center;
+	line-height: 80px;
+	color: #E8B038;
+}

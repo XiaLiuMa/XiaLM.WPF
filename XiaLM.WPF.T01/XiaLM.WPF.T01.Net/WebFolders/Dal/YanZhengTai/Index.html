@@ -1,0 +1,63 @@
+ <!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/v-black.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">验证台引导</div>
+			<div class="MS">
+				<div class="info">
+					<div class="now_num">
+						<img src="images/icon.png" height="98px">
+						<span>当前通道人数:</span>
+						<button class="now_num_btn">0</button>
+					</div>
+					<div class="textinfo"></div>
+				</div>
+				<div class="setting" onclick="$('.add').toggle()">
+					<img src="images/reset.png" width="100%"/>
+				</div>
+				<div class="list">
+				</div>
+				<div class="list2">
+				</div>
+				<div class="add" onclick="">
+					<div class="ahead">重置通道人数</div>
+					<div class="abody">
+						<button class="left num-change" onclick="changenum(true,100)">+100</button>
+						<button class="left num-change" onclick="changenum(true,10)">+10</button>
+						<button class="left num-change" onclick="changenum(true,1)">+1</button>
+						<input type="text" class="left reset" disabled="disabled" value="0"/>
+						<button class="left num-change" onclick="changenum(false,1)">-1</button>
+						<button class="left num-change" onclick="changenum(false,10)">-10</button>
+						<button class="left num-change" onclick="changenum(false,100)">-100</button>
+					</div>
+					<div class="afoot">
+						<button class="btn btn-warning right" onclick="Tanzhengtai.SetChannelPeopleNum()">确定</button>
+						<button class="btn btn-primary right" onclick="$('.add').css('display','none')">取消</button>
+					</div>
+				</div>
+				<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script type="text/javascript" src="../../rec/Js/virtualkeyboard.js" ></script>
+		<script src="JS/main.js"></script>
+		
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

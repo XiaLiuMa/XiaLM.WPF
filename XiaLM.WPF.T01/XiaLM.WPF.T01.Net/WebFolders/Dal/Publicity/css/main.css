@@ -1,0 +1,315 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.home {
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: 1695px;
+	top: 880px;
+}
+
+.vp {
+	text-align: center;
+	width: 60px;
+	height: 100px;
+	position: absolute;
+	left: 1695px;
+	top: 720px;
+}
+
+.vc {
+	text-align: center;
+	width: 60px;
+	height: 100px;
+	position: absolute;
+	left: 1695px;
+	top: 800px;
+}
+
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.info_title {
+	position: absolute;
+	width: 1520px;
+	height: 60px;
+	line-height: 60px;
+	left: 200px;
+	top: 100px;
+	font-size: 40px;
+}
+
+#videoarea {
+	background: rgb(0, 58, 132);
+	position: absolute;
+	z-index: 3;
+}
+
+.videoarea_black {
+	background: black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+}
+
+.nofull {
+	width: 1240px;
+	height: 900px;
+	left: 150px;
+	top: 50px;
+}
+
+.fulls {
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+}
+
+#media {
+	width: 100%;
+	height: 100%;
+}
+
+.listarea {
+	width: 290px;
+	height: 900px;
+	background: rgb(27, 104, 202);
+	position: absolute;
+	left: 1390px;
+	top: 50px;
+	overflow-y: auto;
+}
+
+.listarea ul {
+	margin: 0;
+	padding: 0;
+}
+
+.listarea li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	font-size: 30px;
+	clear: both;
+	padding-left: 10px;
+}
+
+#list_dl {
+	display: none;
+	z-index: 2;
+}
+
+#menuarea {
+	width: 90px;
+	height: 900px;
+	background: #333;
+	position: absolute;
+	left: 1680px;
+	top: 50px;
+}
+
+.menu_left {
+	width: 190px;
+	height: 100px;
+	float: left;
+	overflow: hidden;
+}
+
+.menu_right {
+	width: 80px;
+	float: left;
+}
+
+.menuicon {
+	width: 90px;
+	height: 105px;
+	padding: 22px;
+	text-align: center;
+}
+
+.menuicon p {
+	font-size: 20px;
+	color: goldenrod;
+	margin-top: 10px;
+}
+
+#Volumevalue {
+	position: absolute;
+	left: 660px;
+	top: 500px;
+	width: 500px;
+	height: 150px;
+	border-radius: 50px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.5);
+	z-index: 10;
+	font-family: "微软雅黑";
+	font-size: 80px;
+	color: white;
+	line-height: 150px;
+	display: none;
+}
+
+.delete {
+	display: none;
+}
+
+.exfull {
+	position: absolute;
+	z-index: 4;
+	left: 50px;
+	top: 50px;
+	display: none;
+}
+
+.center {
+	height: 100px;
+	padding-top: 30px;
+}
+
+.okey {
+	margin-left: 65px;
+	width: 150px;
+	height: 50px;
+	font-size: 25px;
+	background: 0;
+	border: 3px solid rgba(255, 255, 255, 0.8);
+	color: white;
+}
+
+.oklist {
+	display: none;
+}
+
+.none {
+	display: none;
+}
+
+.fenge {
+	width: 100%;
+	height: 2px;
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.failed {
+	font-size: 25px;
+}
+
+.emptyimg {
+	position: absolute;
+	left: 45%;
+	top: 500px;
+}
+
+.emptytxt {
+	position: absolute;
+	left: 45%;
+	top: 700px;
+	font-size: 38px;
+}
+
+.emptydiv {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.pushin {
+	position: absolute;
+	top: 50px;
+	left: 500px;
+	z-index: 9;
+	width: 920px;
+	height: 900px;
+	background: rgba(255, 255, 255, 0.9);
+	display: none;
+}
+
+.dtitle {
+	width: 100%;
+	height: 120px;
+	line-height: 120px;
+	font-size: 42px;
+	text-align: center;
+	color: #000000;
+}
+
+.dinfo {
+	width: 100%;
+	height: 120px;
+	color: #000000;
+	font-size: 28px;
+	text-align: left;
+	padding: 0 20px;
+}
+
+.dodgerblue {
+	color: dodgerblue;
+}
+
+.dinfotext {
+	border-bottom: dodgerblue solid 1px;
+	text-align: center;
+}
+
+.file-list-block {
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	font-size: 30px;
+	padding: 0 20px;
+	overflow: hidden;
+}
+.vv{
+   width: 100%;
+   height: 100%;
+}
+.file-list{
+	width: 100%;
+	height: 650px;
+	color: #000000;
+	overflow: auto;
+}
+.close1{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 60px;
+	height: 60px;
+	font-size: 30px;
+	background: lightskyblue;
+}
+.tip{
+	position: absolute;
+	top: 800px;
+	left:650px;
+	z-index: 9;
+	width: 300px;
+	height: 100px;
+	line-height: 100px;
+	font-size: 35px;
+	color: #000000;
+	z-index: 12;
+	border-radius:15px ;
+	background: rgba(255,255,255,0.8);
+	text-align: center;
+	display: none;
+}

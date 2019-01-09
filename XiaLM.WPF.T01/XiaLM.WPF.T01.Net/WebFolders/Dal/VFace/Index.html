@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<style>
+			body {
+				padding: 5px;
+				background: white;
+				font-size: 28px;
+			}
+			
+			button {
+				font-size: 30px;
+			}
+			
+			.list {
+				width: 49%;
+				border: 2px solid #000000;
+				float: left;
+			}
+			
+			.list p {
+				text-align: center;
+			}
+			
+			.init,
+			.fankui {
+				width: 100%;
+				border: 1px solid #333;
+				overflow: auto;
+				max-height: 500px;
+			}
+			
+			.dash {
+				width: 100%;
+				border: 1px dashed #111;
+			}
+			
+			.listinfo {
+				padding: 5px;
+				border: 1px solid black;
+			}
+			
+			.imgview {
+				width: 500px;
+			}
+			
+			input {
+				height: 50px;
+				min-width: 600px;
+				font-size: 30px;
+				border: 2px solid #000;
+				margin: 10px;
+			}
+			
+			.home {
+				text-align: center;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				right: 50px;
+				bottom: 50px;
+				font-size: 80px;
+			}
+		</style>
+		<div style="clear: both;">
+			<div class="list">
+				<p>白名单</p>
+				进入读取信息：
+				<div class="init winit">
+					-
+				</div>
+				<br /><br />
+				<div class="dash"></div>
+				<br /> 人员编号：
+				<input class="wserialnumber" /><br /> 姓名：
+				<input class="wname" /><br /> 性别：
+				<input class="wsex" /><br /> 身份证号：
+				<input class="widnumber" /><br />
+				<input type="file" name="avator" id="headflie1">
+				<input type="hidden" id="avatorVal1">
+				<img class="imgview" id="img1" alt="预览头像">
+				<br />
+				<button onclick="imgupload()">上传</button>
+				<br /><br />
+				<div class="dash"></div>
+				<br />
+				<button onclick="contosoChatHubProxy.invoke('StartFaceIdentify')">开始识别</button>
+				<button onclick="contosoChatHubProxy.invoke('StopIdentify')">停止识别</button>
+				<button onclick="contosoChatHubProxy.invoke('RestartIdentify')">重新识别</button>
+				<br /><br />
+				<div class="dash"></div>
+				<br />
+
+			</div>
+			<div class="list">
+				<p>黑名单</p>
+				进入读取信息：
+				<div class="init binit">-</div>
+
+				<br /><br />
+				<div class="dash"></div>
+				<br /> 人员编号：
+				<input class="bserialnumber" /><br /> 姓名：
+				<input class="bname" /><br /> 性别：
+				<input class="bsex" /><br /> 身份证号：
+				<input class="bidnumber" /><br />
+				<input type="file" name="avator" id="headflie2">
+				<input type="hidden" id="avatorVal2">
+				<img class="imgview" id="img2" alt="预览头像"><br />
+				<div></div>
+				<button onclick="bupload()">上传</button>
+				<br /><br />
+				<div class="dash"></div>
+				<br />
+				<button onclick="contosoChatHubProxy.invoke('ClearWhiteFaces')">清空白名单</button>
+				<button onclick="contosoChatHubProxy.invoke('ClearBlackFaces')">清空黑名单</button>
+				<button onclick="contosoChatHubProxy.invoke('ClearAllFaces')">清空全部名单</button>
+				<br /><br />
+				<div class="dash"></div>
+				<br />
+			</div>
+		</div>
+
+		<div class="fankui">
+			<p>反馈</p>
+			<div class="fankuixingxi"></div>
+		</div>
+		<div class="home" onclick="parent.BackHome();"><img src="HOME.png" width="82px"></div>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+
+</html>

@@ -1,0 +1,141 @@
+
+input[type='range'] {
+  display: block;
+  padding: 0;
+  /* inconsistent */
+  opacity: 1;
+  background: transparent;
+  /* inconsistent */
+  /* font-size inconsistent */
+  font: 20px trebuchet ms, verdana, arial, sans-serif;
+  cursor: pointer;
+}
+input[type='range'], input[type='range']::-webkit-slider-runnable-track, input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  position: relative;
+  /* prep for creating rulers */
+}
+input[type='range']::-webkit-slider-runnable-track:before, input[type='range']::-webkit-slider-runnable-track:after, input[type='range'] /deep/ #track:before, input[type='range'] /deep/ #track:after {
+  position: absolute;
+}
+input[type='range']::-ms-track {
+  border: none;
+  /* remove default border */
+  color: transparent;
+  /* remove dfault tick marks */
+}
+input[type='range']::-webkit-slider-thumb {
+  box-sizing: border-box;
+  border: solid 0 transparent;
+  border-radius: 50%;
+  cursor: ew-resize;
+}
+input[type='range']::-moz-range-thumb {
+  box-sizing: border-box;
+  border: solid 0 transparent;
+  border-radius: 50%;
+  cursor: ew-resize;
+}
+input[type='range']::-ms-thumb {
+  box-sizing: border-box;
+  border: solid 0 transparent;
+  border-radius: 50%;
+  cursor: ew-resize;
+}
+input[type='range']:nth-of-type(1) {
+
+  width:430PX;
+  height: 40px;
+  border-radius: .25em;
+  background: 0;
+  /* ------- the track ------- */
+  /* ------- the fill ------- */
+  /* ------- the ruler ------- */
+  /* ------- the thumb ------- */
+  /* ------- the tip ------- */
+}
+input[type='range']:nth-of-type(1)::-webkit-slider-runnable-track {
+  width:430PX;
+  height: 0.5em;
+  border-radius: 0.25em;
+  /* shadow not really visible in IE :( */
+  background: -webkit-linear-gradient(#FFF, #FFF);
+  background: linear-gradient(#FFF, #FFF);
+  -webkit-transform: translateY(-0.5em);
+          transform: translateY(-0.5em);
+}
+input[type='range']:nth-of-type(1)::-moz-range-track {
+  width: 390PX;
+  height: 0.5em;
+  border-radius: 0.25em;
+  /* shadow not really visible in IE :( */
+  background: linear-gradient(#FFF, #FFF);
+}
+
+
+input[type='range']:nth-of-type(1)::-moz-range-progress {
+  height: 0.5em;
+  border-radius: 0.25em;
+  /* shadow not really visible in IE :( */
+  
+  background: linear-gradient(#ffffff, 0);
+}
+.js input[type='range']:nth-of-type(1)::-moz-range-progress {
+  opacity: 0;
+}
+
+input[type='range']:nth-of-type(1)::-webkit-slider-runnable-track:before, input[type='range']:nth-of-type(1) /deep/ #track:before, input[type='range']:nth-of-type(1)::-webkit-slider-thumb:before, input[type='range']:nth-of-type(1) /deep/ #thumb:before {
+  position: absolute;
+  top: 175%;
+  left: 0;
+  right: 0;
+  color: #eee;
+  font: 0.75em/2 trebuchet ms, verdana, arial, sans-serif;
+}
+input[type='range']:nth-of-type(1)::-webkit-slider-runnable-track:before, input[type='range']:nth-of-type(1) /deep/ #track:before {
+
+}
+input[type='range']:nth-of-type(1)::-webkit-slider-thumb:before, input[type='range']:nth-of-type(1) /deep/ #thumb:before {
+
+}
+
+input[type='range']:nth-of-type(1)::-webkit-slider-thumb {
+  margin-top: -1.25em;
+  border-width: 1em;
+  padding: 0.3125em;
+  width: 3em;
+  height: 3em;
+  background: -webkit-linear-gradient(#808080, #808080) content-box, -webkit-radial-gradient(25% 25%, circle, #fbfbf9, #bfccad) padding-box;
+  background: linear-gradient(#808080, #808080) content-box, radial-gradient(circle at 25% 25%, #fbfbf9, #bfccad) padding-box;
+}
+input[type='range']:nth-of-type(1)::-moz-range-thumb {
+  margin-top: -1.25em;
+  border-width: 1em;
+  padding: 0.3125em;
+  width: 3em;
+  height: 3em;
+  background: linear-gradient(#808080, #808080) content-box, radial-gradient(circle at 25% 25%, #fbfbf9, #bfccad) padding-box;
+}
+input[type='range']:nth-of-type(1)::-ms-thumb {
+  border-width: 1em;
+  padding: 0.3125em;
+  width: 3em;
+  height: 3em;
+  background: linear-gradient(#808080, #808080) content-box, radial-gradient(circle at 25% 25%, #fbfbf9, #bfccad) padding-box;
+}
+input[type='range']:nth-of-type(1)::-webkit-slider-thumb:after, input[type='range']:nth-of-type(1) /deep/ #thumb:after {
+  display: block;
+  width: 2em;
+  -webkit-transform: translate(-0.8125em, 0.5em);
+          transform: translate(-0.8125em, 0.5em);
+  color: #eee;
+  font: 700 0.9375em/2.125 trebuchet ms, verdana, arial, sans-serif;
+  text-align: center;
+}
+
+input[type='range']:focus {
+  outline: none;
+  opacity: .99;
+}

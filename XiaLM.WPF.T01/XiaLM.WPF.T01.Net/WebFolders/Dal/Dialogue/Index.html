@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">问答详情</div>
+			<div class="MS">
+				<div class="area a1big">
+					<img src="images/w1.png" width="41px" />&nbsp;<span style="color: #e8b038;">问答</span>
+					<div class="wendadiv">
+						<div class="info_title"></div>
+						<div class="wenda"></div>
+					</div>
+				</div>
+				<div class="area2">
+					<img src="images/x1.png" width="41px" />&nbsp;<span style="color: #e8b038;">相似问题</span><button class="btn-change1" onclick="faq.GetSimilarProblems();"><img src="images/re.png"></button>
+					<div class="xiangsi">
+
+					</div>
+				</div>
+				<div class="area3">
+					<img src="images/h1.png" width="41px" />&nbsp;<span style="color: #e8b038;">热点问题</span><button class="btn-change2" onclick=""><img src="images/re.png"></button>
+					<div class="xiangsi2">
+					</div>
+					<div class="hotlist">
+					</div>
+				</div>
+				<div class="speak" onclick="faq.StarRecord();"><img id="speak_img" src="images/speak.png" width="150px">&nbsp;&nbsp;
+					<a class="speaktext" id="speaktext"></a>
+				</div>
+				<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+				<div class="font-pageBG" onclick="$('.font-pageBG,.font-page').css('display','none')">
+				</div>
+				<div class="font-page">
+				</div>
+				<div class="font-page2">
+					<p>是否转接人工服务</p>
+					<button class="btn" onclick="$('.font-pageBG,.font-page2').css('display','none')">取消</button>
+					<button class="btn" onclick="faq.Call()">转接</button>
+				</div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="JS/main.js "></script>
+		<script type="text/javascript " src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

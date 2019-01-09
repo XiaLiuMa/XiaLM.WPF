@@ -1,0 +1,126 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+	z-index: 10;
+}
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.info_title{
+				position: absolute;
+				width:1520px;
+				height: 60px;
+				line-height: 60px;
+				left: 200px;
+				top: 50px;
+				font-size: 40px;
+				text-align: center;
+			}
+			
+			.speak{
+				position: absolute;
+				width:620px;
+				height: 150px;
+				line-height: 60px;
+				left:750px;
+				top: 870px;
+				font-size: 40px;
+			}
+			
+.t1{
+				position: absolute;
+				width:1520px;
+				height: 300px;
+				line-height: 60px;
+				left: 200px;
+				top: 150px;
+				font-size: 40px;
+				padding: 50px;
+				background: rgba(255,255,255,0.1);
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
+			.t2{
+				position: absolute;
+				width:1520px;
+				height: 300px;
+				line-height: 60px;
+				left: 200px;
+				top: 500px;
+				font-size: 40px;
+				padding: 50px;
+				background: rgba(255,255,255,0.1);
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
+			.hidefont{
+				color: rgba(255,255,255,0.7);
+			}
+			.hidefont2{
+				color: rgba(232,176,56,0.7);
+			}
+
+select{
+	height: 58px;
+	width: 250px;
+	margin-top: 15px;
+	border: 0;
+	border-radius: 0px;
+	color: white;
+	background: 0;
+	z-index: 2;
+}
+.downinco{
+	margin-left: -30px;
+}
+.timer{
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 200px;
+	bottom: 60px;
+	background: 0;
+	border:#E8B038 5px solid;
+	border-radius: 75px;
+}
+.timernum{
+	text-align: center;
+	font-size: 50px;
+	line-height: 140px;
+}
+.forbid{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	background: rgba(0,0,0,0.6);
+	z-index: 5;
+	display: none;
+}
+option{
+	background: rgb(2,83,190);
+}
+.loading{
+	position: absolute;top: 200px;left: 700px;width: 530px;height: 500px;
+}
+.ctip{
+	position: absolute;top: 600px;left: 0;width: 530px;
+	text-align: center;
+	font-size: 50px;
+}

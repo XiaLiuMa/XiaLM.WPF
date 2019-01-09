@@ -1,0 +1,560 @@
+* {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+body {
+	background: rgb(50, 110, 190);
+	overflow: hidden;
+}
+
+#Volumevalue {
+	position: absolute;
+	left: 660px;
+	top: 500px;
+	width: 500px;
+	height: 150px;
+	border-radius: 50px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.5);
+	z-index: 3;
+	font-family: "微软雅黑";
+	font-size: 80px;
+	color: white;
+	line-height: 150px;
+	display: none;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.section {
+	position: relative;
+	width: 1920px;
+	height: 1200px;
+	overflow: hidden;
+	background: url(../img/BG.jpg);
+	padding-left: 150px;
+	padding-top: 136px;
+}
+
+#iframe {
+	width: 1920px;
+	height: 1150px;
+	position: absolute;
+	z-index: 10;
+	left: 0;
+	top: 50px;
+	border: 0;
+	display: none;
+}
+
+.line1,
+.line2,
+.list_node_1 {
+	clear: both;
+	font-family: "微软雅黑";
+}
+
+.list_node_1,
+.list_node_2,
+.list_node_x,
+.go_speak,
+.speak_area,
+.time_area,
+.weather_area,
+.weather_icon {
+	float: left;
+}
+
+.line2 {
+	padding-top: 15px;
+}
+
+.list_node_1 {
+	width: 960px;
+	height: 250px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 6px;
+}
+
+.list_node_2 {
+	margin-left: 30px;
+	width: 630px;
+	height: 250px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 6px;
+	padding: 20px;
+	text-align: center;
+}
+
+.list_node_x {
+	margin: 15px;
+	width: 300px;
+	height: 300px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 6px;
+	text-align: center;
+	padding-top: 60px;
+}
+
+.list_node_x p,
+.go_speak p {
+	font-family: "微软雅黑";
+	font-size: 40px;
+	color: #fff;
+	line-height: 80px;
+}
+
+.list_node_x_left {
+	margin-left: 0;
+}
+
+.list_node_x_right {
+	margin-right: 0;
+}
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.go_speak {
+	width: 330px;
+	height: 250px;
+	background: rgba(255, 255, 255, 0.1);
+	text-align: center;
+	padding-top: 20px;
+}
+
+.speak_area {
+	width: 630px;
+	height: 250px;
+	overflow-y: scroll;
+	padding: 20px;
+	color: white;
+}
+
+.speak_area p {
+	font-family: "微软雅黑";
+	font-size: 34px;
+}
+
+.orange {
+	color: rgb(232, 176, 56);
+}
+
+.time_area {
+	position: relative;
+	width: 215px;
+	height: 210px;
+}
+
+.time_bg {
+	position: absolute;
+	left: 10px;
+	top: 20px;
+}
+
+.time_font {
+	position: absolute;
+	width: 215px;
+	left: 10px;
+	top: 30px;
+	font-size: 60px;
+	font-weight: 700;
+	color: rgb(33, 33, 33);
+	text-align: center;
+}
+
+.time_data {
+	position: absolute;
+	left: 10px;
+	top: 150px;
+	color: white;
+	font-size: 23px;
+}
+
+.weather_area {
+	width: 240px;
+	height: 210px;
+	color: white;
+	font-size: 26px;
+	text-align: left;
+	padding-left: 40px;
+}
+
+.wendu {
+	font-size: 70px;
+}
+
+.weather_icon {
+	width: 110px;
+	padding-top: 40px;
+}
+
+#Robotinfo {
+	position: absolute;
+	right: 40px;
+	top: 680px;
+}
+
+#Volumeup {
+	position: absolute;
+	right: 40px;
+	top: 800px;
+}
+
+#Volumedown {
+	position: absolute;
+	right: 40px;
+	top: 920px;
+}
+
+
+.robot_head {
+	clear: both;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.power {
+	float: right;
+	font-family: "微软雅黑";
+	font-size: 30px;
+	color: white;
+	padding-right: 50px;
+	width: 350px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.power_num {
+	padding-right: 20px;
+}
+
+.wifi {
+	width: 1920px;
+	height: 1150px;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	background: rgba(0, 0, 0, 0.35);
+	z-index: 20;
+	display: none;
+}
+
+.wifiicon {
+	margin-right: 30px;
+}
+
+.systemforbid {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1920px;
+	height: 1200px;
+	z-index: 999;
+}
+
+.wifiarea {
+	position: absolute;
+	left: 400px;
+	top: 50px;
+	width: 1120px;
+	height: 1150px;
+	background: rgba(255, 255, 255, 0.9);
+	color: #444;
+	z-index: 21;
+	display: none;
+}
+
+.wifi_title {
+	width: 100%;
+	height: 120px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 42px;
+	line-height: 120px;
+}
+
+.wifi_now {
+	width: 100%;
+	height: 100px;
+	text-align: left;
+	font-family: "微软雅黑";
+	font-size: 32px;
+	line-height: 100px;
+	padding-left: 60px;
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.wnow {
+	padding-left: 40px;
+	width: 680px;
+}
+
+.wifi_list {
+	position: relative;
+	width: 100%;
+	text-align: left;
+	font-family: "微软雅黑";
+	font-size: 32px;
+	padding-left: 60px;
+	overflow: auto;
+}
+
+.wlist {
+	width: 1000px;
+	height: 870px;
+	overflow: auto;
+	padding: 30px 60px;
+}
+
+.wunit {
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	clear: both;
+	border-bottom: 1px solid #888;
+}
+
+.unittit {
+	width: 700px;
+	height: 80px;
+}
+
+.unitlock,
+.unitx {
+	width: 80px;
+	height: 80px;
+}
+
+.wpass {
+	width: 800px;
+	height: 250px;
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	left: 150px;
+	top: 0px;
+	padding: 20px;
+	display: ;
+	text-align: center;
+	display: none;
+}
+
+.wp {
+	color: white;
+	font-size: 35px;
+	text-align: center;
+	line-height: 60px;
+}
+
+.pas {
+	width: 500px;
+	background: rgba(255, 255, 255, 0.4);
+	border: 0;
+}
+
+.passsty {
+	width: 100px;
+	height: 60px;
+	background: 0;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	color: white;
+	margin: 0 30px;
+}
+
+.tip {
+	width: 320px;
+	height: 60px;
+	line-height: 60px;
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	left: 800px;
+	top: 900px;
+	color: white;
+	border-radius: 6px;
+	font-size: 32px;
+	display: none;
+	text-align: center;
+	z-index: 21;
+}
+
+.cityselect {
+	position: absolute;
+	z-index: 4;
+	width: 920px;
+	height: 800px;
+	top: 200px;
+	left: 500px;
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 6px;
+	display: none;
+}
+
+.city_head {
+	width: 920px;
+	height: 80px;
+	line-height: 80px;
+	font-size: 32px;
+	color: #333;
+	text-align: center;
+}
+
+.city_select {
+	width: 920px;
+	height: 720px;
+	border: 0;
+}
+
+.citybg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1920px;
+	height: 1200px;
+	background: rgba(0, 0, 0, 0.3);
+	display: none;
+}
+
+.z-index-def {
+	height: 1000px;
+	width: 1800px;
+}
+
+.eye {
+	width: 50px;
+	position: absolute;
+	top: 110px;
+	right: 70px;
+}
+
+.btn_center {
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+
+.btn_mine {
+	width: 150px;
+	height: 50px;
+	font-size: 25px;
+}
+
+.Ntitle {
+	font-size: 40px;
+	height: 180px;
+	padding-top: 50px;
+}
+
+.np {
+	height: 60px;
+}
+
+.font-page2 {
+	z-index: 11;
+	width: 720px;
+	height: 300px;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 10px;
+	position: absolute;
+	top: 250px;
+	left: 600px;
+	padding: 20px;
+	padding-top: 50px;
+	text-align: center;
+	display: none;
+}
+
+.font-page p {
+	font-size: 50px;
+}
+
+.font-page2 p {
+	font-size: 50px;
+}
+
+.font-page2 button {
+	background: #e8b038;
+	color: white;
+	font-size: 40px;
+	width: 180px;
+	margin: 20px;
+}
+.robotinfo-hiddenBG{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1320px;
+	height: 1200px;
+}
+.robotinfo{
+	position: absolute;
+	top: 0px;
+	right: 0;
+	width:0px;
+	height: 1200px;
+	background: rgba(0,0,0,0.8);
+	padding: 20px;
+}
+.robotinfo-area{
+	z-index: 2;
+	display: none;
+	font-size: 35px;
+	color: white;
+	
+}
+.robotinfo-title{
+	width: 600px;
+	text-align: center;
+	font-size: 40px;
+}
+.Robotinfo-num{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background: red;
+	text-align: center;
+	font-size: 25px;
+	line-height: 40px;
+	display: none;
+}
+.robotinfo-list{
+	overflow-y: auto;
+	height: 1100px;
+}
+.robotinfo-unit{
+	background: rgba(255,255,255,0.1);
+	width: 560px;
+	margin-top: 10px;
+	padding: 30px;
+	font-size: 40px;
+}
+.robotinfo-name{
+	width: 560px;
+}
+.robotinfo-dec{
+	width: 560px;
+}
+.robotinfo-name{
+	border-bottom: 3px solid rgba(255,255,255,0.4);
+}

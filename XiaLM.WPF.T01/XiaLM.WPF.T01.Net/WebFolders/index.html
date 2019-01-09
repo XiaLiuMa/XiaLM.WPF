@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="rec/css/optiscroll.css" />
+		<link rel="stylesheet" href="rec/css/v-black.css" />
+		<link rel="stylesheet" href="rec/css/global.css" />
+		<link rel="stylesheet" href="rec/css/index.css" />
+	</head>   
+	<body onSelectStart="return false">
+		<header>
+			<div class="no-touch">
+				<div class="no-touch-img"><img src="rec/img/解锁.svg" width="300px"></div>
+				<p class="no-touch-p SF_cn">屏幕被锁定</p>
+				<p class="no-touch-p SF_en">Screen locked</p>
+			</div>
+			<div class="pingbao" id="pingbao">
+				<img class="PBimg" src="rec/img/PB.png" />
+			</div>
+			<div id="Z-background">
+				<div id="Zinfo">
+					<div style="height: 180px;">
+						<h1 class="SF_cn">机器人电量低。</h1>
+						<h1 class="SF_en">The robot is low in electricity.</h1>
+					</div>
+					<div data-role="controlgroup" data-type="horizontal">
+						<a href="#" class="btn btn-info" style="font-size: 32px;font-family: '微软雅黑';" onclick='window.location.href = "http://localhost:15689/Dal/ChargePlug/Index.Html"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;去充电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>&nbsp;&nbsp;&nbsp;
+						<a href="#" class="btn btn-warning" style="font-size: 32px;font-family: '微软雅黑';" onclick='$("#Z-background").css("display","none");'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;知道了&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+					</div>
+				</div>
+			</div>
+			<div id="B-background">
+				<div id="Zinfo">
+					<div style="height: 180px;">
+						<h1 class="">发生故障，需要人工解除。</h1>
+					</div>
+					<div>
+						<button class="btn btn-warning" style="font-size: 32px;font-family: '微软雅黑';width: 250px;"  onclick="setting.RelieveMalfunction()">人工解除</button>
+					</div>
+				</div>
+			</div>
+			<div id="N-background">
+				<div id="Ninfo">
+					<div class="Ntitle">
+					</div>
+					<div class="Nbutton">
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="section">
+			<div class="robot_head" onclick="">
+				<div class="power">
+					<a class="wifiicon"><img id="wifiicon" src=""></a><span class="power_num"></span>%&nbsp;&nbsp;&nbsp;&nbsp;<img class="power_img" src="rec/img/p0.png" width="47px"></div>
+			</div>
+			<!--添加音量-->
+			<div id="Robotinfo" onclick="setting.Robotinfo();setting.GetMessages()"><img id="info-inco" src="rec/img/info.png" width="100px"><div class="Robotinfo-num"></div></div>
+			<div id="Volumeup" onclick="setting.Volumeup()"><img src="rec/img/Volumeup.png" width="100px"></div>
+			<div id="Volumedown" onclick="setting.Volumedown()"><img src="rec/img/Volumedown.png" width="100px"></div>
+			<div id="Volumevalue"><img src="rec/img/voice.png" width="100px">&nbsp;<span id="volumenum"></span>%</div>
+			<div class="z-index-def">
+				<div class="line1">
+					<div class="list_node_1">
+						<div class="go_speak" onclick="Dialogue.StarRecord()"><img id="click_speak" src="rec/img/矩形28_84.png" width="150px">
+							<p class="speaktext" id="speaktext"></p>
+						</div>
+						<div class="speak_area">
+							<p class="Q">你好，我是机器人--<span class="robotname"></span>。</p>
+							<p class="orange A">有什么疑问都可以问我。</p>
+						</div>
+					</div>
+					<div class="list_node_2">
+						<div class="time_area relative">
+							<div class="time_bg absolute"><img src="rec/img/矩形4拷贝3.png" width="215px" /></div>
+							<div class="time_font absolute"></div>
+							<div class="time_data absolute"></div>
+						</div>
+						<div class="weather_area relative" onclick="$('.cityselect,.citybg').css('display','block');">
+							<div class="wendu"><span class="wenduzhi"></span>℃</div>
+							<div class="tianqi"> </div>
+							<div class="city"></div>
+						</div>
+						<div class="weather_icon relative">
+							<img id="weather_icon" src="rec/weather/4.png" width="110px" />
+						</div>
+					</div>
+				</div>
+				<div class="line2">
+					<div class="list_node_x list_node_x_left" id="node1"></div>
+					<div class="list_node_x" id="node2"></div>
+					<div class="list_node_x" id="node3"></div>
+					<div class="list_node_x" id="node4"></div>
+					<div class="list_node_x list_node_x_right" id="node5"></div>
+					<div class="list_node_x list_node_x_left" id="node6"></div>
+					<div class="list_node_x" id="node7"></div>
+					<div class="list_node_x" id="node8"></div>
+					<div class="list_node_x" id="node9"></div>
+					<div class="list_node_x list_node_x_right" id="node10"></div>
+				</div>
+			</div>
+			<!--<div class="wifi">
+			</div>
+			<div class="wifiarea">
+				<div class="wifi_title">网络连接</div>
+				<div class="wifi_now">
+					<div class="left">当前网络：</div>
+					<div class="left wnow">未连接</div>
+					<div class="left wloc"></div>
+				</div>
+				<div class="wifi_list">
+					<div class="">可连接网络：</div>
+					<div class="wlist">
+						无可用网络
+					</div>
+					<div class="wpass">
+						<p class="wp">加入网络</p>
+						<p class="wp">输入密码：<input class="pas" type="password"><img src="rec/img/眼睛.svg" class="eye" onclick="changetextpw()"></p>
+						<button class="passsty" onclick="$('.wpass').css('display','none');">取消</button>
+						<button class="passsty" onclick="wifi.getpass()">确定</button>
+					</div>
+				</div>
+			</div>-->
+			<div class="tip">
+			</div>
+			<div class="citybg" onclick="$('.citybg,.cityselect').css('display','none');"></div>
+			<div class="cityselect">
+				<div class="city_head">请选择城市</div>
+				<iframe class="city_select" src="rec/cityselsect/1.html"></iframe>
+			</div>
+			<div class="font-page2">
+					<p>是否转接人工服务</p>
+					<button class="btn" onclick="$('.citybg,.font-page2').css('display','none')">取消</button>
+					<button class="btn" onclick="Dialogue.Call(),$('.citybg,.font-page2').css('display','none')">转接</button>
+			</div>
+		</section>
+		<footer class="robotinfo-area">
+			<!--机器人信息-->
+			<div class="robotinfo-hiddenBG" onclick="setting.hiddenrobotinfo()"></div>
+			<div class="robotinfo">
+				<p class="robotinfo-title">消息中心</p>
+				<div class="robotinfo-list">
+					
+				</div>
+			</div>
+		</footer>
+		<div class="systemforbid"></div>
+		<iframe id="iframe" src="">
+		</iframe>
+		<script src="rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="rec/Js/jquery.optiscroll.min.js"></script>
+		<script src="rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script type="text/javascript" src="config.js"></script>
+		<script type="text/javascript" src="rec/Js/virtualkeyboard.js"></script>
+		<script src="rec/Js/index-function.js"></script>
+	</body>
+
+</html>

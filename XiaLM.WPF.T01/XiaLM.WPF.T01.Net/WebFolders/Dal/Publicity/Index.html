@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/build.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="app" class="section">
+			<div class="title">宣传互动</div>
+			<div class="MS">
+				<div id="videoarea" class="nofull">
+					<div class="videoarea_black">
+						<div class="emptydiv">
+							<img class="emptyimg" src="images/empty.png" width="183px" />
+							<p class="emptytxt">当前无视频</p>
+						</div>
+					</div>
+					<video id="media" src="" autoplay="autoplay">
+					</video>
+				</div>
+				<div class="listarea" id="list">
+					<ul>
+						<li v-for="(list,index) in local_list">
+							<div class="menu_left" @click="play(list)">{{list.Name|codeFormat}}</div>
+							<label class="demo--label delete">
+							<input type="checkbox" class="demo--radio" name="switch-delete" :value="index">
+							<span class="demo--checkbox demo--radioInput red--radioInput"></span></label>
+						</li>
+					</ul>
+					<div class="center">
+						<button class="okey oklist" onclick="get.deletelist()">确定删除</button>
+					</div>
+				</div>
+				<div class="listarea" id="list_dl">
+					<li class="downloading" v-for="(dlist,dindex) in download_list">
+						<div class="menu_left">{{dlist.VideoName|codeFormat}}</div>
+						<span :class="dlist.SessionId">0%</span>
+					</li>
+					<div class="failed"></div>
+					<div class="fenge"></div>
+					<li v-for="(slist,sindex) in server_list">
+						<div class="menu_left">{{slist.VideoName|codeFormat}}</div>
+						<label class="demo--label download">
+							<input type="checkbox" class="demo--radio" name="switch-download" :value="sindex">
+							<span class="demo--checkbox demo--radioInput green--radioInput"></span></label>
+					</li>
+					<div class="center">
+						<button class="okey okey_dl" onclick="get.downloadlist(),$('.failed').empty();">确定下载</button>
+					</div>
+				</div>
+				<div id="menuarea">
+					<div class="menuicon local" onclick="video.Changelist(0)">
+						<img src="images/list.png" width="44px" />
+						<p>列表</p>
+					</div>
+					<div class="menuicon server" onclick="video.Changelist(1)">
+						<img src="images/dl.png" width="44px" />
+						<p>下载</p>
+					</div>
+					<div class="menuicon" onclick="video.Changelist(0),video.deletevideo()">
+						<img src="images/del.png" width="44px" />
+						<p>删除</p>
+					</div>
+					<div class="menuicon none simple" onclick="loop_change('complex')">
+						<img src="images/1.png" width="44px" />
+						<p>单首</p>
+					</div>
+					<div class="menuicon complex" onclick="loop_change('random')">
+						<img src="images/2.png" width="44px" />
+						<p>列表</p>
+					</div>
+					<div class="menuicon none random" onclick="loop_change('simple')">
+						<img src="images/random.png" width="44px" />
+						<p>随机</p>
+					</div>
+					<div class="menuicon" onclick="video.fullscreen()">
+						<img src="images/full.png" width="44px" />
+						<p>全屏</p>
+					</div>
+					<div class="menuicon" onclick="get.RetrieveDiskFiles('',false)">
+						<img src="images/ino.png" width="44px" />
+						<p>导入</p>
+					</div>
+				</div>
+				<div class="vp" onclick="setting.Volumeup();"><img src="images/vp.png" width="60px"></div>
+				<div class="vc" onclick="setting.Volumedown();"><img src="images/vc.png" width="60px"></div>
+				<div class="home" onclick="parent.BackHome();"><img src="images/home2.png" width="60px"></div>
+				<div id="Volumevalue"><img src="images/voice.png" width="100px">&nbsp;<span id="volumenum"></span>%</div>
+				<div class="exfull" onclick="video.ex_full()"><img src="images/small.png" width="43px"></div>
+
+				<div class="pushin">
+					<button class="close1 btn" onclick="$('.pushin').css('display','none')">X</button>
+					<div class="dtitle">文件导入</div>
+					<div class="dinfo">
+						<p class="dodgerblue">当前路径：<span class="lu"></span></p>
+						<p class="dinfotext">请点击下列列表选择文件或者文件夹，点击弹窗外可取消导入</p>
+					</div>
+					<div class="file-list">
+						
+					</div>
+				</div>
+				<div class="tip">删除中..</div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script type="text/javascript" src="JS/vue.js"></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript" src="JS/player.js"></script>
+		<script type="text/javascript" src="JS/svgcheckbx.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

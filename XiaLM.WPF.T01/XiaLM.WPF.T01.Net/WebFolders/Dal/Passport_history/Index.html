@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">护照扫描</div>
+			<div class="MS">
+				<div class="videoarea">
+					<video class="h5video" id="h5sVideo1" autoplay="autoplay" webkit-playsinline="" playsinline="" poster="http://127.0.0.1:8089/api/v1/GetImage?token=token1&amp;session=c1782caf-b670-42d8-ba90-2244d0b0ee83">
+				</div>
+				<div class="saomiao">
+ 					<img src="images/light.png" class="light lighting" />
+				</div>
+				<div class="textarea">
+                     <button class="startbtn btn btn-warning" onclick="Passport.Start()">点击开始扫描护照</button>
+                     
+				</div>
+				<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+
+		<script src="js/bootstrap.js"></script>
+		<script src="js/adapter.js"></script>
+		<script src="js/h5splayer.js"></script>
+		<script src="js/h5splayerhelper.js"></script>
+	</body>
+
+</html>

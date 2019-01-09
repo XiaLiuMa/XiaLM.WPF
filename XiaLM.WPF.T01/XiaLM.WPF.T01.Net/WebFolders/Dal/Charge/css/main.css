@@ -1,0 +1,56 @@
+#fail{
+	display: none;
+}
+.section{
+	width: 1920px;
+	height: 1150px;
+}
+.tip{
+			    width: 320px;
+			    height: 100px;
+			    position: absolute;
+			    left: 800px;
+			    top: 900px;
+			    background: rgba(0,0,0,0.5);
+			    border-radius: 6px;
+			    font-size: 40px;
+			    line-height: 100px;
+			    display: none;
+			}
+			.section{
+				text-align: center;
+			}
+			.charge{
+				position: relative;
+				width: 1920px;
+				height: 1070px;
+			}
+			.swich{
+				position: absolute;
+				top: 770px;
+				left: 850px;
+			}
+			.charging{
+				position: absolute;
+				bottom: 0px;
+				left: 660px;
+				display: none;
+			}
+			.ele{
+			
+				width: 320px;
+				height: 100px;
+				position: absolute;
+				left: 800px;
+				top:380px;
+				font-size: 80px;
+			}
+			.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+}

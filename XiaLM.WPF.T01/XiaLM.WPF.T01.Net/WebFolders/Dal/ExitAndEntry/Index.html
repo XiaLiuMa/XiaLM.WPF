@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/v-black.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">出入境卡片打印</div>
+			<div class="MS">
+				<div id="page_1" class="sbdpage">
+					<div class="inbound" onclick="page2()">
+						<p>入境</p>
+						<a>Inbound</a>
+					</div>
+					<div class="outbound" onclick="page3()">
+						<p>出境</p>
+						<a>Outbound</a>
+					</div>
+					<div class="tinbound" onclick="page4()">
+						<p>临时入境</p>
+						<a>Temporary Inbound</a>
+					</div>
+					<div class="toutbound" onclick="page5()">
+						<p>临时出境</p>
+						<a>Temporary Outbound</a>
+					</div>
+				</div>
+				<!--1.外国人入境卡-->
+				<div id="page_2" class="sbdpage">
+					<p class="cardtype">外国人入境卡(ARRIVAL CARD)</p>
+					<div class="uparea">
+						<div class="inputarea d1">
+							<div class="left arealeft">
+								<p>个人信息</p>
+							</div>
+							<div class="left arearight">
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">姓</p>
+											<p class="en">Family name</p>
+										</div>
+										<div class="inputbox left"><input id="ln1"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">名</p>
+											<p class="en">Given names</p>
+										</div>
+										<div class="inputbox left"><input id="fn1"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">性别</p>
+											<p class="en">Gender</p>
+										</div>
+										<div class="inputbox left">
+											<select id="sex1">
+												<option value="男" selected="selected">男(male)</option>
+												<option value="女">女(female)</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">出生日期</p>
+											<p class="en">Date of birth</p>
+										</div>
+										<div class="inputbox left"><input id="bd1"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">国籍</p>
+											<p class="en">Nationality</p>
+										</div>
+										<div class="inputbox left"><input id="na1"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">护照号码</p>
+											<p class="en">Passport No.</p>
+										</div>
+										<div class="inputbox left"><input id="id1"></div>
+									</div>
+								</div>
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left" style="width: 320px;">
+											<p class="cn">在华住址</p>
+											<p class="en">Intended Address in China</p>
+										</div>
+										<div class="inputbox left" style="width: 1030px;"><input id="inc1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="inputarea d2">
+							<div class="left arealeft">
+								<p>出/入境信息</p>
+							</div>
+							<div class="left arearight">
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle2 left">
+											<p class="cn">签证号</p>
+											<p class="en">Visa No.</p>
+										</div>
+										<div class="inputbox2 left"><input id="vn1"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle2 left">
+											<p class="cn">签证签发地</p>
+											<p class="en">Place of Visa Issuance</p>
+										</div>
+										<div class="inputbox2 left"><input id="povl1"></div>
+									</div>
+								</div>
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle2 left">
+											<p class="cn">入境事由</p>
+											<p class="en">Purpose of visit</p>
+										</div>
+										<div class="inputbox2 left">
+											<select id="pv1">
+												<option value="会议/商务" selected="selected">会议/商务(Conference/Business)</option>
+												<option value="探访亲友">探访亲友(Visiting friends)</option>
+												<option value="返回常驻地">返回常驻地(Return home)</option>
+												<option value="访问">访问(Visit)</option>
+												<option value="就业">就业(Empolyment)</option>
+												<option value="定居">定居(Settle down)</option>
+												<option value="观光/休闲">观光/休闲(Sightseeing/in leisure)</option>
+												<option value="学习">学习(Study)</option>
+												<option value="其他">其他(Others)</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle2 left" style="width: 420px;">
+											<p class="cn">航班号/船名/车次</p>
+											<p class="en">Flight No./Ship's name/Train No.</p>
+										</div>
+										<div class="inputbox2 left" style="width: 920px;"><input id="fight1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="qrcodeimg" onclick="card.StartScanner()">
+						<img src="images/1.png" />
+						<br />
+					</div>
+					<div class="qrcodetext"><p>*温馨提示：可以刷护照自动填充部分信息(You can use your passport to automatically fill in some information)</p></div>
+					<!--<div class="qrcodeimg2" onclick="card.StartScanner()">
+						<img src="images/2.png" />
+					</div>-->
+					<div class="savebtn">
+						<p>以上声明真实准确</p>
+						<p>I hereby declare that the statement given above is true and accurate</p>
+						<button class="btn btn-warning" onclick="page2dataset()">提交(submit)</button>
+						
+					</div>
+					<div class="backbtn" onclick="page1()">
+						<img src="images/back.png" />
+					</div>
+				</div>
+				<!--2.外国人出境卡-->
+				<div id="page_3" class="sbdpage">
+					<p class="cardtype">外国人出境卡&nbsp;(DEPARTURE CARD)</p>
+					<div class="uparea">
+						<div class="inputarea d1">
+							<div class="left arealeft">
+								<p>个人信息</p>
+							</div>
+							<div class="left arearight">
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">姓</p>
+											<p class="en">Family name</p>
+										</div>
+										<div class="inputbox left"><input id="ln2"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">名</p>
+											<p class="en">Given names</p>
+										</div>
+										<div class="inputbox left"><input id="fn2"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">性别</p>
+											<p class="en">Gender</p>
+										</div>
+										<div class="inputbox left">
+											<select class="io" id="sex2">
+												<option value="男" selected="selected">男</option>
+												<option value="女">女</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">出生日期</p>
+											<p class="en">Date of birth</p>
+										</div>
+										<div class="inputbox left"><input id="bd2"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">国籍</p>
+											<p class="en">Nationality</p>
+										</div>
+										<div class="inputbox left"><input id="na2"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">护照号码</p>
+											<p class="en">Passport No.</p>
+										</div>
+										<div class="inputbox left"><input id="id2"></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="inputarea d2">
+							<div class="left arealeft">
+								<p>出/入境信息</p>
+							</div>
+							<div class="left arearight">
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle2 left" style="width: 420px;">
+											<p class="cn">航班号/船名/车次</p>
+											<p class="en">Flight No./Ship's name/Train No.</p>
+										</div>
+										<div class="inputbox2 left" style="width: 920px;"><input id="fight2"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="downarea">
+						<div class="qrcodeimg" onclick="card.StartScanner()">
+							<img src="images/1.png" />
+						</div>
+						<div class="qrcodetext"><p>*温馨提示：可以刷护照自动填充部分信息(You can use your passport to automatically fill in some information)</p></div>
+					</div>
+					<div class="savebtn">
+						<p>以上声明真实准确</p>
+						<p>I hereby declare that the statement given above is true and accurate</p>
+						<button class="btn btn-warning" onclick="page3dataset()">提交(submit)</button>
+					</div>
+					<div class="backbtn" onclick="page1()">
+						<img src="images/back.png" />
+					</div>
+				</div>
+
+				<!--3.临时外国人入境卡-->
+				<div id="page_4" class="sbdpage">
+					<p class="cardtype">临时外国人入境卡&nbsp;(ARRIVAL CARD FOR TEMPORARY ENTRY FOREIGNERS)</p>
+					<div class="uparea">
+						<div class="inputarea d1">
+							<div class="left arealeft">
+								<p>个人信息</p>
+							</div>
+
+							<div class="left arearight">
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">姓名</p>
+											<p class="en">Name</p>
+										</div>
+										<div class="inputbox left"><input id="name3"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">性别</p>
+											<p class="en">Gender</p>
+										</div>
+										<div class="inputbox left">
+											<select id="sex3">
+												<option value="男" selected="selected">男</option>
+												<option value="女">女</option>
+											</select>
+										</div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">曾用名</p>
+											<p class="en">Another name</p>
+										</div>
+										<div class="inputbox left"><input id="ann3"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">出生日期</p>
+											<p class="en">Date of birth</p>
+										</div>
+										<div class="inputbox left"><input id="bd3"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">国籍</p>
+											<p class="en">Nationality</p>
+										</div>
+										<div class="inputbox left"><input id="na3"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">出生地</p>
+											<p class="en">Place of Birth</p>
+										</div>
+										<div class="inputbox left"><input id="pb3"></div>
+									</div>
+								</div>
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left" style="width: 700px;">
+											<p class="cn">如果拥有或曾拥有其他国籍，请填写国籍</p>
+											<p class="en" style="margin: 0;">Do you hold or have another nationality?</p>
+											<p class="en">if YES,please white down.</p>
+										</div>
+										<div class="inputbox left" style="width: 650px;"><input id="annation3"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="inputarea d2">
+							<div class="left arealeft">
+								<p>详细信息</p>
+							</div>
+							<div class="left arearight" style="overflow-y: auto;">
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle3 left">
+											<p class="cn">证件号码</p>
+											<p class="en">Passport No.</p>
+										</div>
+										<div class="inputbox3 left"><input id="id3"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle3 left">
+											<p class="cn">是否遗失或被盗过</p>
+											<p class="en">Passport even lost/stolen</p>
+										</div>
+										<div class="inputbox3 left">
+											<select id="pels3">
+												<option value="1" selected="selected">是</option>
+												<option value="2">否</option>
+											</select>
+										</div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle3 left">
+											<p class="cn">来华目的</p>
+											<p class="en">Purpose of Trip to China</p>
+										</div>
+										<div class="inputbox3 left"><input id="pttc3"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle3 left">
+											<p class="cn">本人电话号码</p>
+											<p class="en">Your Telephone Number</p>
+										</div>
+										<div class="inputbox3 left"><input id="ytn3"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle3 left">
+											<p class="cn">电子邮件地址</p>
+											<p class="en">Email Address</p>
+										</div>
+										<div class="inputbox3 left"><input id="email3"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle3 left" style="width: 660px;text-align: right;">
+											<p class="cn">请向下滑屏幕</p>
+											<p class="en">Please slide down the screen</p>
+										</div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle3 left">
+											<p class="cn">是否来过中国</p>
+											<p class="en">Have you even been to China before?</p>
+										</div>
+										<div class="inputbox3 left">
+											<select id="hbcb3">
+												<option value="1" selected="selected">是(yes)</option>
+												<option value="11">是(入境)&nbsp;yes(inbound)</option>
+												<option value="12">是(出境)&nbsp;yes(outbound)</option>
+												<option value="2">否(no)</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="inputunit left">
+									<div class="inputtitle2 left" style="width: 420px;">
+										<p class="cn">航班号/船名/车次</p>
+										<p class="en">Flight/Train/Vessel No.</p>
+									</div>
+									<div class="inputbox2 left" style="width: 920px;"><input id="fight3"></div>
+								</div>
+								<div class="inputunit left">
+									<div class="inputtitle3 left">
+										<p class="cn">在华住址</p>
+										<p class="en">Address in China</p>
+									</div>
+									<div class="inputbox3 left"><input id="inc3"></div>
+								</div>
+								<div class="inputunit left">
+									<div class="inputtitle3 left">
+										<p class="cn">计划出境时间</p>
+										<p class="en">Intended Date of Departure</p>
+									</div>
+									<div class="inputbox3 left"><input id="idof3"></div>
+								</div>
+								<div class="inputunit left">
+									<div class="inputtitle3 left">
+										<p class="cn">计划出境口岸</p>
+										<p class="en">Intended Port of Departure</p>
+									</div>
+									<div class="inputbox3 left"><input id="ipod3"></div>
+								</div>
+								<div class="inputunit left">
+									<div class="inputtitle2 left" style="width: 520px;">
+										<p class="cn">计划出境搭乘的航班号/船名/车次</p>
+										<p class="en">Intended Departure Flight/Train/Vessel No.</p>
+									</div>
+									<div class="inputbox2 left" style="width: 820px;"><input id="ifight3"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="qrcodeimg" onclick="card.StartScanner()">
+							<img src="images/1.png" />
+					</div>
+					<div class="qrcodetext"><p>*温馨提示：可以刷护照自动填充部分信息(You can use your passport to automatically fill in some information)</p></div>
+					<div class="savebtn">
+						<p>以上声明真实准确</p>
+						<p>I hereby declare that the statement given above is true and accurate</p>
+						<button class="btn btn-warning" onclick="page4dataset()">提交(submit)</button>
+					</div>
+					<div class="backbtn" onclick="page1()">
+						<img src="images/back.png" />
+					</div>
+				</div>
+				<!--4.临时外国人出境卡-->
+				<div id="page_5" class="sbdpage">
+					<p class="cardtype">临时外国人出境卡&nbsp;(DEPARTURE CARD FOR TEMPORARY ENTRY FOREIGNERS)</p>
+					<div class="uparea">
+						<div class="inputarea d1">
+							<div class="left arealeft">
+								<p>个人信息</p>
+							</div>
+							<div class="left arearight">
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">姓名</p>
+											<p class="en">Name</p>
+										</div>
+										<div class="inputbox left"><input id="name4"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">曾用名</p>
+											<p class="en">Another name</p>
+										</div>
+										<div class="inputbox left"><input id="ann4"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">性别</p>
+											<p class="en">Gender</p>
+										</div>
+										<div class="inputbox left">
+											<select class="io" id="sex4">
+												<option value="男" selected="selected">男</option>
+												<option value="女">女</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">出生日期</p>
+											<p class="en">Date of birth</p>
+										</div>
+										<div class="inputbox left"><input id="bd4"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">国籍</p>
+											<p class="en">Nationality</p>
+										</div>
+										<div class="inputbox left"><input id="na4"></div>
+									</div>
+									<div class="inputunit left">
+										<div class="inputtitle left">
+											<p class="cn">护照号码</p>
+											<p class="en">Passport No.</p>
+										</div>
+										<div class="inputbox left"><input id="id4"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="inputarea d2">
+							<div class="left arealeft">
+								<p>出/入境信息</p>
+							</div>
+							<div class="left arearight">
+								<div class="clearfix">
+									<div class="inputunit left">
+										<div class="inputtitle2 left" style="width: 420px;">
+											<p class="cn">航班号/船名/车次</p>
+											<p class="en">Flight No./Ship's name/Train No.</p>
+										</div>
+										<div class="inputbox2 left" style="width: 920px;"><input id="fight4"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="downarea">
+						<div class="qrcodeimg" onclick="card.StartScanner()">
+							<img src="images/1.png" />
+						</div>
+						<div class="qrcodetext"><p>*温馨提示：可以刷护照自动填充部分信息(You can use your passport to automatically fill in some information)</p></div>
+					</div>
+					<div class="savebtn">
+						<p>以上声明真实准确</p>
+						<p>I hereby declare that the statement given above is true and accurate</p>
+						<button class="btn btn-warning" onclick="page5dataset()">提交(submit)</button>
+					</div>
+					<div class="backbtn" onclick="page1()">
+						<img src="images/back.png" />
+					</div>
+				</div>
+				<div id="tip"></div>
+				<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script type="text/javascript" src="Js/virtualkeyboard.js"></script>
+		<script src="Js/qfdate.js"></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

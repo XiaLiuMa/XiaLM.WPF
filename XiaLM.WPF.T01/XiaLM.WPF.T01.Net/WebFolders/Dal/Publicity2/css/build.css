@@ -1,0 +1,44 @@
+.demo--label {
+				
+				display: inline-block
+			}
+			
+			.demo--radio {
+				display: none
+			}
+			
+			.demo--radioInput {
+				background-color: 0;
+				border: 5px solid #fff;
+				border-radius: 100%;
+				display: inline-block;
+				height: 40px;
+				margin-right: 10px;
+				margin-top: -1px;
+				vertical-align: middle;
+				width: 40px;
+				line-height: 1
+			}
+			
+			.green--radioInput:after {
+				background-color: #66CCCC;
+			}
+			.red--radioInput:after {
+				background-color: #CC3333;
+			}
+			.blue--radioInput:after {
+				background-color: #3366CC;
+			}
+			
+			.demo--radio:checked+.demo--radioInput:after {
+				border-radius: 100%;
+				content: "";
+				display: inline-block;
+				height: 30px;
+				width:30px;
+			}
+			
+			.demo--checkbox.demo--radioInput,
+			.demo--radio:checked+.demo--checkbox.demo--radioInput:after {
+				border-radius: 0
+			}

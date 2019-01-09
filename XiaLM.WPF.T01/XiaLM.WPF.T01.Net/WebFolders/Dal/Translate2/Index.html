@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		
+		<section id="fullscreen" class="section">
+			<div class="forbid">
+				<section class="mod model-9 loading">
+					<div class="spinner"></div>
+					<div class="ctip"></div>
+				</section>
+			</div>
+			<div class="title">翻译</div>
+			<div class="MS">
+			    <div class="info_title">
+			    	<select class="select1" onchange="Translate.SetLanguage1(this.value)"></select><img class="downinco" src="images/more.png" height="16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    	<img class="downinco" src="images/change.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			    	<select class="select2" onchange="Translate.SetLanguage2(this.value)"></select><img class="downinco" src="images/more.png" height="16px">
+			    </div>
+			    <div class="t1"><p class="hidefont">请点击下面录音按钮，对我说出您要翻译的内容。</p></div>
+			    <div class="t2"><p class="hidefont2">Please click on the recording button below and tell me what you want to translate.</p></div>
+			    <div class="timer"><p class="timernum">-</p></div>
+			    <div class="speak" onclick="Translate.StartRecording();"><img id="speak_img" src="images/speak.png" width="150px">&nbsp;&nbsp;<span class="stext">点击开始翻译</span></div>
+			 	<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+			</div>
+		</section>
+
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="../../rec/Js/jquery.optiscroll.min.js"></script>
+		<script src="js/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js" ></script>
+	</body>
+
+</html>

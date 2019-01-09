@@ -1,0 +1,54 @@
+.iframe_map {
+	width: 1920px;
+	height: 1150px;
+	border: 0;
+	display: none;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+	z-index: 1;
+}
+
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.video {
+	position: absolute;
+	width: 1920px;
+	height: 1200px;
+	z-index: 2;
+	left: 0;
+	top: 0;
+	background: black;
+	display: none;
+}
+
+#mediamap {
+	width: 1920px;
+	height: 1200px;
+}
+
+.colsevideo {
+	position: absolute;
+	right: 50px;
+	top: 50px;
+	width: 70px;
+	height: 70px;
+	background: 0;
+	border: 0;
+}

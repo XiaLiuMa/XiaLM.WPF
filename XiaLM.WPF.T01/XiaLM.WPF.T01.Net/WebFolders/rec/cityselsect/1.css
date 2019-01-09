@@ -1,0 +1,41 @@
+a{text-decoration:none;outline:none;}
+.fl{float:left;}
+.fr{float:right;}
+.none{display:none;}
+.loan_jm1{width:94%;margin:0 auto;}
+.loan_jm_spa1{width:39%;height:40px;line-height:40px;font-size:1em;color:#666;display:block;float:left;}
+.loan_jm_l1{margin-top:10px;margin-bottom:15px;height:40px;}
+.wbk_srn{width:57%;height:40px;border:1px solid #ccc;background:#FFF;float:left;padding-left:3%;line-height:40px;color:#ADADAD;
+font-size:1.1em; background-size:45%;background-position:center;background:#fff;}
+.wbk_srn b{width:30px;height:40px;border:1px solid #ccc;background:#FFF;float:left;padding-left:3%;line-height:40px;color:#ADADAD;
+font-size:1.1em;}
+/*显示点击是哪个字母*/
+.showLetter{
+    position: fixed;
+    color:#00C7C7;
+    width: 50px;
+    height:50px;
+    top:50%;
+    left: 50%;
+    border-radius: 50%;
+    border: #00C7C7 1px solid;
+    text-align: center;
+    display: none;
+}
+.showLetter span{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+}
+/*城市弹层*/
+.container{width:50%;}
+.letter{width:auto;position:fixed;right:10px;text-align:center;}
+.letter ul{list-style-type:none;}
+.letter ul li a{text-decoration:none;color:#00C7C7;font-size: 25px}
+.city{width:90%;overflow:hidden;padding:20px;}
+.city-list{width:100%;}
+.city-list .city-letter{font-size:32px;display:inline-block;padding-top:15px;padding-bottom:5px;border-bottom:1px solid #e8ecf1;width:100%;}
+.city-list p{color:#666;width:95%;height:50px;line-height:50px;border-bottom:1px solid #ddd;cursor:pointer;font-weight: 800;font-size: 30px;}
+.UISelect{margin-top:5px}
+body{padding: 0 30px;}

@@ -1,0 +1,74 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+}
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.info_title{
+				position: absolute;
+				width:1520px;
+				height: 60px;
+				line-height: 60px;
+				left: 200px;
+				top: 50px;
+				font-size: 40px;
+				text-align: center;
+			}
+			
+			.speak{
+				position: absolute;
+				width:620px;
+				height: 150px;
+				line-height: 60px;
+				left:750px;
+				top: 870px;
+				font-size: 40px;
+			}
+			
+.t1{
+				position: absolute;
+				width:1520px;
+				height: 300px;
+				line-height: 60px;
+				left: 200px;
+				top: 150px;
+				font-size: 40px;
+				padding: 50px;
+				background: rgba(255,255,255,0.1);
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
+			.t2{
+				position: absolute;
+				width:1520px;
+				height: 300px;
+				line-height: 60px;
+				left: 200px;
+				top: 500px;
+				font-size: 40px;
+				padding: 50px;
+				background: rgba(255,255,255,0.1);
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
+			.hidefont{
+				color: rgba(255,255,255,0.7);
+			}

@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>XiaLM.P101.Web</RootNamespace>
     <AssemblyName>XiaLM.P101.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CefSharp, Version=63.0.2.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=63.0.2.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=63.0.2.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\CefSharp.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,14 +58,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Handlers\LifeSpanHandler.cs" />
+    <Compile Include="Handlers\MenuHandler.cs" />
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -61,6 +79,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -71,9 +90,126 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Sdk\cache\000003.log" />
+    <None Include="Sdk\cache\Cache\data_0" />
+    <None Include="Sdk\cache\Cache\data_1" />
+    <None Include="Sdk\cache\Cache\data_2" />
+    <None Include="Sdk\cache\Cache\data_3" />
+    <None Include="Sdk\cache\Cache\index" />
+    <None Include="Sdk\cache\CURRENT" />
+    <None Include="Sdk\cache\DevToolsActivePort" />
+    <None Include="Sdk\cache\GPUCache\data_0" />
+    <None Include="Sdk\cache\GPUCache\data_1" />
+    <None Include="Sdk\cache\GPUCache\data_2" />
+    <None Include="Sdk\cache\GPUCache\data_3" />
+    <None Include="Sdk\cache\GPUCache\index" />
+    <None Include="Sdk\cache\LOCK" />
+    <None Include="Sdk\cache\LOG" />
+    <None Include="Sdk\cache\MANIFEST-000001" />
+    <None Include="Sdk\cache\Visited Links" />
+    <None Include="Sdk\cef.pak" />
+    <None Include="Sdk\CefSharp.BrowserSubprocess.exe.config" />
+    <None Include="Sdk\cef_100_percent.pak" />
+    <None Include="Sdk\cef_200_percent.pak" />
+    <None Include="Sdk\cef_extensions.pak" />
+    <None Include="Sdk\cef_sandbox.lib" />
+    <None Include="Sdk\cookies\Cookies" />
+    <None Include="Sdk\cookies\Cookies-journal" />
+    <None Include="Sdk\debug.log" />
+    <None Include="Sdk\devtools_resources.pak" />
+    <None Include="Sdk\GPUCache\data_0" />
+    <None Include="Sdk\GPUCache\data_1" />
+    <None Include="Sdk\GPUCache\data_2" />
+    <None Include="Sdk\GPUCache\data_3" />
+    <None Include="Sdk\GPUCache\index" />
+    <None Include="Sdk\icudtl.dat" />
+    <None Include="Sdk\libcef.lib" />
+    <None Include="Sdk\locales\am.pak" />
+    <None Include="Sdk\locales\ar.pak" />
+    <None Include="Sdk\locales\bg.pak" />
+    <None Include="Sdk\locales\bn.pak" />
+    <None Include="Sdk\locales\ca.pak" />
+    <None Include="Sdk\locales\cs.pak" />
+    <None Include="Sdk\locales\da.pak" />
+    <None Include="Sdk\locales\de.pak" />
+    <None Include="Sdk\locales\el.pak" />
+    <None Include="Sdk\locales\en-GB.pak" />
+    <None Include="Sdk\locales\en-US.pak" />
+    <None Include="Sdk\locales\es-419.pak" />
+    <None Include="Sdk\locales\es.pak" />
+    <None Include="Sdk\locales\et.pak" />
+    <None Include="Sdk\locales\fa.pak" />
+    <None Include="Sdk\locales\fi.pak" />
+    <None Include="Sdk\locales\fil.pak" />
+    <None Include="Sdk\locales\fr.pak" />
+    <None Include="Sdk\locales\gu.pak" />
+    <None Include="Sdk\locales\he.pak" />
+    <None Include="Sdk\locales\hi.pak" />
+    <None Include="Sdk\locales\hr.pak" />
+    <None Include="Sdk\locales\hu.pak" />
+    <None Include="Sdk\locales\id.pak" />
+    <None Include="Sdk\locales\it.pak" />
+    <None Include="Sdk\locales\ja.pak" />
+    <None Include="Sdk\locales\kn.pak" />
+    <None Include="Sdk\locales\ko.pak" />
+    <None Include="Sdk\locales\lt.pak" />
+    <None Include="Sdk\locales\lv.pak" />
+    <None Include="Sdk\locales\ml.pak" />
+    <None Include="Sdk\locales\mr.pak" />
+    <None Include="Sdk\locales\ms.pak" />
+    <None Include="Sdk\locales\nb.pak" />
+    <None Include="Sdk\locales\nl.pak" />
+    <None Include="Sdk\locales\pl.pak" />
+    <None Include="Sdk\locales\pt-BR.pak" />
+    <None Include="Sdk\locales\pt-PT.pak" />
+    <None Include="Sdk\locales\ro.pak" />
+    <None Include="Sdk\locales\ru.pak" />
+    <None Include="Sdk\locales\sk.pak" />
+    <None Include="Sdk\locales\sl.pak" />
+    <None Include="Sdk\locales\sr.pak" />
+    <None Include="Sdk\locales\sv.pak" />
+    <None Include="Sdk\locales\sw.pak" />
+    <None Include="Sdk\locales\ta.pak" />
+    <None Include="Sdk\locales\te.pak" />
+    <None Include="Sdk\locales\th.pak" />
+    <None Include="Sdk\locales\tr.pak" />
+    <None Include="Sdk\locales\uk.pak" />
+    <None Include="Sdk\locales\vi.pak" />
+    <None Include="Sdk\locales\zh-CN.pak" />
+    <None Include="Sdk\locales\zh-TW.pak" />
+    <None Include="Sdk\natives_blob.bin" />
+    <None Include="Sdk\snapshot_blob.bin" />
+    <None Include="Sdk\v8_context_snapshot.bin" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\CefSharp.Core.dll" />
+    <Content Include="Libs\CefSharp.dll" />
+    <Content Include="Libs\CefSharp.WinForms.dll" />
+    <Content Include="Sdk\CefSharp.BrowserSubprocess.Core.dll" />
+    <Content Include="Sdk\CefSharp.BrowserSubprocess.Core.pdb" />
+    <Content Include="Sdk\CefSharp.BrowserSubprocess.exe" />
+    <Content Include="Sdk\CefSharp.BrowserSubprocess.pdb" />
+    <Content Include="Sdk\chrome_elf.dll" />
+    <Content Include="Sdk\d3dcompiler_43.dll" />
+    <Content Include="Sdk\d3dcompiler_47.dll" />
+    <Content Include="Sdk\EasyHook.dll" />
+    <Content Include="Sdk\libcef.dll" />
+    <Content Include="Sdk\libEGL.dll" />
+    <Content Include="Sdk\libGLESv2.dll" />
+    <Content Include="Sdk\Lib\EasyHook.dll" />
+    <Content Include="Sdk\msvcp140d.dll" />
+    <Content Include="Sdk\swiftshader\libEGL.dll" />
+    <Content Include="Sdk\swiftshader\libGLESv2.dll" />
+    <Content Include="Sdk\ucrtbased.dll" />
+    <Content Include="Sdk\vcruntime140d.dll" />
+    <Content Include="Sdk\widevinecdmadapter.dll" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy $(ProjectDir)Sdk /e /i /y</PreBuildEvent>
+  </PropertyGroup>
 </Project>

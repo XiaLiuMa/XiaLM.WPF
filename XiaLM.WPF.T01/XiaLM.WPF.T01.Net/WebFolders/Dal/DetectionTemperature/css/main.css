@@ -1,0 +1,163 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.tip {
+	width: 320px;
+	height: 100px;
+	position: absolute;
+	left: 800px;
+	top: 900px;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 6px;
+	font-size: 40px;
+	line-height: 100px;
+	display: none;
+}
+
+.section {
+	text-align: center;
+}
+
+.temperatureinput {
+	position: absolute;
+	width: 1520px;
+	height: 300px;
+	background: rgba(0,0,0,0.9);
+	top: 800px;
+	left: 200px;
+	display: none;
+}
+
+.option {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 880px;
+	font-size: 80px;
+}
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 980px;
+	font-size: 80px;
+}
+.t1input{
+	clear: both;
+	border-bottom: 1px solid rgba(255,255,255,0.3)
+}
+.t1inputunit{
+	width:600px;
+	height: 150px;
+	float: left;
+	line-height: 150px;
+	font-size: 40px;
+}
+.t1inputunit input{
+	height: 60px;
+	width: 180px;
+	background: rgba(255,255,255,0.1);
+	border:0;
+	color: white;
+}
+.t1inputunit *{
+	margin: 0 5px;
+}
+.t1btnunit{
+	width:300px;
+	height: 150px;
+	float: left;
+	line-height: 150px;
+	font-size: 40px;
+}
+.t1btnunit button{
+	height: 60px;
+	width: 200px;
+	background: #e8b038;
+	color: white;
+	font-size: 32px;
+}
+.temperatureinfo{
+	position: absolute;
+	width: 1520px;
+	height: 400px;
+	top: 550px;
+	left: 200px;
+	text-align: left;
+	font-size: 40px;
+}
+.orange{
+	color: #e8b038;
+}
+.temperatureinfo-unit{
+	height: 340px;
+	width: 1520px;
+	line-height: 340px;
+	clear: both;
+	background: rgba(255,255,255,0.1);
+}
+.t2{
+	width: 350px;
+	height: 100px;
+	line-height: 100px;
+	text-align: left;
+	font-size: 50px;
+	float: left;
+}
+.topline{
+	height: 60px;
+	width: 1500px;
+	background: rgba(0,0,0,0.2);
+}
+.mainpage{
+	width: 1920px;
+	height: 1060px;
+	padding: 100px 210px;
+	clear: both;
+}
+.leftarea{
+	width: 700px;
+	height: 800px;
+	float: left;
+}
+.rightarea{
+	width: 700px;
+	height: 800px;
+	float: right;
+}
+.ltop{
+	width: 100%;
+	height: 100px;
+}
+.lcenter{
+	width: 700px;
+	height: 600px;
+	text-align: center;
+}
+.lbottom{
+	width: 100%;
+	height: 100px;
+}
+/*.f1{
+	width: 698px;
+	height: 598px;
+	text-align: center;
+	font-size: 50px;
+	padding-top: 200px;
+	border: 1px solid rgba(255,255,255,0.1);
+}*/
+.f2{
+	width: 700px;
+	height: 600px;
+	background: rgba(0,0,0,0.2);
+}

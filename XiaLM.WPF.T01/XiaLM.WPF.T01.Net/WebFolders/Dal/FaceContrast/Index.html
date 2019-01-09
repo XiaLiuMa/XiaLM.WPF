@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">人脸对比</div>
+			<div class="charge">
+				<div class="picture">
+					<div class="picture_c">
+						<div class="left_pic"><img class="imgleft" src="images/s1.png" width="100%" height="100%"></div>
+					</div>
+					<div class="picture_c">
+						<div class="middle_pic">
+							<div class="middle_pic_div">
+								<img class="imgmiddle" src="images/NOIMG.png" width="100%" height="100%"/>
+							</div>
+							<div class="inco-c"><span id="similarity"></span>%</div>
+							<p class="info_c">相似度</p>
+						</div>
+					</div>
+					<div class="picture_c">
+						<div class="right_pic"><img class="imgright"  src="images/s2.png" width="100%" height="100%"></div>
+					</div>
+				</div>
+				<div class="person_info">
+					<p class="orange p_name"></p>
+					<p class="p_sex"></p>
+					<p class="p_age"></p>
+					<p class="p_lv"></p>
+				</div>
+				<div class="person_bango">
+					<div class="person_bango_c">
+						<p class="orange">证件号码:</p><input class="passnum" disabled="disabled" value="" />
+					</div>
+					<div class="person_bango_c">
+						<p>通关时间:</p><input class="passtime" disabled="disabled" value="" />
+					</div>
+					<!--<div class="person_bango_c">
+						<p>当天出/入境次数:</p>
+						<input class="iotimes" disabled="disabled" value="" style="width: 200px;" />
+					</div>-->
+				</div>
+			</div>
+			<div class="swich"><img src="images/OFF.png" onclick="FaceContrast.StartFaceContrast();"></div>
+			<div class="swichforbid">
+				<p>请稍等..</p>
+			</div>
+			<div id="fail">
+				<p class="SF_cn">错误</p>
+				<p class="SF_en">error</p>
+			</div>
+			<div class="tip"></div>
+			<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript " src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

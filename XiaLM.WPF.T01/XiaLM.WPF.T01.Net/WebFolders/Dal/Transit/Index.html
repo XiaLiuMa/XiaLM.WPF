@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">出入境咨询服务</div>
+			<div class="MS">
+				<div id="forbid"></div>
+				<div id="page_1" class="sbdpage">
+					<div class="warming"></div>
+					<div class="b1" onclick="clicked(0);$('.sbdpage').css('display','none');$('#page_2').css('display','block');">
+						<div class="fimg">
+							<img src="images/out.png" />
+						</div>
+						<div class="ftext">
+						</div>
+					</div>
+					<div class="b2">
+						<div class="fimg" onclick="clicked(1);$('.sbdpage').css('display','none');$('#page_2').css('display','block');">
+							<img src="images/HO.png" />
+						</div>
+						<div class="ftext">
+						</div>
+					</div>
+					<div class="b3">
+						<div class="fimg" onclick="clicked(2);$('.sbdpage').css('display','none');$('#page_2').css('display','block');">
+							<img src="images/HO.png" />
+						</div>
+						<div class="ftext">
+						</div>
+					</div>
+					<div class="b4">
+						<div class="fimg TWS" onclick="clicked(3);$('.sbdpage').css('display','none');$('#page_2').css('display','block');">
+							<img src="images/TW.png" />
+						</div>
+						<div class="ftext">
+						</div>
+					</div>
+
+					<div class="speak" onclick="Transit.StarRecording();"><img class="speak_img" src="images/speak.png" width="150px"></div>
+				</div>
+				<div id="page_2" class="sbdpage">
+					<div class="warming"></div>
+					<div class="listselect">
+						<div class="TSY"></div>
+						<div class="mliststart"></div>
+						<div class="step"></div>
+						<div class="btng">
+							<div class="btn-s left pre" onclick="b()"><img src="images/pre.png"></div>
+							<div class="btn-s next left" onclick="bb()"><img src="images/index.png"></div>
+						</div>
+					</div>
+					<div class="speak" onclick="Transit.StarRecording();"><img class="speak_img" src="images/speak.png" width="150px"></div>
+				</div>
+
+				<div id="page_3" class="sbdpage">
+					<div class="last">
+						<img src="" class="titleimg" />
+						<a style="padding: 20px;" class="tittext">对不起，您不符合办理条件！</a>
+					</div>
+					<div class="lastimg">
+						<img src="" class="othisimg" width="100%" />
+					</div>
+					<div class="lastbtn">
+						<div class="btn-s left pre" onclick="b();$('.sbdpage').css('display','none');$('#page_2').css('display','block');"><img src="images/pre.png"></div>
+						<div class="btn-s next left" onclick="bb()"><img src="images/index.png"></div>
+					</div>
+				</div>
+
+				<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

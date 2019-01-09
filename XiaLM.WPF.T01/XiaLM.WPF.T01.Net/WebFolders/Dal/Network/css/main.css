@@ -1,0 +1,213 @@
+wnow#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+}
+
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+	color: white;
+}
+
+.info_title {
+	position: absolute;
+	width: 1520px;
+	height: 60px;
+	line-height: 60px;
+	left: 200px;
+	top: 50px;
+	font-size: 40px;
+	text-align: center;
+}
+
+.wifiicon {
+	margin-right: 30px;
+}
+
+.systemforbid {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1920px;
+	height: 1200px;
+	z-index: 999;
+}
+
+.wifiarea {
+	position: absolute;
+	left: 400px;
+	top: 0px;
+	width: 1120px;
+	height: 1100px;
+	background: rgba(255, 255, 255, 0.1);
+	color: #fff;
+	z-index: 1;
+}
+
+.wifi_title {
+	width: 100%;
+	height: 120px;
+	text-align: center;
+	font-family: "微软雅黑";
+	font-size: 42px;
+	line-height: 120px;
+}
+
+.wifi_now {
+	width: 100%;
+	height: 100px;
+	text-align: left;
+	font-family: "微软雅黑";
+	font-size: 32px;
+	line-height: 100px;
+	padding-left: 60px;
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.wnow {
+	padding-left: 40px;
+	width: 680px;
+	height:100px;
+}
+
+.wifi_list {
+	position: relative;
+	width: 100%;
+	text-align: left;
+	font-family: "微软雅黑";
+	font-size: 32px;
+	padding-left: 60px;
+	overflow: auto;
+}
+
+.wlist {
+	width: 1000px;
+	height: 820px;
+	overflow: auto;
+	padding: 30px 60px;
+}
+
+.wunit {
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	clear: both;
+	border-bottom: 1px solid #888;
+}
+.wpassBG{
+	width: 1920px;
+	height:1200px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index:2;
+	display: none;
+}
+.wpass {
+	width: 800px;
+	height: 250px;
+	background: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	left: 550px;
+	top: 200px;
+	padding: 20px;
+	display: ;
+	text-align: center;
+	display: none;
+	z-index: 4;
+}
+.wpass2 {
+	width: 820px;
+	height: 100px;
+	background: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	left: 550px;
+	top: 200px;
+	padding: 20px;
+	display: ;
+	text-align: center;
+	z-index: 4;
+	display: none;
+}
+
+.wp {
+	color: white;
+	font-size: 35px;
+	text-align: center;
+	line-height: 60px;
+}
+
+.pas {
+	width: 500px;
+	background: rgba(255, 255, 255, 0.4);
+	border: 0;
+}
+
+.passsty {
+	width: 100px;
+	height: 60px;
+	background: 0;
+	border-radius: 5px;
+	border: 2px solid #ccc;
+	color: white;
+	margin: 0 30px;
+	font-size: 30px;
+}
+.passsty2 {
+	width: 150px;
+	height: 60px;
+	background: 0;
+	border-radius: 5px;
+	border: 2px solid #ccc;
+	color: white;
+	margin: 0 30px;
+	font-size: 30px;
+}
+
+.unitlock,
+.unitx {
+	width: 80px;
+	height: 80px;
+}
+
+.unittit {
+	width: 700px;
+	height: 80px;
+}
+.b-1{
+	width: 1000px;
+}
+.right{
+	float: right;
+}
+.eye{
+				width: 50px;
+				position: absolute;
+				top: 110px;
+				right: 70px;
+			}
+.btn-hide{
+	background: 0;
+}
+.nowip{
+	display: none;
+}

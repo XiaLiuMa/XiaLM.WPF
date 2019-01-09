@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/build.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">权限管理</div>
+			<div class="MS">
+				<button class="changemode all activebtn" onclick="changemode(true)">超级模式</button>
+				<button class="changemode some" onclick="changemode(false)">用户模式</button>
+				<div class="wifiarea">
+					<div class="wifi_list">
+						<div class="wtitle">
+							<div class="left l1 h70"></div>
+							<div class="left l2 h70">
+								是否需要权限
+							</div>
+							<div class="left l3 h70">
+								首页显示
+							</div>
+						</div>
+						<div class="wlist">
+							<div class="wunit" id="1">
+								<div class="left l1"></div>
+								<div class="left l2">
+									
+								</div>
+								<div class="left l3">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+			</div>
+			<div class="forbid">
+				<div class="tip">正在修改权限</div>
+			</div>
+		</section>
+
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="../../rec/Js/jquery.optiscroll.min.js"></script>
+		<script src="../../rec/Js/virtualkeyboard.js"></script>
+		<script src="js/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

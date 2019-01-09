@@ -1,0 +1,144 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+}
+
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.info_title {
+	width: 1050px;
+	height: 120px;
+	line-height: 60px;
+	font-size: 40px;
+	overflow-y: auto;
+}
+
+.speak {
+	position: absolute;
+	width: 620px;
+	height: 150px;
+	line-height: 60px;
+	left: 750px;
+	top: 870px;
+	font-size: 40px;
+}
+
+.orange {
+	color: #e8b038;
+}
+.white{
+	color: #fff;
+}
+.left{
+	float: left;
+}
+.clearleft{
+	clear: both;
+}
+.wendadiv{
+	width: 1050px;
+	height: 295px;
+	overflow-y: auto;
+}
+
+.font-pageBG{
+	width: 1920px;
+	height: 1120px;
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display:none;
+}
+.font-page{
+	z-index: 5;
+	width: 1460px;
+	height: 800px;
+	background: rgba(0,0,0,0.8);
+	border-radius: 10px;
+	position: absolute;
+	top: 100px;
+	left: 230px;
+	overflow-y: auto;
+	padding: 20px;
+	display: none;
+}
+.font-page p{
+	font-size: 50px;
+}
+.area {
+	position: absolute;
+	width: 780px;
+	height: 700px;
+	line-height: 60px;
+	left: 200px;
+	top: 150px;
+	font-size: 36px;
+	padding: 50px;
+	background: rgba(255, 255, 255, 0.1);
+	clear: both;
+}
+.areaunit{
+	width: 340px;
+	height: 120px;
+	line-height: 50px;
+}
+.areaunit2{
+	width: 680px;
+	height: 100px;
+	line-height: 50px;
+}
+.area2 {
+	position: absolute;
+	width: 720px;
+	height: 700px;
+	line-height: 60px;
+	left: 1000px;
+	top: 150px;
+	font-size: 40px;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	text-align: center;
+	font-size: 50px;
+	padding-top: 120px;
+}
+.dash{
+	border-bottom: 1px dashed #fff;
+	width: 680px;
+}
+.topline{
+	border-top:1px dashed #fff;
+	line-height: 150px;
+}
+.time{
+	background: rgba(255,255,255,0.2);
+	width: 150px;
+	height: 150px;
+	line-height: 150px;
+	margin: 50px auto;
+	border-radius: 100px;
+}
+.page1{
+	display: block;
+}
+.page2{
+	display: none;
+}

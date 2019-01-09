@@ -1,0 +1,505 @@
+.iframe_map {
+	width: 1920px;
+	height: 1150px;
+	border: 0;
+	display: none;
+}
+
+.home {
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+}
+.backbtn{
+	text-align: center;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 800px;
+	font-size: 80px;
+}
+
+.MS {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.sbdpage {
+	display: none;
+}
+
+#page_1 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 1920px;
+	height: 1070px;
+	padding: 50px;
+	overflow: hidden;
+	display: block;
+}
+
+#page_2 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 1920px;
+	height: 1070px;
+	padding: 50px;
+	overflow: hidden;
+}
+
+#page_3 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 1920px;
+	height: 1070px;
+	padding: 50px;
+	overflow: hidden;
+}
+
+#page_4 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 1920px;
+	height: 1070px;
+	padding: 50px;
+	overflow: hidden;
+}
+
+.left {
+	float: left;
+}
+
+.important_info {
+	width: 1820px;
+	height: 870px;
+	overflow: auto;
+}
+
+.important_info b {
+	font-size: 40px;
+	font-weight: 600;
+}
+
+.important_info p {
+	font-size: 35px;
+	font-weight: 300;
+}
+
+.btn-d {
+	font-size: 35px;
+	width: 200px;
+}
+
+.top {
+	width: 720px;
+	height: 200px;
+	position: absolute;
+	left: 600px;
+	top: 50px;
+	clear: both;
+}
+
+.logotit {
+	color: #000000;
+	text-align: center;
+	padding: 20px;
+}
+
+.p1 {
+	font-size: 48px;
+	text-align: center;
+	font-weight: 600;
+	color: white;
+}
+
+.p2 {
+	font-size: 36px;
+	text-align: center;
+	font-weight: 500;
+	color: white;
+}
+
+.inputarea {
+	width: 1620px;
+	background: rgba(255, 255, 255, 0.1);
+	position: relative;
+}
+
+.d1 {
+	position: absolute;
+	top: 120px;
+	left: 150px;
+	height: 340px;
+	border-bottom: 2px dashed rgba(255, 255, 255, 0.4);
+}
+
+.d2 {
+	position: absolute;
+	top: 460px;
+	left: 150px;
+}
+
+.btn-next {
+	position: absolute;
+	left: 860px;
+	top: 930px;
+}
+
+.arealeft {
+	width: 250px;
+	height: 300px;
+	text-align: center;
+}
+
+.arealeft p {
+	line-height: 300px;
+	font-size: 40px;
+	color: gold;
+}
+
+.arearight {
+	width: 1350px;
+	height: 300px;
+	position: relative;
+	padding: 10px 0;
+}
+
+.inputunit input {
+	width: 100%;
+	height: 58px;
+	background: rgba(255, 255, 255, 0.3);
+	font-size: 30px;
+	color: white;
+	border: 0;
+}
+
+.inputunit select {
+	width: 100%;
+	border: 0;
+	height: 58px;
+	background: rgba(255, 255, 255, 0.3);
+	font-size: 30px;
+	color: white;
+}
+
+.inputunit select option {
+	background: #4a87db;
+}
+
+.inputunit {
+	height: 100px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+.inputtitle {
+	height: 100px;
+	width: 150px;
+	padding-top: 5px;
+}
+
+.inputbox {
+	width: 300px;
+	padding-top: 20px;
+}
+
+.inputtitle2 {
+	height: 100px;
+	width: 200px;
+	padding-top: 5px;
+}
+
+.inputbox2 {
+	width: 470px;
+	padding-top: 20px;
+}
+.inputtitle3 {
+	height: 100px;
+	width: 300px;
+	padding-top: 5px;
+}
+
+.inputbox3 {
+	width: 370px;
+	padding-top: 20px;
+}
+
+.inputbox2 input {
+	border: 0;
+}
+
+.cn {
+	text-align: center;
+	font-size: 35px;
+	line-height: 35px;
+	margin: 10px 0;
+}
+
+.en {
+	text-align: center;
+	font-size: 22px;
+	line-height: 19px;
+}
+
+.qrcodeimg {
+	position: absolute;
+	top: 780px;
+	left: 150px;
+	height: 230px;
+	width: 230px;
+}
+.qrcodetext {
+	position: absolute;
+	top: 1020px;
+	left: 150px;
+}
+.qrcodeimg2 {
+	position: absolute;
+	top: 780px;
+	left: 400px;
+	height: 230px;
+	width: 230px;
+}
+.qrcodeimg img{
+	width: 100%;
+	height: 100%;
+}
+.qrcodeimg2 img{
+	width: 100%;
+	height: 100%;
+}
+.spassport {
+	position: absolute;
+	top: 720px;
+	left: 500px;
+	background: yellow;
+	height: 270px;
+	width: 270px;
+}
+
+.qusarea {
+	position: absolute;
+	width: 1620px;
+	height: 650px;
+	top: 270px;
+	left: 150px;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 8px;
+}
+
+.inner_table {
+	width: 1600px;
+}
+
+.inner_table tr {
+	width: 1600px;
+}
+
+.row_input {
+	width: 266px;
+	height: 70px;
+	text-align: center;
+	font-size: 35px;
+	line-height: 70px;
+}
+
+.row_input_unit {
+	width: 240px;
+	height: 60px;
+	font-size: 35px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 8px;
+	color: white;
+	border: 0;
+}
+
+.row_tit {
+	text-align: center;
+	color: gold;
+}
+
+.sblist {
+	font-size: 40px;
+	text-align: left;
+	background: 0;
+	border: 0;
+	color: white;
+}
+
+.p20 {
+	padding: 20px;
+	overflow-y: auto;
+}
+
+.p20 b {
+	font-size: 40px;
+	color: gold;
+}
+
+.active {
+	color: gold;
+}
+
+.tip {
+	width: 400px;
+	height: 70px;
+}
+
+.btn-qfdate {
+	width: 240px;
+	border: 0;
+	height: 58px;
+	background: rgba(255, 255, 255, 0.3);
+	font-size: 30px;
+	color: white;
+}
+
+.finish {
+	position: absolute;
+	left: 655px;
+	top: 400px;
+	width: 610px;
+	height: 400px;
+	text-align: center;
+}
+
+.status {
+	position: absolute;
+	top: 120px;
+	font-size: 40px;
+	width: 500px;
+	text-align: center;
+	margin-left: 50px;
+	color: #000000;
+}
+
+.msginfo {
+	position: absolute;
+	top: 190px;
+	font-size: 40px;
+	width: 500px;
+	text-align: center;
+	margin-left: 50px;
+	color: #000000;
+}
+
+
+/*----------------------------------------------*/
+
+.inbound {
+	position: absolute;
+	width: 350px;
+	height: 350px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.2);
+	padding-top: 55px;
+	border-radius: 20px;
+	top: 100px;
+	left: 500px;
+}
+.tinbound {
+	position: absolute;
+	width: 350px;
+	height: 350px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.2);
+	padding-top: 55px;
+	border-radius: 20px;
+	top: 500px;
+	left: 500px;
+}
+
+.outbound {
+	position: absolute;
+	width: 350px;
+	height: 350px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.2);
+	padding-top: 55px;
+	border-radius: 20px;
+	top: 100px;
+	right: 500px;
+}
+
+.toutbound {
+	position: absolute;
+	width: 350px;
+	height: 350px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.2);
+	padding-top: 55px;
+	border-radius: 20px;
+	top: 500px;
+	right: 500px;
+}
+
+.inbound p,
+.outbound p,
+.tinbound p,
+.toutbound p{
+	font-size: 70px;
+}
+
+.inbound a,
+.outbound a,
+.tinbound a,
+.toutbound a {
+	font-size: 40px;
+}
+.cardtype{
+	position: absolute;
+	top:50px ;
+	left:150px;
+	font-size: 40px;
+}
+.savebtn{
+	position: absolute;
+	top:800px ;
+	left:500px;
+	font-size: 27px;
+	width: 900px;
+	height: 150px;
+	text-align: center;
+}
+.savebtn .btn{
+	color: white;
+	width: 300px;
+	height: 75px;
+	font-family: "微软雅黑";
+	font-size: 40px;
+}
+.savebtn p{
+	line-height: 30px;
+}
+
+#tip {
+	position: absolute;
+	left: 850px;
+	top: 850px;
+	width: 200px;
+	height: 50px;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 6px;
+	color: #000000;
+	font-size: 35px;
+	text-align: center;
+	display: none;
+	z-index: 2;
+}

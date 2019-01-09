@@ -1,0 +1,173 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+p{
+	font-size: 38px;
+}
+
+.tip {
+	width: 720px;
+	height: 100px;
+	position: absolute;
+	left: 630px;
+	top: 1000px;
+	border-radius: 6px;
+	font-size: 40px;
+	line-height: 100px;
+	background: rgba(0,0,0,0.5);
+	z-index: 6;
+	color: white;
+	text-align: center;
+	display: none;
+}
+
+.section {
+}
+
+.charge {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+	padding-left: 160px;
+	padding-top: 100px;
+}
+
+.swich {
+	position: absolute;
+	top: 770px;
+	left: 850px;
+}
+
+.charging {
+	position: absolute;
+	bottom: 0px;
+	left: 660px;
+	display: none;
+}
+
+.ele {
+	width: 320px;
+	height: 100px;
+	position: absolute;
+	left: 800px;
+	top: 380px;
+	font-size: 80px;
+}
+
+.home {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+	z-index: 10;
+	}
+
+.person_info{
+	width: 1600px;
+	height: 200px;
+	clear: both;
+	padding: 50px;
+}
+.person_info p{
+	float: left;
+}
+.guest_info{
+	margin-right: 70px;
+	max-width: 410px;
+	overflow: hidden;
+}
+.orange{
+	color:#E8B038;
+}
+
+.logo{
+	position: absolute;
+	width: 360px;
+	height: 500px;
+	left: 800px;
+	top: 200px;
+}
+.swich{
+	position: absolute;
+	width: 360px;
+	height: 200px;
+	left: 800px;
+	top: 800px;
+}
+.back{
+	position: absolute;
+	top: 100px;
+	left: 50px;
+	width: 100px;
+	height: 100px;
+	z-index: 2;
+	display: none;
+}
+.table{
+	width: 1600px;
+	font-size: 30px;
+}
+.table th, .table td{
+	border-top: 0;
+	text-align: center;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255,255,255,0.1);
+}
+.item-table{
+	width: 1600px;
+	height: 500px;
+	overflow: auto;
+}
+.table tbody + tbody{
+	border-top:rgba(255,255,255,0.5) 1px solid;
+}
+.forbid{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	background: rgba(0,0,0,0.6);
+	z-index: 5;
+	display: none;
+}
+.loading{
+	position: absolute;top: 200px;left: 700px;width: 530px;height: 500px;
+}
+.ctip{
+	position: absolute;top: 600px;left: 0;width: 530px;
+	text-align: center;
+	font-size: 50px;
+}
+.fontwindow{
+	z-index: 4;
+	position: absolute;
+	background: white;
+	top: 100px;
+	left: 500px;
+	width: 1020px;
+	height: 920px;
+	border-radius: 10px;
+	padding: 50px;
+	font-size: 70px;
+	color: black;
+	text-align: center;
+}
+.brn-fwin-check{
+	width: 300px;
+	height: 70px;
+	background:#E8B038;
+	color: white;
+	font-size: 40px;
+	margin-top: 400px;
+}
+.fontwindowimg{
+	margin-top: 40px;
+}

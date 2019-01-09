@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<style>
+			
+		</style>
+		<section id="fullscreen" class="section">
+			<div class="title">跟随</div>
+			<div class="charge">
+				<div id="painting">
+					<canvas id="canvas"></canvas>
+				</div>
+				<div class="menu">
+					<div class="menu-btn">
+					<button onclick="drawPen1()" class="btn btn-warning startline">开始画线</button>
+					<button onclick="save()" class="btn btn-warning saveline" disabled="disabled">保存信息</button>
+					</div>
+					<div class="menu-info">
+						<p>坐标信息</p>
+						<div class="textleft">
+						<p>X1:<span class="x1"></span></p>
+						<p>Y1:<span class="y1"></span></p>
+						<p>X2:<span class="x2"></span></p>
+						<p>Y2:<span class="y2"></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="tip"></div>
+				<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+			</div>
+		</section>
+		<div id="fail">
+			错误
+		</div>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="JS/main.js"></script>
+		<script src="JS/jcanvas.js"></script>
+		<script src="JS/draw.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

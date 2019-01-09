@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<section id="fullscreen" class="section">
+			 <div class="title">跟随</div>
+			 <div class="charge">
+			 	<img class="imgshow" src="images/BGS.png">
+			 	<div class="charging"><img src="images/EON.png"></div>
+			 	<div class="swich"><img id="swichimg" src="images/OFF.png" onclick="Follow.StartFollow()"></div>
+			 	<div class="swichforbid"><p>请稍等..</p></div>
+			 	<!--<div class="swich2" style="display: block;"><img id="swichimg2" src="images/1.png" onclick="Follow.RestartFollow()" width="88px"></div>-->
+			 	<div class="swichwb"><img id="swichimg3" src="images/white.png" onclick="Follow.changewb(false)"></div>
+			 	<div class="tip"></div>
+			 	<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+			 </div>
+		</section>
+		<div id="fail">
+			错误
+		</div>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js" ></script>
+	</body>
+</html>

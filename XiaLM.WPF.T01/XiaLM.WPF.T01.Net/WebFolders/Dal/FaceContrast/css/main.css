@@ -1,0 +1,191 @@
+#fail {
+	display: none;
+}
+
+.section {
+	width: 1920px;
+	height: 1150px;
+}
+
+.tip {
+	width: 320px;
+	height: 100px;
+	position: absolute;
+	left: 830px;
+	top: 1000px;
+	border-radius: 6px;
+	font-size: 40px;
+	line-height: 100px;
+	background: rgba(0,0,0,0.5);
+	z-index: 6;
+	color: white;
+	text-align: center;
+	display: none;
+}
+
+.section {
+	text-align: center;
+}
+
+.charge {
+	position: relative;
+	width: 1920px;
+	height: 1070px;
+}
+
+.charging {
+	position: absolute;
+	bottom: 0px;
+	left: 660px;
+	display: none;
+}
+
+.ele {
+	width: 320px;
+	height: 100px;
+	position: absolute;
+	left: 800px;
+	top: 380px;
+	font-size: 80px;
+}
+
+.home {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 1770px;
+	top: 900px;
+	font-size: 80px;
+	z-index: 10;
+	}
+.picture{
+	position: absolute;
+	top: 100px;
+	left: 360px;
+	width: 1200px;
+	height: 500px;
+	clear: both;
+}
+.picture_c{
+	width: 400px;
+	height: 500px;
+	float: left;
+}
+.left_pic,.right_pic{
+	background: rgba(255,255,255,0.1);
+	height: 100%;
+	width: 100%;
+}
+.middle_pic{
+	height: 500px;
+	width: 100%;
+	padding-top: 200px;
+	padding:0 80px;
+	text-align: center;
+}
+.inco-c{
+	width: 200px;
+	height: 200px;
+	margin-left: 20px;
+	border-radius: 100px;
+	border: 10px solid #E8B038;
+	font-size: 45px;
+	line-height: 180px;
+}
+.info_c{
+	font-size: 40px;
+	margin-top: 30px;
+}
+.person_info{
+	position: absolute;
+	top: 700px;
+	left: 360px;
+	width: 1200px;
+	height: 100px;
+	clear: both;
+	padding-left: 100px;
+}
+.person_info p{
+	float: left;
+	width: 250px;
+	text-align: center;
+	font-size: 50px;
+}
+.orange{
+	color:#E8B038;
+}
+.person_bango{
+	position: absolute;
+	top: 850px;
+	left: 480px;
+	width: 1500px;
+	height: 100px;
+	clear: both;
+}
+.person_bango_c{
+	width: 500px;
+	float: left;
+	
+}
+.person_bango_c p{
+	font-size: 33px;
+	float: left;
+	padding: 0;
+	margin: 0;
+	color:#E8B038;
+}
+.person_bango_c input{
+	background: rgba(255,255,255,0.1);
+	width: 300px;
+	height: 56px;
+	border: 0;
+	color: white;
+	font-size: 30px;
+}
+
+.pagefont {
+	position: absolute;
+	width: 1920px;
+	height: 1070px;
+	z-index: 2;
+	background: url(../images/BG.jpg);
+}
+.logo{
+	position: absolute;
+	width: 360px;
+	height: 500px;
+	left: 800px;
+	top: 200px;
+}
+.swich{
+	position: absolute;
+	width: 360px;
+	height: 200px;
+	left: 800px;
+	top: 1000px;
+}
+.back{
+	position: absolute;
+	top: 100px;
+	left: 50px;
+	width: 100px;
+	height: 100px;
+	z-index: 2;
+	display: none;
+}
+.swichforbid {
+    position: absolute;
+    width: 360px;
+    height: 200px;
+    left: 800px;
+    top: 940px;
+    z-index: 2;
+    font-size: 30px;
+    padding-top: 150px;
+    display: none;
+}
+.middle_pic_div{
+	margin-bottom: 60px;
+	width: 100%;
+	height:180px;
+}

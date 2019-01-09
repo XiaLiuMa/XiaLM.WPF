@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			#bottom {
+				width: 640px;
+				height: 480px;
+				border: solid 2px coral;
+				float: left;
+			}
+			
+			.canshu {}
+		</style>
+	</head>
+
+	<body>
+		<div id="bottom">
+			<canvas id="can" width="640" height="480"></canvas>
+		</div>
+		<div class="canshu">
+			<input type="button" value="清除画布" onclick="clear_pic()">
+			<input type="button" value="切换模式" onclick="changebool()">
+			<p>起始坐标<span id="s"></span></p>
+			<p>结束坐标<span id="e"></span></p>
+		</div>
+	</body>
+	<script src="jquery-2.0.3.min.js"></script>
+	<script type="text/javascript">
+		var bot;
+		var X0, Y0, X1, Y1;
+		var flag = 0;
+		var time;
+		var color = 0;
+		var lineW = 2;
+		var canvas;
+		var context;
+		var urll;
+		var isMouseDown = false;
+		var isline = true;
+		function init() {
+			canvas = document.getElementById("can");
+			context = canvas.getContext("2d");
+			bot = document.getElementById("bottom");
+			bot.onmousedown = mouseDownAction;
+			bot.onmousemove = mouseMoveAction;
+			document.onmouseup = mouseUpAction;
+		}
+
+		function changeurl(e) {
+			urll = e;
+		}
+
+		function showimage() {
+			console.log(1)
+			$("#can").css("background", "url(" + urll + ")");
+			$("#can").css("background-repeat", "no-repeat");
+			$("#can").css("background-size", "contain");
+		}
+
+		function line_wid(num) {
+			lineW = num;
+		}
+
+		function mouseDownAction(e) {
+			isMouseDown = true;
+			X0 = e.offsetX;
+			Y0 = e.offsetY;
+		}
+
+		function mouseMoveAction(e) {
+			if(isMouseDown) {
+				if(isline) {
+					clear_pic()
+					X1 = e.offsetX;
+					Y1 = e.offsetY;
+					drowline(X0, Y0, X1, Y1);
+					document.getElementById('s').innerText = '(' + X0 + ',' + Y0 + ')'
+					document.getElementById('e').innerText = '(' + X1 + ',' + Y1 + ')'
+					flag = 1;
+				} else {
+					clear_pic()
+					X1 = e.offsetX - X0;
+					Y1 = e.offsetY - Y0;
+					
+					drowrect(X0, Y0, X1, Y1);
+					document.getElementById('s').innerText = '(' + X0 + ',' + Y0 + ')'
+					document.getElementById('e').innerText = '(' + X1 + ',' + Y1 + ')'
+					flag = 1;
+				}
+			}
+		}
+
+		function mouseUpAction(e) {
+			isMouseDown = false;
+			flag = 0;
+		}
+
+		function drowline(num1, num2, num3, num4) {
+
+			context.beginPath();
+
+			context.moveTo(num1, num2);
+			context.lineWidth = lineW;
+			if(color == 0) {
+				context.strokeStyle = "red";
+			}
+			context.lineTo(num3, num4);
+			context.stroke();
+		}
+		
+		function drowrect(num1, num2, num3, num4) {
+			context.rect(num1, num2, num3, num4);
+			context.stroke();
+		}
+
+		function clear_pic() { //清除画布
+			context.clearRect(0, 0, 640, 480);
+			canvas.height=canvas.height;
+		}
+
+		function returnstart() {
+			var arr = [];
+			arr.push(X0);
+			arr.push(Y0);
+			return arr;
+		}
+
+		function returnend() {
+			var arr = [];
+			arr.push(X1);
+			arr.push(Y1);
+			return arr;
+		}
+		
+		function changebool(){
+			isline=(isline)?false:true;
+		}
+
+		showimage();
+		init();
+	</script>
+
+</html>

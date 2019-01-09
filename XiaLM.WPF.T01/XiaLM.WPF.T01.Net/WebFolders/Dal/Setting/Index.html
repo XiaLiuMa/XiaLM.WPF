@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="../../rec/css/v-black.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">系统设置</div>
+			<div class="MS">
+				<div class="area">
+					<div class="selectset">
+						<div class="arow clearfix">
+							<div class="r-title">语速设置</div>
+							<div class="r-tag clearfix">
+								<div class="left"><img src="img/vo.png" width="42px" /></div>
+								<div class="left" id="YS"></div>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">音量设置</div>
+							<div class="r-tag clearfix">
+								<div class="left"><img src="img/vol.png" width="42px" /></div>
+								<div class="left" id="YL"></div>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">音高设置</div>
+							<div class="r-tag clearfix">
+								<div class="left"><img src="img/voh.png" width="42px" /></div>
+								<div class="left" id="YG"></div>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">闲聊模式</div>
+							<div class="r-tag clearfix">
+								<div class="left unit_tit1">是否闲聊：</div>
+								<select class="unit_select XL" onchange="IsChat=$(this).val();set.SetConfigInfo();">
+									
+								</select>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">表情设置</div>
+							<div class="r-tag clearfix">
+								<div class="left unit_tit1">表情风格：</div>
+								<select class="unit_select BQFG"  onchange="PhizStyle=$(this).val();set.SetConfigInfo();">
+								</select>
+							</div>
+						</div>
+						<div class="arow1 clearfix">
+							<div class="r-title">语音设置</div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">识别语种：</div>
+									<select class="unit_select YZ"  onchange="BeginParams=$(this).val();set.changevoicer();">
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2">播放语音：</div>
+									<select class="unit_select SYZL" onchange="VoiceName=$(this).val();set.SetConfigInfo();">
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">语音模式：</div>
+									<select class="unit_select YYMS" onchange="set.HHSChidden($(this).val())">
+										
+									</select>
+								</div>
+								<div class="clearfix left unit HHSChidden">
+									<div class="left unit_tit2">唤醒时长：</div>
+									<select class="unit_select HHSC" onchange="RouseDuration=$(this).val();set.SetConfigInfo();">
+										<option class="bg_select" value="1">1分钟</option>
+										<option class="bg_select" value="2">2分钟</option>
+										<option class="bg_select" value="3">3分钟</option>
+										<option class="bg_select" value="5" selected="selected">5分钟</option>
+										<option class="bg_select" value="10">10分钟</option>
+										<option class="bg_select" value="15">15分钟</option>
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2">自我介绍：</div>
+									<select class="unit_select ZZJS"  onchange="IsSelfIntroduction=$(this).val();set.changevoicer();">
+										
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<span style="font-size: 24px;color: #aaa;">*自我介绍设置在连续语音模式下无效</span>
+								</div>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">密码设置</div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">权限密码：</div>
+									<input type="text" class="textnet5 left"/>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2"></div>
+									<div class="textnet10 left" style="background: 0;"></div>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="reflash()">确定</button>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">电话设置</div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">服务电话：</div>
+									<input type="text" class="textnet6 left"/>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2"></div>
+									<div class="textnet10 left" style="background: 0;"></div>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="reflash()">确定</button>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">端点设置</div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">前端点：</div>
+									<input type="text" class="textnet1 left "/>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2">后端点：</div>
+									<input type="text" class="textnet2 left"/>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="reflash()">确定</button>
+							</div>
+						</div>
+
+						<div class="arow clearfix">
+							<div class="r-title">网络设置</div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">服务端IP：</div>
+									<input type="text" class="textnet3 left"/>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2">端口号：</div>
+									<input type="text" class="textnet4 left"/>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="$('#zhuce').css('display','block');reflash()">确定</button>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">充电设置</div>
+							<div class="r-tag clearfix"  style="border-bottom: 0;">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">自动充电：</div>
+									<select class="unit_select ZDCD" onchange="set.JJLDChidden($(this).val())">
+										<option class="bg_select" value="1">是</option>
+										<option class="bg_select" value="">否</option>
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2">低电量警戒值：</div>
+									<select class="unit_select DDLJJ" onchange="LowPower=$(this).val();">
+										<option class="bg_select" value="0">0%</option>
+										<option class="bg_select" value="10">10%</option>
+										<option class="bg_select" value="30">30%</option>
+										<option class="bg_select" value="50">50%</option>
+										<option class="bg_select" value="70">70%</option>
+									</select>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="reflash()">确定</button>
+							</div>
+						</div>
+						<div class="arow clearfix JJLDChidden">
+							<div class="r-title"></div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1"></div>
+									<div class="unit_select" style="background:0;"></div>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2">激光雷达充电：</div>
+									<select class="unit_select JJLD" onchange="IsRadarCharg=$(this).val();">
+										<option class="bg_select" value="1">是</option>
+										<option class="bg_select" value="">否</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">地图设置</div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">启用巡航：</div>
+									<select class="unit_select QYXH" onchange="StartCruise=$(this).val();">
+										<option class="bg_select" value="1">是</option>
+										<option class="bg_select" value="">否</option>
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2">重点停留时长：</div>
+									<select class="unit_select ZDTLSC" onchange="CruiseTime=$(this).val();">
+										<option class="bg_select" value="0">不停留</option>
+										<option class="bg_select" value="1">1分钟</option>
+										<option class="bg_select" value="2">2分钟</option>
+										<option class="bg_select" value="3">3分钟</option>
+										<option class="bg_select" value="5">5分钟</option>
+										<option class="bg_select" value="10">10分钟</option>
+										<option class="bg_select" value="15">15分钟</option>
+										<option class="bg_select" value="20">20分钟</option>
+										<option class="bg_select" value="25">25分钟</option>
+										<option class="bg_select" value="30">30分钟</option>
+									</select>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="reflash()">确定</button>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">巡航设置</div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">语音叫停：</div>
+									<select class="unit_select YYJT" onchange="IsCruiseInterrupt=$(this).val();">
+										<option class="bg_select" value="1">是</option>
+										<option class="bg_select" value="">否</option>
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2"></div>
+									<div class="textnet10 left" style="background: 0;"></div>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="set.SetConfigInfo();">确定</button>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">宣传互动</div>
+							<div class="r-tag clearfix"  style="border-bottom: 0;">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">是否摆臂：</div>
+									<select class="unit_select SFBB" onchange="IsRockArm=$(this).val();">
+										<option class="bg_select" value="1">是</option>
+										<option class="bg_select" value="">否</option>
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2">摆臂间隔(秒)：</div>
+									<input type="text" class="textnet7 left"/>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="reflash()">确定</button>
+							</div>
+						</div>
+						
+						<div class="arow clearfix">
+							<div class="r-title"></div>
+							<div class="r-tag clearfix">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1"></div>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">摆臂对象：</div>
+									<select class="unit_select YBBDX" onchange="RockArmStr=$(this).val();">
+										<option class="bg_select" value="All">双手</option>
+										<option class="bg_select" value="Left">左手</option>
+										<option class="bg_select" value="Right">右手</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">低温探测</div>
+							<div class="r-tag clearfix"  style="border-bottom: 0;">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">启动探测：</div>
+									<select class="unit_select QDTC" onchange="CameraAlarmBackground=$(this).val();">
+										<option class="bg_select" value="1">是</option>
+										<option class="bg_select" value="">否</option>
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2"></div>
+									<div class="textnet10 left" style="background: 0;"></div>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="reflash()">确定</button>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">转接人工</div>
+							<div class="r-tag clearfix"  style="border-bottom: 0;">
+								<div class="clearfix left unit">
+									<div class="left unit_tit1">开启提示：</div>
+									<select class="unit_select KQTS" onchange="CanTransfer=$(this).val();">
+										<option class="bg_select" value="1">是</option>
+										<option class="bg_select" value="">否</option>
+									</select>
+								</div>
+								<div class="clearfix left unit">
+									<div class="left unit_tit2"></div>
+									<div class="textnet10 left" style="background: 0;"></div>
+								</div>
+								<button class="btn btn-warning btn-mine left btn-sub" onclick="reflash()">确定</button>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">热点问题</div>
+							<div class="r-tag clearfix">
+								<button class="btn btn-warning btn-mine left btn-sub" style="width: 450px;" onclick="set.BackupHotProblems();">备份热点问题</button>
+							</div>
+						</div>
+						<div class="arow clearfix">
+							<div class="r-title">备份地图</div>
+							<div class="r-tag clearfix">
+								<button class="btn btn-warning btn-mine left btn-sub" style="width: 450px;" onclick="set.BackupMapInfo();">地图备份到本地</button>
+							</div>
+						</div>
+					</div>
+					<div class="encode clearfix">
+						<div class="r-encode" id="r-encode">
+
+						</div>
+						<div class="r-update clearfix">
+							<p>当前版本:<span class="CurrentVersion"></span>&nbsp;&nbsp;最新版本:<span class="NewestVersion"></span></p>
+							<p class="goup">注意：升级程序会重启机器人。</p>
+							<button class="btn btn-warning btn-mine left btn-up goup" onclick="set.jodo('升级')">升级</button>
+						</div>
+						<p class="banquan"><img src="img/server-r.jpg" height="50px">&nbsp;语音技术由科大讯飞提供。</p>
+					</div>
+				</div>
+				<div class="rebot" onclick="set.jodo('重启')"><img src="img/re.png" width="82px"></div>
+				<div class="offdown" onclick="set.jodo('关机')"> <img src="img/close.png" width="82px"></div>
+				<div class="home" onclick="parent.BackHome();"><img src="img/HOME.png" width="82px"></div>
+				<div id="tip">注册成功</div>
+				<div id="jodo">
+					<p>注意</p>
+					<p>即将执行"<span class="red" id="command"></span>"命令</p><p>请确认您的操作</p>
+					<div class="btnss"></div>
+				</div>
+				<div id="zhuce">
+					<p>注册</p>
+					<p>是否需要注册机器人？</p>
+					<button class="btn btn-danger btn-mine" onclick="set.RegisteredRobot()">注册</button>
+					<button class="btn btn-primary btn-mine" onclick="$('#zhuce').css('display','none')">取消</button>
+				</div>
+			</div>
+		</section>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="js/qrcode.min.js"></script>
+		<script src="js/virtualkeyboard.js"></script>
+		<script src="js/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+	</body>
+
+</html>

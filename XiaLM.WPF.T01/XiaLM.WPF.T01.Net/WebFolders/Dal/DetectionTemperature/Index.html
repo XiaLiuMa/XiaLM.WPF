@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="browsermode" content="application">
+		<meta name="x5-page-mode" content="app">
+		<title></title>
+		<link rel="stylesheet" href="../../rec/css/bootstrap.css" />
+		<link rel="stylesheet" href="../../rec/css/global.css" />
+		<link rel="stylesheet" href="css/v-black.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<section id="fullscreen" class="section">
+			<div class="title">低温探测</div>
+			<div class="mainpage">
+				<div class="leftarea">
+					<div class="ltop"></div>
+					<div class="lcenter">
+						<div class="f2">
+							<img alt="" class="leftimg" src="images/SUN.png" width="100%" height="100%" />
+						</div>
+					</div>
+					<div class="lbottom"></div>
+				</div>
+				<div class="rightarea">
+					<div class="ltop">
+						<div class="t2">
+							<span>温度:</span>
+							<span class="orange WD"></span>℃
+						</div>
+					</div>
+					<div class="lcenter">
+						
+						<div class="f2">
+							<img alt="" class="rightimg" src="images/RAD.png" width="100%" height="100%" />
+						</div>
+					</div>
+					<div class="lbottom">
+						<div class="t2">
+							<span>X坐标:</span>
+							<span class="orange XZB"></span>
+						</div>
+						<div class="t2">
+							<span>Y坐标:</span>
+							<span class="orange YZB"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="temperatureinput">
+				<div class="t1input">
+					<div class="t1inputunit">
+						<img src="images/w1.png" /><span>黑体温度</span><input type="number" class="HTWD" /><span>℃</span>
+					</div>
+					<div class="t1inputunit">
+						<img src="images/w2.png" /><span>黑体距离</span><input type="number" class="HTJL" /><span>cm</span>
+					</div>
+					<div class="t1btnunit">
+						<button class="btn" onclick="Temperature.CalibrationCoordinates()">确定</button>
+					</div>
+				</div>
+				<div class="t1input">
+					<div class="t1inputunit">
+						<img src="images/w2.png" /><span>最低温度</span><input class="ZDWD" type="number" /><span>℃</span>
+					</div>
+					<div class="t1inputunit">
+
+					</div>
+					<div class="t1btnunit">
+						<button class="btn" onclick="Temperature.SetThresholdValue()">确定</button>
+					</div>
+				</div>
+			</div>
+
+			<!--
+			 <div class="temperatureinfo">
+			 	<span class="orange">报警结果：</span>
+			 	<div class="temperatureinfo-unit">
+			 		<div class="t2">
+			 			<span>X坐标:</span>
+			 			<span class="orange XZB"></span>
+			 		</div>
+			 		<div class="t2">
+			 			<span>Y坐标:</span>
+			 			<span class="orange YZB"></span>
+			 		</div>
+			 		<div class="t2">
+			 			<span>温度:</span>
+			 			<span class="orange WD"></span>℃
+			 		</div>
+			 		<div class="t2">
+			 			<img src="" width="100%" class="img"/>
+			 		</div>
+			 	</div>
+			 </div>-->
+			<div class="tip"></div>
+			<div class="option" onclick="$('.temperatureinput').toggle()"><img src="images/option.png" width="82px"></div>
+			<div class="home" onclick="parent.BackHome();"><img src="images/HOME.png" width="82px"></div>
+		</section>
+		<div id="fail">
+			<p class="SF_cn">错误：001</p>
+			<p class="SF_en">error</p>
+		</div>
+		<script src="../../rec/Js/jquery-2.0.3.min.js"></script>
+		<script src="../../rec/Js/jquery.signalR-2.2.2.min.js"></script>
+		<script src="JS/virtualkeyboard.js"></script>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript" src="../../rec/Js/quickly.js"></script>
+		<script>
+			function audiotest() {
+
+			}
+		</script>
+
+	</body>
+
+</html>
