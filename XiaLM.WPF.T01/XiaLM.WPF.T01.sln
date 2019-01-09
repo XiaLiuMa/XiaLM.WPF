@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiaLM.Log", "Common\XiaLM.L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiaLM.Owin", "Common\XiaLM.Owin\XiaLM.Owin.csproj", "{8C6B231E-9485-44BD-81FE-7AF983BE091A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiaLM.P101.Web", "XiaLM.P101.Web\XiaLM.P101.Web.csproj", "{4D5A687A-4EBC-44DB-8D24-8EBAAA238AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XiaLM.P101.Api", "XiaLM.P101.Api\XiaLM.P101.Api.csproj", "{924D699C-F465-4D1F-B187-4296D7F8D68A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,14 @@ Global
 		{8C6B231E-9485-44BD-81FE-7AF983BE091A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C6B231E-9485-44BD-81FE-7AF983BE091A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C6B231E-9485-44BD-81FE-7AF983BE091A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5A687A-4EBC-44DB-8D24-8EBAAA238AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5A687A-4EBC-44DB-8D24-8EBAAA238AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5A687A-4EBC-44DB-8D24-8EBAAA238AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5A687A-4EBC-44DB-8D24-8EBAAA238AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924D699C-F465-4D1F-B187-4296D7F8D68A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924D699C-F465-4D1F-B187-4296D7F8D68A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924D699C-F465-4D1F-B187-4296D7F8D68A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924D699C-F465-4D1F-B187-4296D7F8D68A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
