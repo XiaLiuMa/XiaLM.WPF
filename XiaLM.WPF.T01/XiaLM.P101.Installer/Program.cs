@@ -21,7 +21,7 @@ namespace XiaLM.P101.Installer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainForm());
-            Application.Run(new InstallForm());
+            Application.Run(InstallForm.GetInstance());
         }
     }
 }

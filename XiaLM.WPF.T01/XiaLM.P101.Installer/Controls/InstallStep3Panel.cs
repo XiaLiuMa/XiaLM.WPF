@@ -37,7 +37,7 @@ namespace XiaLM.P101.Installer.Controls
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageRealize.GetInstance().SendMsg(new InstallStepJumpEventArgs(3)).Employ();
+            MessageRealize.GetInstance().SendMsg(new InstallStepJumpEventArgs(4)).Employ();
         }
     }
 }

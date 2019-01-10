@@ -35,24 +35,28 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(3, 27);
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Location = new System.Drawing.Point(2, 27);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Horizontal;
-            this.richTextBox1.Size = new System.Drawing.Size(538, 287);
+            this.richTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBox1.Size = new System.Drawing.Size(744, 287);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "\n\n\n\n\n\n\n";
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBox1.ForeColor = System.Drawing.Color.Tomato;
             this.checkBox1.Location = new System.Drawing.Point(35, 333);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(156, 16);
+            this.checkBox1.Size = new System.Drawing.Size(167, 16);
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "我已经阅读并同意此协议";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.AppearanceChanged += new System.EventHandler(this.checkBox1_AppearanceChanged);
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // button1
             // 
@@ -72,7 +76,7 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.richTextBox1);
             this.Name = "InstallStep1Panel";
-            this.Size = new System.Drawing.Size(544, 368);
+            this.Size = new System.Drawing.Size(750, 380);
             this.Load += new System.EventHandler(this.InstallStep1Panel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

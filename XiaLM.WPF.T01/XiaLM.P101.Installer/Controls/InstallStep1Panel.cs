@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using XiaLM.P101.Installer.Message;
 using XiaLM.P101.Installer.Message.Event_Args;
 using XiaLM.Utility;
+using System.IO;
 
 namespace XiaLM.P101.Installer.Controls
 {
@@ -23,9 +24,12 @@ namespace XiaLM.P101.Installer.Controls
         private void InstallStep1Panel_Load(object sender, EventArgs e)
         {
             if (!this.checkBox1.Checked) this.button1.Enabled = false;
+            var lines = File.ReadAllLines(AppDomain.CurrentDomain.BaseDirectory + @"协议许可.txt");
+            this.richTextBox1.Lines = lines;
         }
 
-        private void checkBox1_AppearanceChanged(object sender, EventArgs e)
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (!this.checkBox1.Checked) this.button1.Enabled = false;
             if (this.checkBox1.Checked) this.button1.Enabled = true;
@@ -40,5 +44,6 @@ namespace XiaLM.P101.Installer.Controls
         {
             MessageRealize.GetInstance().SendMsg(new InstallStepJumpEventArgs(2)).Employ();
         }
+       
     }
 }

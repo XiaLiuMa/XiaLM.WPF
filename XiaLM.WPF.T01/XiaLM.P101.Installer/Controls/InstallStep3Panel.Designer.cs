@@ -34,7 +34,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(524, 501);
+            this.button2.Location = new System.Drawing.Point(374, 232);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -44,7 +44,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(424, 501);
+            this.button1.Location = new System.Drawing.Point(274, 232);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -59,7 +59,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "InstallStep3Panel";
-            this.Size = new System.Drawing.Size(695, 543);
+            this.Size = new System.Drawing.Size(750, 380);
             this.ResumeLayout(false);
 
         }

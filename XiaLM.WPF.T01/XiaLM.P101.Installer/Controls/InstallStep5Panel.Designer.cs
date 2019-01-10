@@ -33,7 +33,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(555, 488);
+            this.button2.Location = new System.Drawing.Point(403, 257);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -47,7 +47,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button2);
             this.Name = "InstallStep5Panel";
-            this.Size = new System.Drawing.Size(686, 540);
+            this.Size = new System.Drawing.Size(750, 380);
             this.ResumeLayout(false);
 
         }

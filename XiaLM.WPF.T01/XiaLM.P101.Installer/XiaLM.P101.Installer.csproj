@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>XiaLM.P101.Installer</RootNamespace>
     <AssemblyName>XiaLM.P101.Installer</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -81,6 +82,12 @@
     </Compile>
     <Compile Include="Forms\InstallForm.Designer.cs">
       <DependentUpon>InstallForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateForm.Designer.cs">
+      <DependentUpon>UpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Message\Event_Args\InstallStepJumpEventArgs.cs" />
     <Compile Include="Message\IMessageEvent.cs" />
@@ -181,6 +188,11 @@
       <Project>{57DB69A1-9298-4014-8F74-7192474CA8A1}</Project>
       <Name>XiaLM.Utility</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="协议许可.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
