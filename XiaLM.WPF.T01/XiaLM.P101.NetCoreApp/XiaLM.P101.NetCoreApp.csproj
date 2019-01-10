@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>XiaLM.P101.NetCoreApp</AssemblyName>
+    <RootNamespace>XiaLM.P101.NetCoreApp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\About.cshtml" />
+    <None Include="Views\Home\Contact.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XiaLM.NetCoreUtility\XiaLM.NetCoreUtility.csproj" />
+    <ProjectReference Include="..\XiaLM.P101.NetCoreDb\XiaLM.P101.NetCoreDb.csproj" />
+    <ProjectReference Include="..\XiaLM.P101.NetCoreService\XiaLM.P101.NetCoreService.csproj" />
+  </ItemGroup>
+
+</Project>
