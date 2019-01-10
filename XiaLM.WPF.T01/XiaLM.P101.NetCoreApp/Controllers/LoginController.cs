@@ -35,10 +35,8 @@ namespace XiaLM.NetCoreT02.Controllers
                     //记录Session
                     HttpContext.Session.SetString("CurrentUserId", user.Id.ToString());
                     HttpContext.Session.Set("CurrentUser", ByteConvertHelper.Object2Bytes(user));
-                    ////跳转到系统首页
-                    //return RedirectToAction("Index", "Home");
                     //跳转到系统首页
-                    return RedirectToAction("Index", "Menu");
+                    return RedirectToAction("Index", "Home");
                 }
                 ViewBag.ErrorInfo = "用户名或密码错误。";
                 return View();

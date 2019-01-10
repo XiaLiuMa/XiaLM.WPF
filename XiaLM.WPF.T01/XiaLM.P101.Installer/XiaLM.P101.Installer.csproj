@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{439DC8BC-B081-4290-802F-0AA969E4723E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>XiaLM.P101.Installer</RootNamespace>
+    <AssemblyName>XiaLM.P101.Installer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\InstallStep1Panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InstallStep1Panel.Designer.cs">
+      <DependentUpon>InstallStep1Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InstallStep2Panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InstallStep2Panel.Designer.cs">
+      <DependentUpon>InstallStep2Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InstallStep3Panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InstallStep3Panel.Designer.cs">
+      <DependentUpon>InstallStep3Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InstallStep4Panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InstallStep4Panel.Designer.cs">
+      <DependentUpon>InstallStep4Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InstallStep5Panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InstallStep5Panel.Designer.cs">
+      <DependentUpon>InstallStep5Panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InstallForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InstallForm.Designer.cs">
+      <DependentUpon>InstallForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message\Event_Args\InstallStepJumpEventArgs.cs" />
+    <Compile Include="Message\IMessageEvent.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Message\MessageRealize.cs" />
+    <Compile Include="Message\ModuleComposePart.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\InstallStep1Panel.resx">
+      <DependentUpon>InstallStep1Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InstallStep2Panel.resx">
+      <DependentUpon>InstallStep2Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InstallStep3Panel.resx">
+      <DependentUpon>InstallStep3Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InstallStep4Panel.resx">
+      <DependentUpon>InstallStep4Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InstallStep5Panel.resx">
+      <DependentUpon>InstallStep5Panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InstallForm.resx">
+      <DependentUpon>InstallForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico-step-now.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico-step-succeed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leftbox-tbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leftbox-tbg_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\step-ico-bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\top-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\step1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XiaLM.Log\XiaLM.Log.csproj">
+      <Project>{D80BC582-6AF3-42AC-B6F9-EE563E72A2C5}</Project>
+      <Name>XiaLM.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XiaLM.Utility\XiaLM.Utility.csproj">
+      <Project>{57DB69A1-9298-4014-8F74-7192474CA8A1}</Project>
+      <Name>XiaLM.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

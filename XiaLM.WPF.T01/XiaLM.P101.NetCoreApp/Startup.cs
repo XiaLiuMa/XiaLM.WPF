@@ -38,22 +38,12 @@ namespace XiaLM.P101.NetCoreApp
             BaseMapper.Initialize();    //初始化映射关系
         }
 
-        
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// 此方法由运行时调用。使用此方法将服务添加到容器中。
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
-
-            //var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");//获取数据库连接字符串
-            //services.AddDbContext<BaseDBContext>(options => options.UseSqlServer(sqlConnectionString));
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-
             var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");//获取数据库连接字符串
             services.AddDbContext<BaseDBContext>(options => options.UseSqlServer(sqlConnectionString));
 
@@ -71,7 +61,12 @@ namespace XiaLM.P101.NetCoreApp
             services.AddSession();  //Session服务
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// 此方法由运行时调用。使用此方法配置HTTP请求管道
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
+        /// <param name="loggerFactory"></param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
