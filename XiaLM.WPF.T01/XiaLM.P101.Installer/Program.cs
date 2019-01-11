@@ -16,12 +16,17 @@ namespace XiaLM.P101.Installer
         [STAThread]
         static void Main()
         {
-            ModuleComposePart.GetInstance().Init();
-
+            MainInit();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MainForm());
             Application.Run(InstallForm.GetInstance());
+        }
+
+        private static void MainInit()
+        {
+            MainRealize.GetInstance().InitConfig();
+            ModuleComposePart.GetInstance().Init();
         }
     }
 }

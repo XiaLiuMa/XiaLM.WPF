@@ -90,8 +90,14 @@ namespace XiaLM.P101.NetCoreApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Login}/{action=Index}/{id?}");
+                    template: "{controller=Role}/{action=Index}/{id?}");
             });//使用Mvc，设置默认路由为系统登录
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Login}/{action=Index}/{id?}");
+            //});//使用Mvc，设置默认路由为系统登录
 
             SeedData.Initialize(app.ApplicationServices); //初始化数据
         }

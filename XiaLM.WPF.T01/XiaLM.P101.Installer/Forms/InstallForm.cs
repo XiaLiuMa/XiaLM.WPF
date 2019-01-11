@@ -45,66 +45,7 @@ namespace XiaLM.P101.Installer.Forms
         {
             JumpToStep(CurrentStep);
         }
-
-        //[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-        //public static extern IntPtr SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
-
-        //[DllImport("user32.dll", CharSet = CharSet.Unicode)]
-        //public static extern bool ReleaseCapture();
-
-        //protected override void OnMouseDown(MouseEventArgs e)
-        //{
-        //    const int WM_NCLBUTTONDOWN = 0x00A1;
-        //    const int HTCAPTION = 2;
-
-        //    base.OnMouseDown(e);
-        //    if (e.Button == MouseButtons.Left)  // 按下的是鼠标左键                  
-        //    {
-        //        ReleaseCapture();   // 释放捕获                     
-        //        SendMessage(this.Handle, WM_NCLBUTTONDOWN, (IntPtr)HTCAPTION, IntPtr.Zero);    // 拖动窗体                  
-        //    }
-        //}
-
-
-
-        //private bool m_isMouseDown = false;
-        //private Point m_mousePos = new Point();
-        //protected override void OnMouseDown(MouseEventArgs e)
-        //{
-        //    base.OnMouseDown(e);
-        //    m_mousePos = Cursor.Position;
-        //    m_isMouseDown = true;
-        //}
-        //protected override void OnMouseUp(MouseEventArgs e)
-        //{
-        //    base.OnMouseUp(e);
-        //    m_isMouseDown = false;
-        //}
-        //protected override void OnMouseMove(MouseEventArgs e)
-        //{
-        //    base.OnMouseMove(e);
-        //    if (m_isMouseDown)
-        //    {
-        //        Point tempPos = Cursor.Position;
-        //        this.Location = new Point(Location.X + (tempPos.X - m_mousePos.X), Location.Y + (tempPos.Y - m_mousePos.Y));
-        //        m_mousePos = Cursor.Position;
-        //    }
-        //}
-
-
-        private void DrawLine()
-        {
-            Pen p = new Pen(Color.Blue, 5);//设置笔的粗细为,颜色为蓝色
-            Graphics g = this.CreateGraphics();
-            p.DashStyle = DashStyle.Dot;//定义虚线的样式为点
-            g.DrawLine(p, 10, 10, 200, 10);
-            //自定义虚线
-            p.DashPattern = new float[] { 2, 1 };//设置短划线和空白部分的数组
-            g.DrawLine(p, 10, 20, 200, 20);
-            g.Dispose();
-            p.Dispose();
-        }
-
+        
         /// <summary>
         /// 跳转到指定步骤
         /// </summary>

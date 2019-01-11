@@ -9,13 +9,17 @@ namespace XiaLM.P101.NetCoreApp.Controllers
 {
     public class BaseController : Controller
     {
+        /// <summary>
+        /// session用户登陆验证
+        /// </summary>
+        /// <param name="filterContext"></param>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             byte[] result;
             filterContext.HttpContext.Session.TryGetValue("CurrentUser", out result);
             if (result == null)
             {
-                filterContext.Result = new RedirectResult("/Login/Index");
+                //filterContext.Result = new RedirectResult("/Login/Index");
                 return;
             }
             base.OnActionExecuting(filterContext);

@@ -21,8 +21,9 @@ namespace XiaLM.P101.NetCoreApp.Components
 
         public IViewComponentResult Invoke()
         {
-            var userId = HttpContext.Session.GetString("CurrentUserId");
-            var menus = _menuService.GetMenusByUser(Guid.Parse(userId));
+            //var userId = HttpContext.Session.GetString("CurrentUserId");
+            //var menus = _menuService.GetMenusByUser(Guid.Parse(userId));
+            var menus = _menuService.GetMenusByUser(Guid.NewGuid());
             return View(menus);
         }
     }
