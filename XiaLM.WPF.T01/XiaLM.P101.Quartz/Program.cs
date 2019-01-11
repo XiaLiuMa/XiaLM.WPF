@@ -8,20 +8,28 @@ namespace XiaLM.P101.Quartz
     {
         static void Main(string[] args)
         {
-            new TestTask().StartTestAsync();
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            System.Threading.Mutex mutex = new System.Threading.Mutex(false, "XiaLM.P101.Quartz");
+            bool Running = !mutex.WaitOne(0, false);
+            if (!Running)
+            {
+                //new TestTask().StartTestAsync();
+                var host = new WebHostBuilder()
+                    .UseContentRoot(Directory.GetCurrentDirectory())
+                    .UseKestrel()
+                    .UseUrls("http://localhost:5000")
+                    //.UseIISIntegration()
+                    .UseStartup<Startup>()
+                    .Build();
+                host.Run();
 
-            Console.ReadKey();
+                while (true) Console.ReadKey();
+            }
+        }
 
-
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseUrls("http://localhost:8000")
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
-
-            host.Run();
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
