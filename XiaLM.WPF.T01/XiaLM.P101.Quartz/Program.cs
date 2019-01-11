@@ -13,24 +13,15 @@ namespace XiaLM.P101.Quartz
             Console.ReadKey();
 
 
-
-
-
-
-
-
-
-
-
             var host = new WebHostBuilder()
-                .UseNowin()
+                .UseKestrel()
+                .UseUrls("http://localhost:8000")
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
 
             host.Run();
-
         }
     }
 }
