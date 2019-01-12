@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using XiaLM.P101.Quartz.Hubs;
 
 namespace XiaLM.P101.Quartz
 {
@@ -49,6 +50,7 @@ namespace XiaLM.P101.Quartz
             //services.AddMvc();
 
             //services.AddSession();  //Session服务
+            services.AddSignalR();
         }
 
         ///// <summary>
@@ -76,6 +78,12 @@ namespace XiaLM.P101.Quartz
         public void Configure(IApplicationBuilder app)
         {
             app.UseOwin(x => x.UseNancy());
+
+            app.UseSignalR(route =>
+            {
+                route.MapHub<MyChatHub>("/myChathub");
+            });
+
         }
     }
 }

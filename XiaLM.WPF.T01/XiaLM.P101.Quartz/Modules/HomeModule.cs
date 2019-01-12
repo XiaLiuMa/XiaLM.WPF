@@ -9,7 +9,8 @@ namespace XiaLM.P101.Quartz.Modules
     {
         public HomeModule()
         {
-            Get("/", args => "Hello World, it's Nancy on .NET Core");
+            Get("/api", args => "Hello World, it's Nancy on .NET Core");
+            Get("/", p => View["chat.html"]);  //返回视图
         }
     }
 
