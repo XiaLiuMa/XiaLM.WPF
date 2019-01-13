@@ -13,12 +13,10 @@ namespace XiaLM.P101.Quartz
             bool Running = !mutex.WaitOne(0, false);
             if (!Running)
             {
-                //new TestTask().StartTestAsync();
                 var host = new WebHostBuilder()
                     .UseContentRoot(Directory.GetCurrentDirectory())
                     .UseKestrel()
                     .UseUrls("http://localhost:5000")
-                    //.UseIISIntegration()
                     .UseStartup<Startup>()
                     .Build();
                 host.Run();

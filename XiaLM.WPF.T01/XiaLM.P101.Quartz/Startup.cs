@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -9,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using XiaLM.P101.Quartz.Db;
+using XiaLM.P101.Quartz.Db.IManaments;
+using XiaLM.P101.Quartz.Db.Manaments;
 using XiaLM.P101.Quartz.Hubs;
 
 namespace XiaLM.P101.Quartz
@@ -26,7 +30,7 @@ namespace XiaLM.P101.Quartz
             //builder.AddEnvironmentVariables();
             //Configuration = builder.Build();
 
-            //BaseMapper.Initialize();    //初始化映射关系
+            BaseMapper.Initialize();    //初始化映射关系
         }
 
         /// <summary>
@@ -38,16 +42,8 @@ namespace XiaLM.P101.Quartz
             //var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");//获取数据库连接字符串
             //services.AddDbContext<BaseDBContext>(options => options.UseSqlServer(sqlConnectionString));
 
-            ////依赖注入
-            //services.AddScoped<IUserRepository, UserRepository>();
-            //services.AddScoped<IUserService, UserService>();
-            //services.AddScoped<IMenuRepository, MenuRepository>();
-            //services.AddScoped<IMenuService, MenuService>();
-            //services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-            //services.AddScoped<IDepartmentService, DepartmentService>();
-            //services.AddScoped<IRoleRepository, RoleRepository>();
-            //services.AddScoped<IRoleService, RoleService>();
-            //services.AddMvc();
+            //依赖注入
+            services.AddScoped<IScheduleManament, ScheduleManament>();
 
             //services.AddSession();  //Session服务
             services.AddSignalR();
@@ -81,7 +77,7 @@ namespace XiaLM.P101.Quartz
 
             app.UseSignalR(route =>
             {
-                route.MapHub<MyChatHub>("/myChathub");
+                route.MapHub<HelloHub>("/myChathub");
             });
 
         }
