@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using XiaLM.P101.Quartz.Db.Entities;
 using XiaLM.P101.Quartz.Scheduler;
+using XiaLM.P101.Quartz.Scheduler.Models;
 
 namespace XiaLM.P101.Quartz
 {
@@ -13,7 +14,8 @@ namespace XiaLM.P101.Quartz
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Tb_Schedule, ScheduleEntity>();
+                cfg.CreateMap<Tb_Schedule, Schedule>();
+                cfg.CreateMap<Schedule, Tb_Schedule>();
             });
         }
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XiaLM.P101.Quartz.Jobs
+namespace XiaLM.P101.Quartz.Scheduler.Jobs
 {
     public class HelloJob : IJob
     {

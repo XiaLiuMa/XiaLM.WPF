@@ -1,13 +1,10 @@
 ﻿using Quartz;
 using Quartz.Impl;
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Text;
 using System.Threading.Tasks;
-using XiaLM.P101.Quartz.Jobs;
 
-namespace XiaLM.P101.Quartz
+namespace XiaLM.P101.Quartz.Scheduler.Jobs
 {
     public class TestTask
     {

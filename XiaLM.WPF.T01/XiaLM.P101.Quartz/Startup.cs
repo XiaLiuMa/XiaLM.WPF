@@ -13,7 +13,7 @@ using System.Text;
 using XiaLM.P101.Quartz.Db;
 using XiaLM.P101.Quartz.Db.IManaments;
 using XiaLM.P101.Quartz.Db.Manaments;
-using XiaLM.P101.Quartz.Hubs;
+using XiaLM.P101.Quartz.App.Hubs;
 
 namespace XiaLM.P101.Quartz
 {
@@ -23,12 +23,12 @@ namespace XiaLM.P101.Quartz
 
         public Startup(IHostingEnvironment env)
         {
-            //var builder = new ConfigurationBuilder()
-            //    .SetBasePath(env.ContentRootPath)
-            //    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-            //    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-            //builder.AddEnvironmentVariables();
-            //Configuration = builder.Build();
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+            builder.AddEnvironmentVariables();
+            Configuration = builder.Build();
 
             BaseMapper.Initialize();    //初始化映射关系
         }
@@ -39,8 +39,8 @@ namespace XiaLM.P101.Quartz
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            //var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");//获取数据库连接字符串
-            //services.AddDbContext<BaseDBContext>(options => options.UseSqlServer(sqlConnectionString));
+            var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");//获取数据库连接字符串
+            services.AddDbContext<BaseDBContext>(options => options.UseSqlServer(sqlConnectionString));
 
             //依赖注入
             services.AddScoped<IScheduleManament, ScheduleManament>();
@@ -77,9 +77,9 @@ namespace XiaLM.P101.Quartz
 
             app.UseSignalR(route =>
             {
-                route.MapHub<HelloHub>("/myChathub");
+                route.MapHub<HomeHub>("/myHomehub");
             });
-
+            SeedData.Initialize(app.ApplicationServices); //初始化数据
         }
     }
 }

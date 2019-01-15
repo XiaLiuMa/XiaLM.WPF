@@ -28,7 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="App\Views\Home\chat.html">
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="App\Views\Home\home.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

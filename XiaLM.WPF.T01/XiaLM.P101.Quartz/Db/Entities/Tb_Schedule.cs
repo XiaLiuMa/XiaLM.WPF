@@ -18,10 +18,6 @@ namespace XiaLM.P101.Quartz.Db.Entities
         /// </summary>
         public string JobGroup { get; set; }
         /// <summary>
-        /// 状态， 0 暂停任务；1 启用任务
-        /// </summary>
-        public int JobStatus { get; set; }
-        /// <summary>
         /// 任务运行时间表达式
         /// </summary>
         public string Cron { get; set; }

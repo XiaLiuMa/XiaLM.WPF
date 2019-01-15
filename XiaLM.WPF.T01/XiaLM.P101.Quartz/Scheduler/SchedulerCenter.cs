@@ -3,8 +3,10 @@ using Quartz.Impl;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
+using XiaLM.P101.Quartz.Common;
+using XiaLM.P101.Quartz.Scheduler.Models;
 
 namespace XiaLM.P101.Quartz.Scheduler
 {
@@ -13,18 +15,32 @@ namespace XiaLM.P101.Quartz.Scheduler
     /// </summary>
     public class SchedulerCenter
     {
-        /// <summary>
-        /// 任务调度对象
-        /// </summary>
-        public static readonly SchedulerCenter Instance;
-        static SchedulerCenter()
+        public List<Schedule> ScheduleList; //任务计划列表
+        private static SchedulerCenter instance;
+        private readonly static object objLock = new object();
+        public SchedulerCenter()
         {
-            Instance = new SchedulerCenter();
+            ScheduleList = new List<Schedule>();
         }
-        private Task<IScheduler> _scheduler;
 
+        public static SchedulerCenter GetInstance()
+        {
+            if (instance == null)
+            {
+                lock (objLock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new SchedulerCenter();
+                    }
+                }
+            }
+            return instance;
+        }
+
+        private Task<IScheduler> _scheduler;
         /// <summary>
-        /// 返回任务计划（调度器）
+        /// 任务调度器
         /// </summary>
         /// <returns></returns>
         private Task<IScheduler> Scheduler
@@ -35,49 +51,90 @@ namespace XiaLM.P101.Quartz.Scheduler
                 {
                     return this._scheduler;
                 }
-                // 从Factory中获取Scheduler实例
                 NameValueCollection props = new NameValueCollection
                 {
-                    { "quartz.serializer.type", "binary" },
-                    //以下配置需要数据库表配合使用，表结构sql地址：https://github.com/quartznet/quartznet/tree/master/database/tables
+                    { "quartz.serializer.type", "binary" }
+                    #region 以下配置需要数据库表配合使用，表结构sql地址：https://github.com/quartznet/quartznet/tree/master/database/tables
                     //{ "quartz.jobStore.type","Quartz.Impl.AdoJobStore.JobStoreTX, Quartz"},
                     //{ "quartz.jobStore.driverDelegateType","Quartz.Impl.AdoJobStore.StdAdoDelegate, Quartz"},
                     //{ "quartz.jobStore.tablePrefix","QRTZ_"},
                     //{ "quartz.jobStore.dataSource","myDS"},
                     //{ "quartz.dataSource.myDS.connectionString",AppSettingHelper.MysqlConnection},//连接字符串
                     //{ "quartz.dataSource.myDS.provider","MySql"},
-                    //{ "quartz.jobStore.useProperties","true"}
-
+                    //{ "quartz.jobStore.useProperties","true"} 
+	                #endregion
                 };
                 StdSchedulerFactory factory = new StdSchedulerFactory(props);
-                return this._scheduler = factory.GetScheduler();
+                return this._scheduler = factory.GetScheduler();    //从Factory中获取Scheduler实例
             }
         }
 
         /// <summary>
-        /// 运行指定的计划(映射处理IJob实现类)
+        /// 获取任务计划列表
         /// </summary>
-        /// <param name="jobGroup">任务分组</param>
-        /// <param name="jobName">任务名称</param>
-        /// <returns></returns>
-        public async Task<BaseQuartzNetResult> RunScheduleJob<T>(string jobGroup, string jobName) where T : ScheduleManage
+        public List<Schedule> GetScheduleList()
         {
-            BaseQuartzNetResult result;
-            //开启调度器
-            await this.Scheduler.Result.Start();
-            //创建指定泛型类型参数指定的类型实例
-            T t = Activator.CreateInstance<T>();
-            //获取任务实例
-            ScheduleEntity scheduleModel = t.GetScheduleModel(jobGroup, jobName);
-            //添加任务
-            var addResult = AddScheduleJob(scheduleModel).Result;
-            if (addResult.Code == 1000)
+            return ScheduleList;
+        }
+
+        /// <summary>
+        /// 开启任务调度器
+        /// </summary>
+        public async void StartScheduleAsync()
+        {
+            if (!this.Scheduler.Result.IsStarted) await this.Scheduler.Result.Start();
+        }
+
+        /// <summary>
+        /// 停止任务调度器
+        /// </summary>
+        public async void StopScheduleAsync()
+        {
+            if (!this.Scheduler.Result.IsShutdown) await this.Scheduler.Result.Shutdown();
+        }
+
+        /// <summary>
+        /// 运行指定的计划
+        /// </summary>
+        /// <param name="schedule">jobId</param>
+        /// <returns></returns>
+        public async Task<BaseQuartzResult> RunScheduleJob(Schedule schedule)
+        {
+            StartScheduleAsync();
+            BaseQuartzResult result;
+            var runResult = await Task.Factory.StartNew(async () =>
             {
-                scheduleModel.Status = EnumType.JobStatus.已启用;
-                t.UpdateScheduleStatus(scheduleModel);
-                //用给定的密钥恢复（取消暂停）IJobDetail
-                await this.Scheduler.Result.ResumeJob(new JobKey(jobName, jobGroup));
-                result = new BaseQuartzNetResult
+                var result1 = new BaseQuartzResult();
+                try
+                {
+                    var jobType = AssemblyHandler.GetClassType(schedule.AssemblyName, $"{schedule.AssemblyName}.{schedule.ClassName}");  //反射获取任务执行类
+                    IJobDetail job = new JobDetailImpl(schedule.JobName, schedule.JobGroup, jobType);   // 定义这个工作，并将其绑定到我们的IJob实现类
+                    ITrigger trigger;   // 创建触发器
+                    if (!string.IsNullOrEmpty(schedule.Cron) && CronExpression.IsValidExpression(schedule.Cron))  //校验是否正确的执行周期表达式
+                    {
+                        trigger = CreateCronTrigger(schedule);
+                    }
+                    else
+                    {
+                        trigger = CreateSimpleTrigger(schedule);
+                    }
+
+                    await this.Scheduler.Result.ScheduleJob(job, trigger);  // 告诉Quartz使用我们的触发器来安排作业
+                    result1.Code = 1000;
+                }
+                catch (Exception ex)
+                {
+                    result1.Code = 1001;
+                    result1.Msg = ex.Message;
+                }
+                return result1;
+            });
+
+            if (runResult.Result.Code == 1000)
+            {
+                ScheduleList.Where(p => p.Id.Equals(schedule.Id)).FirstOrDefault().Status = EnumType.JobStatus.Running;
+                await this.Scheduler.Result.ResumeJob(new JobKey(schedule.JobName, schedule.JobGroup));   //用给定的密钥恢复（取消暂停）IJobDetail
+                result = new BaseQuartzResult
                 {
                     Code = 1000,
                     Msg = "启动成功"
@@ -85,166 +142,30 @@ namespace XiaLM.P101.Quartz.Scheduler
             }
             else
             {
-                result = new BaseQuartzNetResult
+                result = new BaseQuartzResult
                 {
                     Code = -1
                 };
             }
             return result;
         }
+
         /// <summary>
-        /// 添加一个工作调度（映射程序集指定IJob实现类）
+        /// 停止指定的计划
         /// </summary>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        private async Task<BaseQuartzNetResult> AddScheduleJob(ScheduleEntity m)
-        {
-            var result = new BaseQuartzNetResult();
-            try
-            {
-
-                //检查任务是否已存在
-                var jk = new JobKey(m.JobName, m.JobGroup);
-                if (await this.Scheduler.Result.CheckExists(jk))
-                {
-                    //删除已经存在任务
-                    await this.Scheduler.Result.DeleteJob(jk);
-                }
-                //反射获取任务执行类
-                var jobType = FileHelper.GetAbsolutePath(m.AssemblyName, m.AssemblyName + "." + m.ClassName);
-                // 定义这个工作，并将其绑定到我们的IJob实现类
-                IJobDetail job = new JobDetailImpl(m.JobName, m.JobGroup, jobType);
-                //IJobDetail job = JobBuilder.CreateForAsync<T>().WithIdentity(m.JobName, m.JobGroup).Build();
-                // 创建触发器
-                ITrigger trigger;
-                //校验是否正确的执行周期表达式
-                if (!string.IsNullOrEmpty(m.Cron) && CronExpression.IsValidExpression(m.Cron))
-                {
-                    trigger = CreateCronTrigger(m);
-                }
-                else
-                {
-                    trigger = CreateSimpleTrigger(m);
-                }
-
-                // 告诉Quartz使用我们的触发器来安排作业
-                await this.Scheduler.Result.ScheduleJob(job, trigger);
-
-                result.Code = 1000;
-            }
-            catch (Exception ex)
-            {
-                await Console.Out.WriteLineAsync(string.Format("添加任务出错{0}", ex.Message));
-                result.Code = 1001;
-                result.Msg = ex.Message;
-            }
-            return result;
-        }
-        /// <summary>
-        /// 运行指定的计划(泛型指定IJob实现类)
-        /// </summary>
-        /// <param name="jobGroup">任务分组</param>
-        /// <param name="jobName">任务名称</param>
-        /// <returns></returns>
-        public async Task<BaseQuartzNetResult> RunScheduleJob<T, V>(string jobGroup, string jobName) where T : ScheduleManage, new() where V : IJob
-        {
-            BaseQuartzNetResult result;
-            //开启调度器
-            await this.Scheduler.Result.Start();
-            //创建指定泛型类型参数指定的类型实例
-            T t = Activator.CreateInstance<T>();
-            //获取任务实例
-            ScheduleEntity scheduleModel = t.GetScheduleModel(jobGroup, jobName);
-            //添加任务
-            var addResult = AddScheduleJob<V>(scheduleModel).Result;
-            if (addResult.Code == 1000)
-            {
-                scheduleModel.Status = EnumType.JobStatus.已启用;
-                t.UpdateScheduleStatus(scheduleModel);
-                //用给定的密钥恢复（取消暂停）IJobDetail
-                await this.Scheduler.Result.ResumeJob(new JobKey(jobName, jobGroup));
-                result = new BaseQuartzNetResult
-                {
-                    Code = 1000,
-                    Msg = "启动成功"
-                };
-            }
-            else
-            {
-                result = new BaseQuartzNetResult
-                {
-                    Code = -1
-                };
-            }
-            return result;
-        }
-        /// <summary>
-        /// 添加任务调度（指定IJob实现类）
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        private async Task<BaseQuartzNetResult> AddScheduleJob<T>(ScheduleEntity m) where T : IJob
-        {
-            var result = new BaseQuartzNetResult();
-            try
-            {
-
-                //检查任务是否已存在
-                var jk = new JobKey(m.JobName, m.JobGroup);
-                if (await this.Scheduler.Result.CheckExists(jk))
-                {
-                    //删除已经存在任务
-                    await this.Scheduler.Result.DeleteJob(jk);
-                }
-                //反射获取任务执行类
-                // var jobType = FileHelper.GetAbsolutePath(m.AssemblyName, m.AssemblyName + "." + m.ClassName);
-                // 定义这个工作，并将其绑定到我们的IJob实现类
-                //IJobDetail job = new JobDetailImpl(m.JobName, m.JobGroup, jobType);
-                IJobDetail job = JobBuilder.CreateForAsync<T>().WithIdentity(m.JobName, m.JobGroup).Build();
-                // 创建触发器
-                ITrigger trigger;
-                //校验是否正确的执行周期表达式
-                if (!string.IsNullOrEmpty(m.Cron) && CronExpression.IsValidExpression(m.Cron))
-                {
-                    trigger = CreateCronTrigger(m);
-                }
-                else
-                {
-                    trigger = CreateSimpleTrigger(m);
-                }
-
-                // 告诉Quartz使用我们的触发器来安排作业
-                await this.Scheduler.Result.ScheduleJob(job, trigger);
-
-                result.Code = 1000;
-            }
-            catch (Exception ex)
-            {
-                await Console.Out.WriteLineAsync(string.Format("添加任务出错", ex.Message));
-                result.Code = 1001;
-                result.Msg = ex.Message;
-            }
-            return result;
-        }
-        /// <summary>
-        /// 暂停指定的计划
-        /// </summary>
-        /// <param name="jobGroup">任务分组</param>
-        /// <param name="jobName">任务名称</param>
+        /// <param name="jobId">jobId</param>
         /// <param name="isDelete">停止并删除任务</param>
         /// <returns></returns>
-        public BaseQuartzNetResult StopScheduleJob<T>(string jobGroup, string jobName, bool isDelete = false) where T : ScheduleManage, new()
+        public BaseQuartzResult StopScheduleJob(Guid jobId, bool isDelete = false)
         {
-            BaseQuartzNetResult result;
+            StartScheduleAsync();
+            BaseQuartzResult result;
             try
             {
-                this.Scheduler.Result.PauseJob(new JobKey(jobName, jobGroup));
-                if (isDelete)
-                {
-                    Activator.CreateInstance<T>().RemoveScheduleModel(jobGroup, jobName);
-                }
-                result = new BaseQuartzNetResult
+                Schedule schedule = ScheduleList.Where(p => p.Id.Equals(jobId)).FirstOrDefault(); //获取任务实例
+                this.Scheduler.Result.PauseJob(new JobKey(schedule.JobName, schedule.JobGroup));
+                if (isDelete) ScheduleList.Remove(schedule); //从列表移除
+                result = new BaseQuartzResult
                 {
                     Code = 1000,
                     Msg = "停止任务计划成功！"
@@ -252,7 +173,7 @@ namespace XiaLM.P101.Quartz.Scheduler
             }
             catch (Exception ex)
             {
-                result = new BaseQuartzNetResult
+                result = new BaseQuartzResult
                 {
                     Code = -1,
                     Msg = "停止任务计划失败"
@@ -260,22 +181,22 @@ namespace XiaLM.P101.Quartz.Scheduler
             }
             return result;
         }
+
         /// <summary>
-        /// 恢复运行暂停的任务
+        /// 恢复运行(被暂停的)计划
         /// </summary>
-        /// <param name="jobName">任务名称</param>
-        /// <param name="jobGroup">任务分组</param>
-        public async void ResumeJob(string jobName, string jobGroup)
+        /// <param name="jobId">jobId</param>
+        public async void ResumeJob(Guid jobId)
         {
+            StartScheduleAsync();
             try
             {
-                //检查任务是否存在
-                var jk = new JobKey(jobName, jobGroup);
-                if (await this.Scheduler.Result.CheckExists(jk))
+                Schedule schedule = ScheduleList.Where(p => p.Id.Equals(jobId)).FirstOrDefault(); //获取任务实例
+                var jk = new JobKey(schedule.JobName, schedule.JobGroup);
+                if (await this.Scheduler.Result.CheckExists(jk))    //检查任务是否存在
                 {
-                    //任务已经存在则暂停任务
-                    await this.Scheduler.Result.ResumeJob(jk);
-                    await Console.Out.WriteLineAsync(string.Format("任务“{0}”恢复运行", jobName));
+                    await this.Scheduler.Result.ResumeJob(jk);  //任务已经存在则暂停任务
+                    await Console.Out.WriteLineAsync(string.Format("任务“{0}”恢复运行", schedule.JobName));
                 }
             }
             catch (Exception ex)
@@ -285,31 +206,11 @@ namespace XiaLM.P101.Quartz.Scheduler
         }
 
         /// <summary>
-        /// 停止任务调度
-        /// </summary>
-        public async void StopScheduleAsync()
-        {
-            try
-            {
-                //判断调度是否已经关闭
-                if (!this.Scheduler.Result.IsShutdown)
-                {
-                    //等待任务运行完成
-                    await this.Scheduler.Result.Shutdown();
-                    await Console.Out.WriteLineAsync("任务调度停止！");
-                }
-            }
-            catch (Exception ex)
-            {
-                await Console.Out.WriteLineAsync(string.Format("任务调度停止失败！", ex));
-            }
-        }
-        /// <summary>
         /// 创建类型Simple的触发器
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        private ITrigger CreateSimpleTrigger(ScheduleEntity m)
+        private ITrigger CreateSimpleTrigger(Schedule m)
         {
             //作业触发器
             if (m.RunTimes > 0)
@@ -338,12 +239,13 @@ namespace XiaLM.P101.Quartz.Scheduler
             }
 
         }
+
         /// <summary>
         /// 创建类型Cron的触发器
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        private ITrigger CreateCronTrigger(ScheduleEntity m)
+        private ITrigger CreateCronTrigger(Schedule m)
         {
             // 作业触发器
             return TriggerBuilder.Create()
