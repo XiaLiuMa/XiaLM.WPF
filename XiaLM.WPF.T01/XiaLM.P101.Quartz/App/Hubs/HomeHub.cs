@@ -66,5 +66,13 @@ namespace XiaLM.P101.Quartz.App.Hubs
             return true;
         }
 
+        public void sendOne(string message)
+        {
+            
+        }
+        public void send(string message)
+        {
+
+        }
     }
 }

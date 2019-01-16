@@ -49,7 +49,7 @@ namespace XiaLM.P101.Quartz
             app.UseOwin(x => x.UseNancy());
             app.UseSignalR(route =>
             {
-                route.MapHub<HomeHub>("/myHomehub");
+                route.MapHub<HomeHub>("/chat");
             });
             SeedData.Initialize(app.ApplicationServices); //初始化数据
         }

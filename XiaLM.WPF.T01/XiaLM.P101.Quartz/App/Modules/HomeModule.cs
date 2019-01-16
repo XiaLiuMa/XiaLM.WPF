@@ -23,7 +23,7 @@ namespace XiaLM.P101.Quartz.App.Modules
         public HomeModule()
         {
             Get("/api", args => "Hello World, it's Nancy on .NET Core");
-            Get("/", p => View["home.html"]);  //返回视图
+            Get("/", p => View["App/Views/Home/home.html"]);  //返回视图
 
             Post("/Home/PushAlarm", p =>    //报警推送
             {
