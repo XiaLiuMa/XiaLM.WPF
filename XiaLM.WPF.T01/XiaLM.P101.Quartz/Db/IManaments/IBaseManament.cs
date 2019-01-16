@@ -12,7 +12,7 @@ namespace XiaLM.P101.Quartz.Db.IManaments
     /// </summary>
     /// <typeparam name="TEntity">实体类型</typeparam>
     /// <typeparam name="TPrimaryKey">主键类型</typeparam>
-    public interface IBaseManament<TEntity, TPrimaryKey>  where TEntity : BaseEntity<TPrimaryKey>
+    public interface IBaseManament<TEntity, TPrimaryKey> where TEntity : BaseEntity<TPrimaryKey>
     {
         /// <summary>
         /// 获取实体集合

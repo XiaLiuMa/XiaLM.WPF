@@ -3,13 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Logging;
 using Nancy.Owin;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 using XiaLM.P101.Quartz.Db;
 using XiaLM.P101.Quartz.Db.IManaments;
 using XiaLM.P101.Quartz.Db.Manaments;
@@ -41,31 +35,10 @@ namespace XiaLM.P101.Quartz
         {
             var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");//获取数据库连接字符串
             services.AddDbContext<BaseDBContext>(options => options.UseSqlServer(sqlConnectionString));
-
+            services.AddSignalR();
             //依赖注入
             services.AddScoped<IScheduleManament, ScheduleManament>();
-
-            //services.AddSession();  //Session服务
-            services.AddSignalR();
         }
-
-        ///// <summary>
-        ///// 此方法由运行时调用。使用此方法配置HTTP请求管道
-        ///// </summary>
-        ///// <param name="app"></param>
-        ///// <param name="env"></param>
-        ///// <param name="loggerFactory"></param>
-        //public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        //{
-        //    //loggerFactory.AddConsole();
-
-        //    if (env.IsDevelopment())
-        //    {
-        //        app.UseDeveloperExceptionPage();//开发环境异常处理
-        //    }
-
-        //    app.UseOwin(x => x.UseNancy());
-        //}
 
         /// <summary>
         /// 此方法由运行时调用。使用此方法配置HTTP请求管道
@@ -74,7 +47,6 @@ namespace XiaLM.P101.Quartz
         public void Configure(IApplicationBuilder app)
         {
             app.UseOwin(x => x.UseNancy());
-
             app.UseSignalR(route =>
             {
                 route.MapHub<HomeHub>("/myHomehub");

@@ -10,8 +10,8 @@ using XiaLM.P101.Quartz.Db;
 namespace XiaLM.P101.Quartz.Migrations
 {
     [DbContext(typeof(BaseDBContext))]
-    [Migration("20190115082311_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190116022040_001")]
+    partial class _001
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -7,7 +7,7 @@ namespace XiaLM.P101.Quartz.Db.Entities
     /// <summary>
     /// 任务计划表
     /// </summary>
-    public class Tb_Schedule : BaseEntity
+    public class ScheduleEntity : BaseEntity
     {
         /// <summary>
         /// 任务名称

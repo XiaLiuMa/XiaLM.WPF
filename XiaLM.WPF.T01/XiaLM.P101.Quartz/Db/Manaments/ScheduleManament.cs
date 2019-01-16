@@ -7,9 +7,11 @@ using XiaLM.P101.Quartz.Db.IManaments;
 
 namespace XiaLM.P101.Quartz.Db.Manaments
 {
-    public class ScheduleManament : BaseManament<Tb_Schedule>, IScheduleManament
+    public class ScheduleManament : BaseManament<ScheduleEntity, Guid>, IScheduleManament
     {
-        public ScheduleManament(BaseDBContext dbcontext) : base(dbcontext) { }
+        public ScheduleManament(BaseDBContext dbcontext) : base(dbcontext)
+        {
+        }
 
     }
 }

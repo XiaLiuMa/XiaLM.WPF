@@ -12,12 +12,12 @@ namespace XiaLM.P101.Quartz.App.Hubs
 {
     public class HomeHub : Hub
     {
-        private IScheduleManament _manament;
-        public IScheduleManament manament
-        {
-            get { return _manament; }
-            set { _manament = value; }
-        }
+        //private IScheduleManament _manament;
+        //public IScheduleManament manament
+        //{
+        //    get { return _manament; }
+        //    set { _manament = value; }
+        //}
 
         private readonly static object objLock = new object();
         private static HomeHub instance = null;
@@ -52,7 +52,8 @@ namespace XiaLM.P101.Quartz.App.Hubs
         /// <returns></returns>
         public object GetAllObjs()
         {
-            return manament.GetAllList();
+            //return manament.GetAllList();
+            return null;
         }
 
         /// <summary>

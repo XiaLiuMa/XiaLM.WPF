@@ -14,8 +14,8 @@ namespace XiaLM.P101.Quartz
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Tb_Schedule, Schedule>();
-                cfg.CreateMap<Schedule, Tb_Schedule>();
+                cfg.CreateMap<ScheduleEntity, Schedule>();
+                cfg.CreateMap<Schedule, ScheduleEntity>();
             });
         }
     }

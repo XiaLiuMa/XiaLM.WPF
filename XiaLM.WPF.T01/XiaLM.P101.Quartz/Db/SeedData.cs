@@ -11,13 +11,11 @@ namespace XiaLM.P101.Quartz.Db
             using (var context = new BaseDBContext(serviceProvider.GetRequiredService<DbContextOptions<BaseDBContext>>()))
             {
                 if (context.Schedules.Any()) return;   // 已经初始化过数据，直接返回
-                
-                Guid departmentId = Guid.NewGuid();
+
                 //增加一个计划
                 context.Schedules.Add(
-                   new Entities.Tb_Schedule
+                   new Entities.ScheduleEntity
                    {
-                       Id = Guid.NewGuid(),
                        JobGroup = "group1",
                        JobName = "name1",
                        Cron = "",

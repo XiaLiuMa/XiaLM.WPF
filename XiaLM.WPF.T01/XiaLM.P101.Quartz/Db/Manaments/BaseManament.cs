@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,16 +10,6 @@ using XiaLM.P101.Quartz.Db.IManaments;
 
 namespace XiaLM.P101.Quartz.Db.Manaments
 {
-    /// <summary>
-    /// 主键为Guid类型的仓储基类
-    /// </summary>
-    /// <typeparam name="TEntity">实体类型</typeparam>
-    public abstract class BaseManament<TEntity> : BaseManament<TEntity, Guid> where TEntity : BaseEntity
-    {
-        public BaseManament(BaseDBContext dbContext) : base(dbContext) { }
-    }
-
-
     /// <summary>
     /// 仓储基类
     /// </summary>

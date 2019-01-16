@@ -8,17 +8,16 @@ using XiaLM.P101.Quartz.Scheduler;
 using XiaLM.P101.Quartz.Scheduler.Models;
 using AutoMapper;
 using XiaLM.P101.Quartz.Db.Entities;
-using XiaLM.P101.Quartz.App.Realizes;
 
 namespace XiaLM.P101.Quartz.App.Modules
 {
     public class HomeModule : NancyModule
     {
-        private IScheduleManament manament { get; set; }
+        private readonly IScheduleManament manament;
 
-        public HomeModule(IScheduleManament manament) : this()
+        public HomeModule(IScheduleManament _manament) : this()
         {
-            this.manament = manament;
+            manament = _manament;
         }
 
         public HomeModule()
@@ -35,7 +34,7 @@ namespace XiaLM.P101.Quartz.App.Modules
             Post("/Home/SelectSchedules", p =>  //查询数据库所有任务计划
             {
                 var list = manament.GetAllList();
-                return Mapper.Map<List<Tb_Schedule>, List<Schedule>>(list);
+                return Mapper.Map<List<ScheduleEntity>, List<Schedule>>(list);
             });
 
             Post("/Home/AddSchedule", p =>  //新增数据库任务计划
@@ -59,7 +58,7 @@ namespace XiaLM.P101.Quartz.App.Modules
                     Status = EnumType.JobStatus.Paused,
                     Agrs = null
                 };
-                return manament.Insert(Mapper.Map<Schedule, Tb_Schedule>(obj));
+                return manament.Insert(Mapper.Map<Schedule, ScheduleEntity>(obj));
             });
 
             Post("/Home/DeleteSchedule", p =>   //删除数据库任务计划
@@ -72,7 +71,7 @@ namespace XiaLM.P101.Quartz.App.Modules
             Post("/Home/UpdateSchedule", p =>  //修改数据库任务计划
             {
                 Schedule obj = (Schedule)Request.Form;
-                return manament.Update(Mapper.Map<Schedule, Tb_Schedule>(obj));
+                return manament.Update(Mapper.Map<Schedule, ScheduleEntity>(obj));
             });
 
             Post("/Home/ExecuteJob", p =>   //执行计划
@@ -115,7 +114,7 @@ namespace XiaLM.P101.Quartz.App.Modules
         /// <returns></returns>
         private bool ExecuteJob(Guid jobId)
         {
-            var result = SchedulerCenter.GetInstance().RunScheduleJob(Mapper.Map<Tb_Schedule, Schedule>(manament.Get(jobId)));
+            var result = SchedulerCenter.GetInstance().RunScheduleJob(Mapper.Map<ScheduleEntity, Schedule>(manament.Get(jobId)));
             return true;
         }
 
