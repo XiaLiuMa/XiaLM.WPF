@@ -31,7 +31,7 @@ namespace XiaLM.P101.Quartz
                     .Build();
                 host.Run();
 
-                //while (true) Console.ReadKey();
+                while (true) Console.ReadKey();
             }
         }
 

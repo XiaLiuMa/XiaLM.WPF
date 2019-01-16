@@ -8,7 +8,8 @@ namespace XiaLM.P101.Quartz.Db
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new BaseDBContext(serviceProvider.GetRequiredService<DbContextOptions<BaseDBContext>>()))
+            //using (var context = new BaseDBContext(serviceProvider.GetRequiredService<DbContextOptions<BaseDBContext>>()))
+            using (var context = BaseDBContext.GetInstance())
             {
                 if (context.Schedules.Any()) return;   // 已经初始化过数据，直接返回
 

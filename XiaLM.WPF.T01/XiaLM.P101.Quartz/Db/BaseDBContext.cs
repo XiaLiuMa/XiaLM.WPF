@@ -5,10 +5,27 @@ namespace XiaLM.P101.Quartz.Db
 {
     public class BaseDBContext : DbContext
     {
-        public BaseDBContext(DbContextOptions<BaseDBContext> options) : base(options)
+        private readonly static object objLock = new object();
+        private static BaseDBContext instance = null;
+        public static BaseDBContext GetInstance()
         {
-
+            if (instance == null)
+            {
+                lock (objLock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new BaseDBContext();
+                    }
+                }
+            }
+            return instance;
         }
+
+        //public BaseDBContext(DbContextOptions<BaseDBContext> options) : base(options)
+        //{
+
+        //}
         public DbSet<ScheduleEntity> Schedules { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -17,10 +34,10 @@ namespace XiaLM.P101.Quartz.Db
             base.OnModelCreating(builder);
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    //注入Sql链接字符串
-        //    optionsBuilder.UseSqlServer(@"Server=localhost;User Id=sa;Password=123456;Database=Db_Quartz");
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //注入Sql链接字符串
+            optionsBuilder.UseSqlServer(@"Server=localhost;User Id=sa;Password=123456;Database=Db_Quartz");
+        }
     }
 }

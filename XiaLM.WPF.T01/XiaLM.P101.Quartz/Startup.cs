@@ -33,8 +33,8 @@ namespace XiaLM.P101.Quartz
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");//获取数据库连接字符串
-            services.AddDbContext<BaseDBContext>(options => options.UseSqlServer(sqlConnectionString));
+            //var sqlConnectionString = Configuration.GetConnectionString("DefaultConnection");//获取数据库连接字符串
+            //services.AddDbContext<BaseDBContext>(options => options.UseSqlServer(sqlConnectionString));
             services.AddSignalR();
             //依赖注入
             services.AddScoped<IScheduleManament, ScheduleManament>();

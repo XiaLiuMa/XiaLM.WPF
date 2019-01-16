@@ -107,7 +107,7 @@ namespace XiaLM.P101.Quartz.Scheduler
                 var result1 = new BaseQuartzResult();
                 try
                 {
-                    var jobType = AssemblyHandler.GetClassType(schedule.AssemblyName, $"{schedule.AssemblyName}.{schedule.ClassName}");  //反射获取任务执行类
+                    var jobType = AssemblyHandler.GetClassType(schedule.AssemblyName, schedule.ClassName);  //反射获取任务执行类
                     IJobDetail job = new JobDetailImpl(schedule.JobName, schedule.JobGroup, jobType);   // 定义这个工作，并将其绑定到我们的IJob实现类
                     ITrigger trigger;   // 创建触发器
                     if (!string.IsNullOrEmpty(schedule.Cron) && CronExpression.IsValidExpression(schedule.Cron))  //校验是否正确的执行周期表达式
