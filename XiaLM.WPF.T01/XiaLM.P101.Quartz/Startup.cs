@@ -8,6 +8,8 @@ using XiaLM.P101.Quartz.Db;
 using XiaLM.P101.Quartz.Db.IManaments;
 using XiaLM.P101.Quartz.Db.Manaments;
 using XiaLM.P101.Quartz.App.Hubs;
+using System.IO;
+using Microsoft.Extensions.FileProviders;
 
 namespace XiaLM.P101.Quartz
 {
@@ -46,10 +48,15 @@ namespace XiaLM.P101.Quartz
         /// <param name="app"></param>
         public void Configure(IApplicationBuilder app)
         {
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory())
+            });//使用静态文件
+
             app.UseOwin(x => x.UseNancy());
             app.UseSignalR(route =>
             {
-                route.MapHub<HomeHub>("/chat");
+                route.MapHub<HomeHub>("/homeHub");
             });
             SeedData.Initialize(app.ApplicationServices); //初始化数据
         }
