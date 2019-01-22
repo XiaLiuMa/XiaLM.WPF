@@ -19,7 +19,7 @@ namespace XiaLM.P101.Quartz.Db
                    {
                        JobGroup = "group1",
                        JobName = "name1",
-                       Cron = "",
+                       Cron = "0 0/5 * * * ?",
                        AssemblyName = "XiaLM.P101.Quartz",
                        ClassName = "XiaLM.P101.Quartz.Scheduler.Jobs.HelloJob",
                        RunTimes = 10,

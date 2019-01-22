@@ -70,14 +70,6 @@ namespace XiaLM.P101.Quartz.Scheduler
         }
 
         /// <summary>
-        /// 获取任务计划列表
-        /// </summary>
-        public List<Schedule> GetScheduleList()
-        {
-            return ScheduleList;
-        }
-
-        /// <summary>
         /// 开启任务调度器
         /// </summary>
         public async void StartScheduleAsync()
@@ -107,6 +99,7 @@ namespace XiaLM.P101.Quartz.Scheduler
                 var result1 = new BaseQuartzResult();
                 try
                 {
+                    schedule.Cron = "0/5 * * * * ?";
                     var jobType = AssemblyHandler.GetClassType(schedule.AssemblyName, schedule.ClassName);  //反射获取任务执行类
                     IJobDetail job = new JobDetailImpl(schedule.JobName, schedule.JobGroup, jobType);   // 定义这个工作，并将其绑定到我们的IJob实现类
                     ITrigger trigger;   // 创建触发器
@@ -250,8 +243,8 @@ namespace XiaLM.P101.Quartz.Scheduler
             // 作业触发器
             return TriggerBuilder.Create()
                    .WithIdentity(m.JobName, m.JobGroup)
-                   .StartAt(m.BeginTime)//开始时间
-                   .EndAt(m.EndTime)//结束时间
+                   //.StartAt(m.BeginTime)//开始时间
+                   //.EndAt(m.EndTime)//结束时间
                    .WithCronSchedule(m.Cron)//指定cron表达式
                    .ForJob(m.JobName, m.JobGroup)//作业名称
                    .Build();
