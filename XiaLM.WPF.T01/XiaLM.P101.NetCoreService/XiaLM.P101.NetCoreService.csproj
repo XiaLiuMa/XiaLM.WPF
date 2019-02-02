@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>XiaLM.P101.NetCoreService</AssemblyName>
     <RootNamespace>XiaLM.P101.NetCoreService</RootNamespace>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

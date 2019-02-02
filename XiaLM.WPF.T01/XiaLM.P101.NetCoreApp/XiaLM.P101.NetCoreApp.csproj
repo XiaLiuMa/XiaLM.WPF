@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>XiaLM.P101.NetCoreApp</AssemblyName>
     <RootNamespace>XiaLM.P101.NetCoreApp</RootNamespace>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
