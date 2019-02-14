@@ -22,6 +22,13 @@ namespace XiaLM.P101.Quartz.App.Modules
 
         public HomeModule()
         {
+            Get("/hello", p => View[@"hello.html"]);  //返回视图
+            Get("/test", p =>
+            {
+                var model = DateTime.Now.ToString();
+                return View[@"hello.html", model];
+            });  //带参返回视图
+
             Get("/api", args => "Hello World, it's Nancy on .NET Core");
             Get("/", p => View["App/Views/Home/home.html"]);  //返回视图
 

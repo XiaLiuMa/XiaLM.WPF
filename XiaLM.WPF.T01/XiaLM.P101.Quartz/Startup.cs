@@ -9,6 +9,9 @@ using XiaLM.P101.Quartz.Db.Manaments;
 using XiaLM.P101.Quartz.App.Hubs;
 using System.IO;
 using Microsoft.Extensions.FileProviders;
+using Nancy;
+using System;
+using Nancy.Configuration;
 
 namespace XiaLM.P101.Quartz
 {
@@ -60,4 +63,32 @@ namespace XiaLM.P101.Quartz
             SeedData.Initialize(app.ApplicationServices); //初始化数据
         }
     }
+
+
+    #region 配置Nancy前端视图路由到wwwroot
+    public class CustomRootPathProvider : IRootPathProvider
+    {
+        public string GetRootPath()
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot");
+        }
+    }
+
+    public class CustomBootstrapper : DefaultNancyBootstrapper
+    {
+        protected override IRootPathProvider RootPathProvider
+        {
+            get
+            {
+                return new CustomRootPathProvider();
+            }
+        }
+
+        public override void Configure(INancyEnvironment environment)
+        {
+            environment.Tracing(enabled: true, displayErrorTraces: true);
+            base.Configure(environment);
+        }
+    } 
+    #endregion
 }
