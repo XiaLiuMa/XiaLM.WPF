@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Cors;
+using Microsoft.Owin.Host.HttpListener;
 using Microsoft.Owin.Hosting;
 using Owin;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace XiaLM.Owin
     {
         private string url;
         private StartOptions startOpts;
+        private OwinHttpListener owinHttpListener;  //拷Microsoft.Owin.Host.HttpListener库用
 
         public OwinRealize(string url, OwinStart owinStart)
         {

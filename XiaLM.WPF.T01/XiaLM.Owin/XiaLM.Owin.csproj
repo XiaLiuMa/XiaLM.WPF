@@ -113,7 +113,6 @@
     <Compile Include="OwinRealize.cs" />
     <Compile Include="OwinStart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reserved\MyListener.cs" />
     <Compile Include="UserAttributes\HttpGetAttribute.cs" />
     <Compile Include="UserAttributes\HttpPostAttribute.cs" />
   </ItemGroup>
