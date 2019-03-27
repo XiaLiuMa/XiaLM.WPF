@@ -13,6 +13,7 @@ namespace XiaLM.NetCoreT02.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            var obj = View();
             return View();
         }
 
