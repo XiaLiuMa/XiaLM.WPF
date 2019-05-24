@@ -1,0 +1,285 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:chart="clr-namespace:ModernUIChart;assembly=ModernUIChart"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Path Data="M-869.5,-25.5 L-870.5,14 C-870.5,14 -830,-4 -869.5,-25.5 z" Fill="#ABA5F4" Stretch="Fill" Stroke="Black"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True"/>
+                            <Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True"/>
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.07*"/>
+            <RowDefinition Height="0.93*"/>
+        </Grid.RowDefinitions>
+
+        <!--主界面-->
+        <ScrollViewer Grid.Row="0" Grid.RowSpan="2">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                </Grid.ColumnDefinitions>
+                <!--菜单栏-->
+                <Grid x:Name="menuGridB" Grid.Column="0" Background="#CAE123" Visibility="Visible" MouseLeave="MenuGridB_MouseLeave">
+                    <StackPanel Margin="5" MinWidth="120" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Label Content="首页" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu1Button}"/>
+                        <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                            <Expander.Header>
+                                <Label Content="用户管理" Style="{StaticResource menu1Label}"/>
+                            </Expander.Header>
+                            <Expander.Content>
+                                <StackPanel>
+                                    <Label Content="会员管理" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                    <Label Content="角色管理" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                </StackPanel>
+                            </Expander.Content>
+                        </Expander>
+                        <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                            <Expander.Header>
+                                <Label Content="文档管理" Style="{StaticResource menu1Label}"/>
+                            </Expander.Header>
+                            <Expander.Content>
+                                <StackPanel>
+                                    <Label Content="部门资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                    <Label Content="员工资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                    <Label Content="职位资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                </StackPanel>
+                            </Expander.Content>
+                        </Expander>
+                        <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                            <Expander.Header>
+                                <Label Content="采购管理" Style="{StaticResource menu1Label}"/>
+                            </Expander.Header>
+                            <Expander.Content>
+                                <StackPanel>
+                                    <Label Content="采购计划" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                    <Label Content="需求分析" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                    <Label Content="采购单" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                    <Label Content="入库验收" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                    <Label Content="入库退回" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                </StackPanel>
+                            </Expander.Content>
+                        </Expander>
+                        <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                            <Expander.Header>
+                                <Label Content="供应商" Style="{StaticResource menu1Label}"/>
+                            </Expander.Header>
+                            <Expander.Content>
+                                <StackPanel>
+                                    <Expander ExpandDirection="Down" SnapsToDevicePixels="True" Margin="10,0">
+                                        <Expander.Header>
+                                            <Label Content="供应商1" Style="{StaticResource menu2Label}"/>
+                                        </Expander.Header>
+                                        <Expander.Content>
+                                            <StackPanel>
+                                                <Label Content="基本资料" DataContext="A4B1C1" Margin="10,0"  MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
+                                                <Label Content="往来单位" DataContext="A4B1C2" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
+                                                <Label Content="上游供应商" DataContext="A4B1C3" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
+                                            </StackPanel>
+                                        </Expander.Content>
+                                    </Expander>
+                                    <Label Content="往来单位" DataContext="A4B2" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu2Button}"/>
+                                    <Label Content="上游供应商" DataContext="A4B3" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu2Button}"/>
+                                </StackPanel>
+                            </Expander.Content>
+                        </Expander>
+                    </StackPanel>
+                </Grid>
+
+                <!--main-->
+                <Grid x:Name="mainGrid" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.07*"/>
+                        <RowDefinition Height="0.93*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="menuBtu" Content="Button" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40.5" Style="{DynamicResource ButtonStyle1}" MouseEnter="MenuGridA_MouseEnter" Width="19.3" Cursor="Hand"/>
+                    <!--面包屑-->
+                    <Border Grid.Row="0" Margin="5,0" BorderThickness="2" BorderBrush="Black">
+                        <StackPanel Orientation="Horizontal" >
+                            <Button Content="首页" Margin="5,0" Style="{StaticResource ButtonStyle1}"/>
+                            <StackPanel x:Name="crumbsStackPanel"  Orientation="Horizontal" >
+
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <!--body-->
+                    <Grid x:Name="bodyGrid" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="0.7*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <chart:ClusteredColumnChart  Grid.Column="0" Grid.Row="0"
+                                Style="{StaticResource ChartStyle}"
+                                ChartTitle="Column Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                Palette="{StaticResource CustomPalette}"
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                                <chart:ClusteredColumnChart.SeriesTemplate>
+                                    <DataTemplate>
+                                        <chart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                                    </DataTemplate>
+                                </chart:ClusteredColumnChart.SeriesTemplate>
+                            </chart:ClusteredColumnChart>
+                            <chart:StackedColumnChart Grid.Column="0" Grid.Row="1"
+                                Style="{StaticResource ChartStyle}"
+                                ChartTitle="Stacked Column Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                                <chart:StackedColumnChart.SeriesTemplate>
+                                    <DataTemplate>
+                                        <chart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                                    </DataTemplate>
+                                </chart:StackedColumnChart.SeriesTemplate>
+                            </chart:StackedColumnChart>
+                            <chart:StackedColumn100Chart Grid.Column="0" Grid.Row="2"
+                                Style="{StaticResource ChartStyle}"
+                                ChartTitle="100% Stacked Column"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                                <chart:StackedColumn100Chart.SeriesTemplate>
+                                    <DataTemplate>
+                                        <chart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                                    </DataTemplate>
+                                </chart:StackedColumn100Chart.SeriesTemplate>
+                            </chart:StackedColumn100Chart>
+                            <chart:ClusteredColumnChart  Grid.Column="0" Grid.Row="3"
+                                Style="{StaticResource ChartStyle}"
+                                ChartTitle="Column Chart with fixed series"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+                                <chart:ClusteredColumnChart.Series>
+                                    <chart:ChartSeries
+                                        Caption="Errors"
+                                        DisplayMember="Category"
+                                        ValueMember="Number"
+                                        ItemsSource="{Binding Path=Errors}" />
+                                    <chart:ChartSeries
+                                        Caption="Warnings"
+                                        DisplayMember="Category"
+                                        ValueMember="Number"
+                                        ItemsSource="{Binding Path=Warnings}" />
+                                </chart:ClusteredColumnChart.Series>
+                            </chart:ClusteredColumnChart>
+
+
+
+                            <chart:ClusteredBarChart Grid.Column="0" Grid.Row="4"
+                                Style="{StaticResource ChartStyle}"
+                                ChartTitle="Bar Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"                                
+                                SeriesSource="{Binding Series}">
+                                <chart:ClusteredBarChart.SeriesTemplate>
+                                    <DataTemplate>
+                                        <chart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                                    </DataTemplate>
+                                </chart:ClusteredBarChart.SeriesTemplate>
+                            </chart:ClusteredBarChart>
+                            <chart:StackedBarChart Grid.Column="0" Grid.Row="5"
+                                Style="{StaticResource ChartStyle}"
+                                ChartTitle="Stacked Bar Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                                <chart:StackedBarChart.SeriesTemplate>
+                                    <DataTemplate>
+                                        <chart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                                    </DataTemplate>
+                                </chart:StackedBarChart.SeriesTemplate>
+                            </chart:StackedBarChart>
+                            <chart:StackedBar100Chart Grid.Column="0" Grid.Row="6"
+                                Style="{StaticResource ChartStyle}"
+                                ChartTitle="100% Stacked Bar"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                                <chart:StackedBar100Chart.SeriesTemplate>
+                                    <DataTemplate>
+                                        <chart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                                    </DataTemplate>
+                                </chart:StackedBar100Chart.SeriesTemplate>
+                            </chart:StackedBar100Chart>
+
+                            <chart:PieChart Grid.Column="0" Grid.Row="7"                    
+                            Style="{StaticResource ChartStyle}"
+                            ChartTitle="Pie Chart"
+                            ChartSubTitle="Which types of warnings appears most"
+                            SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" >
+                                <chart:PieChart.Series>
+                                    <chart:ChartSeries
+                                    Caption="Errors"
+                                    DisplayMember="Category"
+                                    ValueMember="Number"
+                                    ItemsSource="{Binding Path=Errors}">
+                                    </chart:ChartSeries>
+                                </chart:PieChart.Series>
+                            </chart:PieChart>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
