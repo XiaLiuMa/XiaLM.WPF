@@ -57,6 +57,9 @@
     </ApplicationDefinition>
     <Compile Include="Mods\SeriesData.cs" />
     <Compile Include="ViewModels\TestPageViewModel.cs" />
+    <Compile Include="Views\Pages\LiveChartsPage.xaml.cs">
+      <DependentUpon>LiveChartsPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +83,10 @@
     <Page Include="Themes\Default.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\LiveChartsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -112,10 +119,20 @@
     <Folder Include="Mycontrols\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lib\LiveCharts\LiveCharts.csproj">
+      <Project>{253dd2c6-9848-449d-9f77-387db582e212}</Project>
+      <Name>LiveCharts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib\ModernUIChart\ModernUIChart.csproj">
       <Project>{94fa0b83-9543-4365-ab93-9ced65f36687}</Project>
       <Name>ModernUIChart</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\MinMenu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
