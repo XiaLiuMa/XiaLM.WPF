@@ -37,4 +37,10 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Cursor" Value="Hand"/>
     </Style>
+
+    <!--PageSize-->
+    <Style x:Key="frmPage" TargetType="{x:Type Page}" >
+        <Setter Property="Width" Value="794"/>
+        <Setter Property="Height" Value="544"/>
+    </Style>
 </ResourceDictionary>

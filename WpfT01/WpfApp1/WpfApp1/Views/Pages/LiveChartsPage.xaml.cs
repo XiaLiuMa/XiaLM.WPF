@@ -23,6 +23,7 @@ namespace WpfApp1.Views.Pages
         public LiveChartsPage()
         {
             InitializeComponent();
+            this.DataContext = new ViewModels.LiveChartsPageVM();
         }
     }
 }

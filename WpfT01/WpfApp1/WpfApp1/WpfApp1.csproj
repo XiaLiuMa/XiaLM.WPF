@@ -55,12 +55,34 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Comm\MenuManager.cs" />
+    <Compile Include="Mods\MenuInfo.cs" />
     <Compile Include="Mods\SeriesData.cs" />
-    <Compile Include="ViewModels\TestPageViewModel.cs" />
+    <Compile Include="ViewModels\LiveChartsPageVM.cs" />
+    <Compile Include="ViewModels\ModernChartsPageVM.cs" />
+    <Compile Include="Views\Pages\IndexPage.xaml.cs">
+      <DependentUpon>IndexPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\LiveChartsPage.xaml.cs">
       <DependentUpon>LiveChartsPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Views\Pages\MenuHeaderPage.xaml.cs">
+      <DependentUpon>MenuHeaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ModernChartsPage.xaml.cs">
+      <DependentUpon>ModernChartsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserMemberPage.xaml.cs">
+      <DependentUpon>UserMemberPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserRolePage.xaml.cs">
+      <DependentUpon>UserRolePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Themes\MyTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -68,11 +90,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Themes\ModernUIChart.xaml">
+    <Page Include="Themes\ModernCharts.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -84,7 +106,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Pages\IndexPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\LiveChartsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\MenuHeaderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ModernChartsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\UserMemberPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\UserRolePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,9 +165,9 @@
       <Project>{253dd2c6-9848-449d-9f77-387db582e212}</Project>
       <Name>LiveCharts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lib\ModernUIChart\ModernUIChart.csproj">
+    <ProjectReference Include="..\Lib\ModernCharts\ModernCharts.csproj">
       <Project>{94fa0b83-9543-4365-ab93-9ced65f36687}</Project>
-      <Name>ModernUIChart</Name>
+      <Name>ModernCharts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

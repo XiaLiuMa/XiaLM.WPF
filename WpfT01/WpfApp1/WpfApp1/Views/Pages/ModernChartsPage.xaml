@@ -1,0 +1,174 @@
+﻿<Page x:Class="WpfApp1.Views.Pages.ModernChartsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mChart="clr-namespace:ModernCharts;assembly=ModernCharts"
+      xmlns:local="clr-namespace:WpfApp1.Views.Pages"
+      mc:Ignorable="d" 
+      Title="ModernChartsPage" Style="{StaticResource frmPage}">
+    <Grid>
+        <TabControl Name="tbControl">
+            <TabItem Header="tab1" Style="{StaticResource MyTabItem}" Margin="5,0">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--<mChart:ClusteredBarChart Grid.Row="0" Grid.Column="0" Margin="5" Style="{StaticResource ChartStyle}"
+                                ChartTitle="Bar Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"                                
+                                SeriesSource="{Binding Series}">
+                        <mChart:ClusteredBarChart.SeriesTemplate>
+                            <DataTemplate>
+                                <mChart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                            </DataTemplate>
+                        </mChart:ClusteredBarChart.SeriesTemplate>
+                    </mChart:ClusteredBarChart>-->
+                    <mChart:ClusteredColumnChart Grid.Row="0" Grid.Column="0" Margin="5"
+                                ChartTitle="Column Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                Palette="{StaticResource CustomPalette}"
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                        <mChart:ClusteredColumnChart.SeriesTemplate>
+                            <DataTemplate>
+                                <mChart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                            </DataTemplate>
+                        </mChart:ClusteredColumnChart.SeriesTemplate>
+                    </mChart:ClusteredColumnChart>
+                    <mChart:StackedColumnChart Grid.Row="0" Grid.Column="1" Margin="5"
+                                ChartTitle="Stacked Column Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                        <mChart:StackedColumnChart.SeriesTemplate>
+                            <DataTemplate>
+                                <mChart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                            </DataTemplate>
+                        </mChart:StackedColumnChart.SeriesTemplate>
+                    </mChart:StackedColumnChart>
+                    <mChart:StackedColumn100Chart Grid.Row="1" Grid.Column="0" Margin="5" 
+                                ChartTitle="100% Stacked Column"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                        <mChart:StackedColumn100Chart.SeriesTemplate>
+                            <DataTemplate>
+                                <mChart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                            </DataTemplate>
+                        </mChart:StackedColumn100Chart.SeriesTemplate>
+                    </mChart:StackedColumn100Chart>
+                    <mChart:ClusteredColumnChart Grid.Row="1" Grid.Column="1" Margin="5" 
+                                ChartTitle="Column Chart with fixed series"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}">
+                        <mChart:ClusteredColumnChart.Series>
+                            <mChart:ChartSeries
+                                        Caption="Errors"
+                                        DisplayMember="Category"
+                                        ValueMember="Number"
+                                        ItemsSource="{Binding Path=Errors}" />
+                            <mChart:ChartSeries
+                                        Caption="Warnings"
+                                        DisplayMember="Category"
+                                        ValueMember="Number"
+                                        ItemsSource="{Binding Path=Warnings}" />
+                        </mChart:ClusteredColumnChart.Series>
+                    </mChart:ClusteredColumnChart>
+                </Grid>
+            </TabItem>
+            <TabItem Header="tab2" Style="{StaticResource MyTabItem}" Margin="5,0">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <mChart:ClusteredBarChart Grid.Row="0" Grid.Column="0" Margin="5"
+                                ChartTitle="Bar Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"                                
+                                SeriesSource="{Binding Series}">
+                        <mChart:ClusteredBarChart.SeriesTemplate>
+                            <DataTemplate>
+                                <mChart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                            </DataTemplate>
+                        </mChart:ClusteredBarChart.SeriesTemplate>
+                    </mChart:ClusteredBarChart>
+                    <mChart:StackedBarChart Grid.Row="0" Grid.Column="1" Margin="5"
+                                ChartTitle="Stacked Bar Chart"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                        <mChart:StackedBarChart.SeriesTemplate>
+                            <DataTemplate>
+                                <mChart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                            </DataTemplate>
+                        </mChart:StackedBarChart.SeriesTemplate>
+                    </mChart:StackedBarChart>
+                    <mChart:StackedBar100Chart Grid.Row="1" Grid.Column="0" Margin="5"
+                                ChartTitle="100% Stacked Bar"
+                                ChartSubTitle="Which types of errors and warnings appears most"                  
+                                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
+                                SeriesSource="{Binding Series}">
+                        <mChart:StackedBar100Chart.SeriesTemplate>
+                            <DataTemplate>
+                                <mChart:ChartSeries
+			                                Caption="{Binding Path=DisplayName}"
+                                            DisplayMember="Category"
+                                            ValueMember="Number"
+                                            ItemsSource="{Binding Path=Items}" />
+                            </DataTemplate>
+                        </mChart:StackedBar100Chart.SeriesTemplate>
+                    </mChart:StackedBar100Chart>
+                    <mChart:PieChart Grid.Row="1" Grid.Column="1" Margin="5"
+                            ChartTitle="Pie Chart"
+                            ChartSubTitle="Which types of warnings appears most"
+                            SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" >
+                        <mChart:PieChart.Series>
+                            <mChart:ChartSeries
+                                    Caption="Errors"
+                                    DisplayMember="Category"
+                                    ValueMember="Number"
+                                    ItemsSource="{Binding Path=Errors}">
+                            </mChart:ChartSeries>
+                        </mChart:PieChart.Series>
+                    </mChart:PieChart>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>
