@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{253DD2C6-9848-449D-9F77-387DB582E212}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>LiveCharts</RootNamespace>
+    <AssemblyName>LiveCharts</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\AxisCore.cs" />
+    <Compile Include="Core\AxisOrientation.cs" />
+    <Compile Include="Core\AxisPosition.cs" />
+    <Compile Include="Core\AxisSectionCore.cs" />
+    <Compile Include="Core\AxisWindow.cs" />
+    <Compile Include="Core\AxisWindows.cs" />
+    <Compile Include="Core\BarLabelPosition.cs" />
+    <Compile Include="Core\ChartFunctions.cs" />
+    <Compile Include="Core\Charting.cs" />
+    <Compile Include="Core\ChartPoint.cs" />
+    <Compile Include="Core\Charts\CartesianChartCore.cs" />
+    <Compile Include="Core\Charts\ChartCore.cs" />
+    <Compile Include="Core\Charts\PieChartCore.cs" />
+    <Compile Include="Core\ChartUpdater.cs" />
+    <Compile Include="Core\ChartValues.cs" />
+    <Compile Include="Core\Configurations\CartesianMapper.cs" />
+    <Compile Include="Core\Configurations\FinancialMapper.cs" />
+    <Compile Include="Core\Configurations\GanttMapper.cs" />
+    <Compile Include="Core\Configurations\IPointEvaluator.cs" />
+    <Compile Include="Core\Configurations\Mappers.cs" />
+    <Compile Include="Core\Configurations\PieMapper.cs" />
+    <Compile Include="Core\Configurations\PolarMapper.cs" />
+    <Compile Include="Core\Configurations\WeightedMapper.cs" />
+    <Compile Include="Core\DataLabelViewModel.cs" />
+    <Compile Include="Core\DateAxisCore.cs" />
+    <Compile Include="Core\DateAxisWindow.cs" />
+    <Compile Include="Core\DateAxisWindows.cs" />
+    <Compile Include="Core\DateSeparatorElementCore.cs" />
+    <Compile Include="Core\Defaults\AxisLimits.cs" />
+    <Compile Include="Core\Defaults\DateTimePoint.cs" />
+    <Compile Include="Core\Defaults\GanttPoint.cs" />
+    <Compile Include="Core\Defaults\HeatPoint.cs" />
+    <Compile Include="Core\Defaults\ObservablePoint.cs" />
+    <Compile Include="Core\Defaults\ObservableValue.cs" />
+    <Compile Include="Core\Defaults\OHLCPoint.cs" />
+    <Compile Include="Core\Defaults\PolarPoint.cs" />
+    <Compile Include="Core\Defaults\ScatterPoint.cs" />
+    <Compile Include="Core\Definitions\Charts\IAxisSectionView.cs" />
+    <Compile Include="Core\Definitions\Charts\IAxisView.cs" />
+    <Compile Include="Core\Definitions\Charts\IAxisWindow.cs" />
+    <Compile Include="Core\Definitions\Charts\ICartesianChart.cs" />
+    <Compile Include="Core\Definitions\Charts\ICartesianVisualElement.cs" />
+    <Compile Include="Core\Definitions\Charts\IChartView.cs" />
+    <Compile Include="Core\Definitions\Charts\IDateAxisView.cs" />
+    <Compile Include="Core\Definitions\Charts\ILogarithmicAxisView.cs" />
+    <Compile Include="Core\Definitions\Charts\IPieChart.cs" />
+    <Compile Include="Core\Definitions\Charts\ISeparatorElementView.cs" />
+    <Compile Include="Core\Definitions\Charts\ISeparatorView.cs" />
+    <Compile Include="Core\Definitions\Charts\IWindowAxisView.cs" />
+    <Compile Include="Core\Definitions\Points\IBezierPointView.cs" />
+    <Compile Include="Core\Definitions\Points\IChartPointView.cs" />
+    <Compile Include="Core\Definitions\Points\IHeatPointView.cs" />
+    <Compile Include="Core\Definitions\Points\IOhlcPointView.cs" />
+    <Compile Include="Core\Definitions\Points\IPieSlicePointView.cs" />
+    <Compile Include="Core\Definitions\Points\IRectanglePointView.cs" />
+    <Compile Include="Core\Definitions\Points\IScatterPointView.cs" />
+    <Compile Include="Core\Definitions\Points\IStepPointView.cs" />
+    <Compile Include="Core\Definitions\Series\IAreaPoint.cs" />
+    <Compile Include="Core\Definitions\Series\ICartesianSeries.cs" />
+    <Compile Include="Core\Definitions\Series\IColumnSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IFinancialSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IGroupedStackedSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IHeatSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\ILineSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IPieSeries.cs" />
+    <Compile Include="Core\Definitions\Series\IPieSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IRowSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IScatterSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\ISeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IStackedAreaSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IStackedColumnSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IStackedRowSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IStackModelableSeriesView.cs" />
+    <Compile Include="Core\Definitions\Series\IVerticalStackedAreaSeriesView.cs" />
+    <Compile Include="Core\Delegates.cs" />
+    <Compile Include="Core\Dtos\BezierData.cs" />
+    <Compile Include="Core\Dtos\CoreColor.cs" />
+    <Compile Include="Core\Dtos\CoreGradientStop.cs" />
+    <Compile Include="Core\Dtos\CoreLimit.cs" />
+    <Compile Include="Core\Dtos\CoreMargin.cs" />
+    <Compile Include="Core\Dtos\CorePoint.cs" />
+    <Compile Include="Core\Dtos\CoreRectangle.cs" />
+    <Compile Include="Core\Dtos\CoreSize.cs" />
+    <Compile Include="Core\Dtos\LabelEvaluation.cs" />
+    <Compile Include="Core\Dtos\StackedSum.cs" />
+    <Compile Include="Core\Dtos\TooltipDataViewModel.cs" />
+    <Compile Include="Core\Events\Delegates.cs" />
+    <Compile Include="Core\Events\PreviewRangeChangedEventArgs.cs" />
+    <Compile Include="Core\Events\RangeChangedEventArgs.cs" />
+    <Compile Include="Core\Helpers\Extentions.cs" />
+    <Compile Include="Core\Helpers\LiveChartsException.cs" />
+    <Compile Include="Core\Helpers\NoisyCollection.cs" />
+    <Compile Include="Core\IChartValues.cs" />
+    <Compile Include="Core\IObservableChartPoint.cs" />
+    <Compile Include="Core\LegendLocation.cs" />
+    <Compile Include="Core\LogarithmicAxisCore.cs" />
+    <Compile Include="Core\Maps\MapData.cs" />
+    <Compile Include="Core\PanningOptions.cs" />
+    <Compile Include="Core\PeriodUnits.cs" />
+    <Compile Include="Core\PieLabelPosition.cs" />
+    <Compile Include="Core\PointTracker.cs" />
+    <Compile Include="Core\ScrollMode.cs" />
+    <Compile Include="Core\SeparationState.cs" />
+    <Compile Include="Core\SeparatorConfigurationCore.cs" />
+    <Compile Include="Core\SeparatorElementCore.cs" />
+    <Compile Include="Core\Seriesalgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\CandleAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\ColumnAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\HeatAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\LineAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\OhlcAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\PieAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\RowAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\ScatterAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\StackedAreaAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\StackedColumnAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\StackedRowAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\StepLineAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\VerticalLineAlgorithm.cs" />
+    <Compile Include="Core\SeriesAlgorithms\VerticalStackedAreaAlgorithm.cs" />
+    <Compile Include="Core\SeriesCollection.cs" />
+    <Compile Include="Core\SeriesOrientation.cs" />
+    <Compile Include="Core\StackMode.cs" />
+    <Compile Include="Core\TooltipSelectionMode.cs" />
+    <Compile Include="Core\UpdaterState.cs" />
+    <Compile Include="Core\VisualElementsCollection.cs" />
+    <Compile Include="Core\WindowAxisCore.cs" />
+    <Compile Include="Core\ZoomingOptions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="View\AngularGauge.cs" />
+    <Compile Include="View\AngularSection.cs" />
+    <Compile Include="View\AxesCollection.cs" />
+    <Compile Include="View\Axis.cs" />
+    <Compile Include="View\AxisSection.cs" />
+    <Compile Include="View\AxisWindowCollection.cs" />
+    <Compile Include="View\CandleSeries.cs" />
+    <Compile Include="View\CartesianChart.cs" />
+    <Compile Include="View\Charts\Base\Chart.cs" />
+    <Compile Include="View\ColorsCollection.cs" />
+    <Compile Include="View\ColumnSeries.cs" />
+    <Compile Include="View\Components\AxisSeparatorElement.cs" />
+    <Compile Include="View\Components\ChartUpdater.cs" />
+    <Compile Include="View\Components\Converters.cs" />
+    <Compile Include="View\Components\DefaultXamlReader.cs" />
+    <Compile Include="View\Components\IFondeable.cs" />
+    <Compile Include="View\Components\ThreadAccess.cs" />
+    <Compile Include="View\Components\TooltipDto.cs" />
+    <Compile Include="View\Converters\TypeConverters.cs" />
+    <Compile Include="View\DateAxis.cs" />
+    <Compile Include="View\DefaultAxes.cs" />
+    <Compile Include="View\DefaultGeoMapTooltip.xaml.cs">
+      <DependentUpon>DefaultGeoMapTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DefaultGeometry.cs" />
+    <Compile Include="View\DefaultLegend.xaml.cs">
+      <DependentUpon>DefaultLegend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DefaultTooltip.xaml.cs">
+      <DependentUpon>DefaultTooltip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Extentions.cs" />
+    <Compile Include="View\FinancialColoringRule.cs" />
+    <Compile Include="View\Gauge.cs" />
+    <Compile Include="View\GeoMap.cs" />
+    <Compile Include="View\HeatColorRange.xaml.cs">
+      <DependentUpon>HeatColorRange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HeatSeries.cs" />
+    <Compile Include="View\IChartLegend.cs" />
+    <Compile Include="View\IChartTooltip.cs" />
+    <Compile Include="View\LineSegmentSplitter.cs" />
+    <Compile Include="View\LineSeries.cs" />
+    <Compile Include="View\LogarithmicAxis.cs" />
+    <Compile Include="View\Maps\MapResolver.cs" />
+    <Compile Include="View\OhlcSeries.cs" />
+    <Compile Include="View\PieChart.cs" />
+    <Compile Include="View\PieSeries.cs" />
+    <Compile Include="View\Points\CandlePointView.cs" />
+    <Compile Include="View\Points\ColumnPointView.cs" />
+    <Compile Include="View\Points\HeatPoint.cs" />
+    <Compile Include="View\Points\HorizontalBezierPointView.cs" />
+    <Compile Include="View\Points\OhlcPointView.cs" />
+    <Compile Include="View\Points\PiePointView.cs" />
+    <Compile Include="View\Points\PieSlice.cs" />
+    <Compile Include="View\Points\PointView.cs" />
+    <Compile Include="View\Points\RowPointView.cs" />
+    <Compile Include="View\Points\ScatterPointView.cs" />
+    <Compile Include="View\Points\StepLinePointView.cs" />
+    <Compile Include="View\Points\VerticalBezierPointView.cs" />
+    <Compile Include="View\RowSeries.cs" />
+    <Compile Include="View\ScatterSeries.cs" />
+    <Compile Include="View\SectionsCollection.cs" />
+    <Compile Include="View\Separator.cs" />
+    <Compile Include="View\Series.cs" />
+    <Compile Include="View\StackedAreaSeries.cs" />
+    <Compile Include="View\StackedColumnSeries.cs" />
+    <Compile Include="View\StackedRowSeries.cs" />
+    <Compile Include="View\StepLineSeries.cs" />
+    <Compile Include="View\VerticalLineSeries.cs" />
+    <Compile Include="View\VerticalStackedAreaSeries.cs" />
+    <Compile Include="View\VisualElement.cs" />
+    <Compile Include="View\WindowAxis.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\DefaultGeoMapTooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DefaultLegend.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DefaultTooltip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\HeatColorRange.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\base.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Colors\black.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Colors\blue.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Colors\material.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Colors\metro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Colors\white.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Size\l.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Size\m.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Size\s.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Weight\bold.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Weight\light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Themes\Weight\normal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
