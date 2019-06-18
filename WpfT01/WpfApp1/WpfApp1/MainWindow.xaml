@@ -35,97 +35,98 @@
         </Grid.RowDefinitions>
 
         <!--主界面-->
-        <ScrollViewer Grid.Row="0" Grid.RowSpan="2">
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.2*"/>
-                    <ColumnDefinition Width="0.8*"/>
-                </Grid.ColumnDefinitions>
-                <!--菜单栏-->
-                <Grid x:Name="menuGridB" Grid.Column="0" Background="#CAE123" Visibility="Visible" MouseLeave="MenuGridB_MouseLeave">
-                    <StackPanel Margin="5" MinWidth="120" HorizontalAlignment="Left" VerticalAlignment="Top">
-                        <Label Content="首页" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu1Button}"/>
-                        <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
-                            <Expander.Header>
-                                <Label Content="用户管理" Style="{StaticResource menu1Label}"/>
-                            </Expander.Header>
-                            <Expander.Content>
-                                <StackPanel>
-                                    <Label Content="会员管理" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                    <Label Content="角色管理" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                        <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
-                            <Expander.Header>
-                                <Label Content="文档管理" Style="{StaticResource menu1Label}"/>
-                            </Expander.Header>
-                            <Expander.Content>
-                                <StackPanel>
-                                    <Label Content="部门资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                    <Label Content="员工资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                    <Label Content="职位资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                        <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
-                            <Expander.Header>
-                                <Label Content="采购管理" Style="{StaticResource menu1Label}"/>
-                            </Expander.Header>
-                            <Expander.Content>
-                                <StackPanel>
-                                    <Label Content="采购计划" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                    <Label Content="需求分析" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                    <Label Content="采购单" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                    <Label Content="入库验收" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                    <Label Content="入库退回" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                        <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
-                            <Expander.Header>
-                                <Label Content="供应商" Style="{StaticResource menu1Label}"/>
-                            </Expander.Header>
-                            <Expander.Content>
-                                <StackPanel>
-                                    <Expander ExpandDirection="Down" SnapsToDevicePixels="True" Margin="10,0">
-                                        <Expander.Header>
-                                            <Label Content="供应商1" Style="{StaticResource menu2Label}"/>
-                                        </Expander.Header>
-                                        <Expander.Content>
-                                            <StackPanel>
-                                                <Label Content="基本资料" DataContext="A4B1C1" Margin="10,0"  MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
-                                                <Label Content="往来单位" DataContext="A4B1C2" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
-                                                <Label Content="上游供应商" DataContext="A4B1C3" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
-                                            </StackPanel>
-                                        </Expander.Content>
-                                    </Expander>
-                                    <Label Content="往来单位" DataContext="A4B2" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu2Button}"/>
-                                    <Label Content="上游供应商" DataContext="A4B3" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu2Button}"/>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                </Grid>
 
-                <!--main-->
-                <Grid x:Name="mainGrid" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.07*"/>
-                        <RowDefinition Height="0.93*"/>
-                    </Grid.RowDefinitions>
-                    <Button x:Name="menuBtu" Content="Button" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40.5" Style="{DynamicResource ButtonStyle1}" MouseEnter="MenuGridA_MouseEnter" Width="19.3" Cursor="Hand"/>
-                    <!--面包屑-->
-                    <Border Grid.Row="0" Margin="5,0" BorderThickness="2" BorderBrush="Black">
-                        <StackPanel Orientation="Horizontal" >
-                            <Button Content="首页" Margin="5,0" Style="{StaticResource ButtonStyle1}"/>
-                            <StackPanel x:Name="crumbsStackPanel"  Orientation="Horizontal" >
-
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="0.8*"/>
+            </Grid.ColumnDefinitions>
+            <!--菜单栏-->
+            <Grid x:Name="menuGridB" Grid.Column="0" Background="#CAE123" Visibility="Visible" MouseLeave="MenuGridB_MouseLeave">
+                <StackPanel Margin="5" MinWidth="120" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Label Content="首页" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu1Button}"/>
+                    <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                        <Expander.Header>
+                            <Label Content="用户管理" Style="{StaticResource menu1Label}"/>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel>
+                                <Label Content="会员管理" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                <Label Content="角色管理" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
                             </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                    <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                        <Expander.Header>
+                            <Label Content="文档管理" Style="{StaticResource menu1Label}"/>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel>
+                                <Label Content="部门资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                <Label Content="员工资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                <Label Content="职位资料" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                    <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                        <Expander.Header>
+                            <Label Content="采购管理" Style="{StaticResource menu1Label}"/>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel>
+                                <Label Content="采购计划" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                <Label Content="需求分析" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                <Label Content="采购单" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                <Label Content="入库验收" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                <Label Content="入库退回" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                    <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                        <Expander.Header>
+                            <Label Content="供应商" Style="{StaticResource menu1Label}"/>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel>
+                                <Expander ExpandDirection="Down" SnapsToDevicePixels="True" Margin="10,0">
+                                    <Expander.Header>
+                                        <Label Content="供应商1" Style="{StaticResource menu2Label}"/>
+                                    </Expander.Header>
+                                    <Expander.Content>
+                                        <StackPanel>
+                                            <Label Content="基本资料" DataContext="A4B1C1" Margin="10,0"  MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
+                                            <Label Content="往来单位" DataContext="A4B1C2" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
+                                            <Label Content="上游供应商" DataContext="A4B1C3" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu3Button}"/>
+                                        </StackPanel>
+                                    </Expander.Content>
+                                </Expander>
+                                <Label Content="往来单位" DataContext="A4B2" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu2Button}"/>
+                                <Label Content="上游供应商" DataContext="A4B3" Margin="10,0" MouseDown="SelectMenu_Click"  Style="{StaticResource menu2Button}"/>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                </StackPanel>
+            </Grid>
+
+            <!--main-->
+            <Grid x:Name="mainGrid" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.07*"/>
+                    <RowDefinition Height="0.93*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="menuBtu" Content="Button" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40.5" Style="{DynamicResource ButtonStyle1}" MouseEnter="MenuGridA_MouseEnter" Width="19.3" Cursor="Hand"/>
+                <!--面包屑-->
+                <Border Grid.Row="0" Margin="40,0" BorderThickness="2" BorderBrush="Black">
+                    <StackPanel Orientation="Horizontal" >
+                        <Button Content="首页" Margin="5,0" Style="{StaticResource ButtonStyle1}"/>
+                        <StackPanel x:Name="crumbsStackPanel"  Orientation="Horizontal" >
+
                         </StackPanel>
-                    </Border>
-                    <!--body-->
-                    <Grid x:Name="bodyGrid" Grid.Row="1">
+                    </StackPanel>
+                </Border>
+                <!--body-->
+                <ScrollViewer Grid.Row="1">
+                    <Grid x:Name="bodyGrid">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.3*"/>
                             <ColumnDefinition Width="0.7*"/>
@@ -276,10 +277,11 @@
                             </chart:PieChart>
                         </Grid>
                     </Grid>
-                </Grid>
-
+                </ScrollViewer>
             </Grid>
-        </ScrollViewer>
+
+        </Grid>
+
 
     </Grid>
 </Window>
