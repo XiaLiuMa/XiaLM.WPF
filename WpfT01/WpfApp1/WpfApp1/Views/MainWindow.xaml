@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="660" Width="800" Loaded="Window_Loaded">
+        Background="#0C1C2C"
+        Title="MainWindow" Height="800" Width="1200" Loaded="Window_Loaded">
     <Window.Resources>
         <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
             <Setter Property="Template">
@@ -33,7 +33,12 @@
             <RowDefinition Height="0.07*"/>
             <RowDefinition Height="0.93*"/>
         </Grid.RowDefinitions>
-
+        <!--Logo-->
+        <Grid  Grid.Row="0">
+            <Image Source="/WpfApp1;component/Imgs/Title.png" Margin="20,5"/>
+            <Label Content="XXX管理系统" HorizontalAlignment="Center" VerticalContentAlignment="Center" FontSize="28" FontWeight="Bold" Foreground="#FFFFFF" />
+        </Grid>
+        
         <!--主界面-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -41,7 +46,7 @@
                 <ColumnDefinition Width="0.8*"/>
             </Grid.ColumnDefinitions>
             <!--菜单栏-->
-            <Grid x:Name="menuGridB" Grid.Column="0" Background="#CAE123" Visibility="Hidden" MouseLeave="MenuGridB_MouseLeave">
+            <Grid x:Name="menuGridB" Grid.Column="0" Background="#CAE123" Visibility="Visible" MouseLeave="MenuGridB_MouseLeave">
                 <StackPanel Margin="5" MinWidth="120" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Label Content="首页" Tag="A1" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu1Button}"/>
                     <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
@@ -63,6 +68,17 @@
                             <StackPanel>
                                 <Label Content="LiveCharts" Tag="A3B1" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
                                 <Label Content="ModernCharts" Tag="A3B2" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                    <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Left" SnapsToDevicePixels="True">
+                        <Expander.Header>
+                            <Label Content="热力区域" Style="{StaticResource menu1Label}"/>
+                        </Expander.Header>
+                        <Expander.Content>
+                            <StackPanel>
+                                <Label Content="热力区域1" Tag="A4B1" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
+                                <Label Content="热力区域2" Tag="A4B2" Margin="10,0" MouseDown="SelectMenu_Click" Style="{StaticResource menu2Button}"/>
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
@@ -115,7 +131,6 @@
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
-                    <Label Content="热力区域" Margin="10,0" Tag="" MouseDown="SelectMenu_Click" Style="{StaticResource menu1Button}"/>
                 </StackPanel>
             </Grid>
 
@@ -127,15 +142,17 @@
                 </Grid.RowDefinitions>
                 <Button x:Name="menuBtu" Content="Button" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40.5" Style="{DynamicResource ButtonStyle1}" MouseEnter="MenuGridA_MouseEnter" Width="19.3" Cursor="Hand"/>
                 <!--面包屑-->
-                <Border Grid.Row="0" Margin="5,0" BorderThickness="2" BorderBrush="Black">
-                    <StackPanel Orientation="Horizontal" >
+                <!--<Border Grid.Row="0" Margin="5,0" BorderThickness="2" BorderBrush="Black">-->
+                <Grid>
+                    <!--<Image Source="/WpfApp1;component/Imgs/Line1.png" Margin="5,0"/>-->
+                    <StackPanel Orientation="Horizontal" Margin="20,5">
                         <StackPanel x:Name="crumbsStackPanel"  Orientation="Horizontal"/>
                     </StackPanel>
-                </Border>
-                <!--body-->
-                <Grid x:Name="bodyGrid" Grid.Row="1">
-                    <Frame Name="frmMain" NavigationUIVisibility="Hidden"/>
                 </Grid>
+                <!--body-->
+                <Viewbox x:Name="bodyGrid" Grid.Row="1">
+                    <Frame Name="frmMain" NavigationUIVisibility="Hidden"/>
+                </Viewbox>
             </Grid>
         </Grid>
     </Grid>

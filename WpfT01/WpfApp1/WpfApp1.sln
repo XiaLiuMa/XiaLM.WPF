@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCharts", "Lib\LiveChart
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernCharts", "Lib\ModernCharts\ModernCharts.csproj", "{94FA0B83-9543-4365-AB93-9CED65F36687}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Control", "Control", "{052112F1-5805-477F-9893-BECEF9646210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyUserControl", "Control\MyUserControl\MyUserControl.csproj", "{1453A7B8-38A4-4248-824E-C10516E6A683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCustomControl", "Control\MyCustomControl\MyCustomControl.csproj", "{0817022D-65F2-494A-9762-DF4D1EB480F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +35,14 @@ Global
 		{94FA0B83-9543-4365-AB93-9CED65F36687}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94FA0B83-9543-4365-AB93-9CED65F36687}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94FA0B83-9543-4365-AB93-9CED65F36687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1453A7B8-38A4-4248-824E-C10516E6A683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1453A7B8-38A4-4248-824E-C10516E6A683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1453A7B8-38A4-4248-824E-C10516E6A683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1453A7B8-38A4-4248-824E-C10516E6A683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0817022D-65F2-494A-9762-DF4D1EB480F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0817022D-65F2-494A-9762-DF4D1EB480F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0817022D-65F2-494A-9762-DF4D1EB480F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0817022D-65F2-494A-9762-DF4D1EB480F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +50,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{253DD2C6-9848-449D-9F77-387DB582E212} = {0A65EFCF-8CD7-44FA-8FC5-AFA28D45F8BB}
 		{94FA0B83-9543-4365-AB93-9CED65F36687} = {0A65EFCF-8CD7-44FA-8FC5-AFA28D45F8BB}
+		{1453A7B8-38A4-4248-824E-C10516E6A683} = {052112F1-5805-477F-9893-BECEF9646210}
+		{0817022D-65F2-494A-9762-DF4D1EB480F5} = {052112F1-5805-477F-9893-BECEF9646210}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B308B561-3D54-4A67-94CA-6BDA3EBB0610}

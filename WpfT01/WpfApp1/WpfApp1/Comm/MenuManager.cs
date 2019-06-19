@@ -41,7 +41,10 @@ namespace WpfApp1.Comm
                 new MenuInfo(){ Tag="A2B2",Name="角色管理",Page="UserRolePage"},
                 new MenuInfo(){ Tag="A3",Name="报表管理",Page="MenuHeaderPage"},
                 new MenuInfo(){ Tag="A3B1",Name="LiveCharts",Page="LiveChartsPage"},
-                new MenuInfo(){ Tag="A3B2",Name="ModernCharts",Page="ModernChartsPage"}
+                new MenuInfo(){ Tag="A3B2",Name="ModernCharts",Page="ModernChartsPage"},
+                new MenuInfo(){ Tag="A4",Name="热力区域",Page="MenuHeaderPage"},
+                new MenuInfo(){ Tag="A4B1",Name="热力区域1",Page="HeatingArea1Page"},
+                new MenuInfo(){ Tag="A4B2",Name="热力区域2",Page="HeatingArea2Page"}
             };
         }
         #endregion

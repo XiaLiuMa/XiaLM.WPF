@@ -5,5 +5,7 @@
         <ResourceDictionary Source="../Themes/BaseStyle.xaml" />
         <ResourceDictionary Source="../Themes/ModernCharts.xaml" />
         <ResourceDictionary Source="../Themes/MyTabControl.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/MyCustomControl;component/Themes/Generic.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

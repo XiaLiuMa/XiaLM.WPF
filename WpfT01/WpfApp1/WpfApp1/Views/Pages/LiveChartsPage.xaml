@@ -3,21 +3,21 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:vm="clr-namespace:WpfApp1.ViewModels"
       xmlns:local="clr-namespace:WpfApp1.Views.Pages"
       xmlns:lChart="clr-namespace:LiveCharts.View;assembly=LiveCharts"
       mc:Ignorable="d" 
-      Title="LiveChartsPage" Style="{StaticResource frmPage}">
+      Title="LiveChartsPage" Style="{StaticResource frmPage}" Height="3000">
     <Grid>
         <TabControl Name="tbControl">
-            <TabItem Header="区域监控" Style="{StaticResource MyTabItem}" Margin="5,0">
+            <TabItem Header="圆饼图表" Style="{StaticResource MyTabItem}" Margin="5,0">
                 <ScrollViewer>
                     <StackPanel>
                         <Grid Margin="5" Height="300">
-                            <lChart:CartesianChart Series="{Binding SeriesCollection}">
-                            </lChart:CartesianChart>
-                        </Grid>
-                        <Grid Margin="5" Height="300">
-                            <lChart:PieChart Name="Chart" Series="{Binding SeriesCollection}" LegendLocation="Right" InnerRadius="100">
+                            <Grid.DataContext>
+                                <vm:环形图表1VM/>
+                            </Grid.DataContext>
+                            <lChart:PieChart Name="圆饼图表1" Series="{Binding SeriesCollection}" LegendLocation="Right" InnerRadius="100">
                                 <lChart:PieChart.ChartLegend>
                                     <lChart:DefaultLegend BulletSize="20"></lChart:DefaultLegend>
                                 </lChart:PieChart.ChartLegend>
@@ -27,7 +27,10 @@
                             </lChart:PieChart>
                         </Grid>
                         <Grid Margin="5" Height="300">
-                            <lChart:PieChart LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}">
+                            <Grid.DataContext>
+                                <vm:环形图表2VM/>
+                            </Grid.DataContext>
+                            <lChart:PieChart LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}" >
                                 <lChart:PieChart.Series>
                                     <lChart:PieSeries Title="Maria" Values="3" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
                                     <lChart:PieSeries Title="Charles" Values="4" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
@@ -37,13 +40,32 @@
                             </lChart:PieChart>
                         </Grid>
                         <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:环形图表3VM/>
+                            </Grid.DataContext>
                             <lChart:PieChart Series="{Binding Series}" DataClickCommand="{Binding SliceClickCommand}" DataTooltip="{x:Null}" AnimationsSpeed="0:0:0.25">
                                 <lChart:PieChart.AxisY>
-                                    <lChart:Axis LabelFormatter="{Binding Formatter}"></lChart:Axis>
+                                    <lChart:Axis LabelFormatter="{Binding LabFormatter}"/>
                                 </lChart:PieChart.AxisY>
                             </lChart:PieChart>
                         </Grid>
                         <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:环形图表4VM/>
+                            </Grid.DataContext>
+                            <lChart:AngularGauge Grid.Row="1" Value="{Binding AngularGaugeValue}" FromValue="0" ToValue="250" LabelsStep="50" TicksStep="25" Wedge="300"
+                          TicksForeground="White" Foreground="White" FontWeight="Bold" FontSize="16" SectionsInnerRadius="0.7">
+                                <lChart:AngularGauge.Sections>
+                                    <lChart:AngularSection FromValue="0" ToValue="50" Fill="#A4D1B0"/>
+                                    <lChart:AngularSection FromValue="50" ToValue="200" Fill="#F8A725"/>
+                                    <lChart:AngularSection FromValue="200" ToValue="250" Fill="#FF3939"/>
+                                </lChart:AngularGauge.Sections>
+                            </lChart:AngularGauge>
+                        </Grid>
+                        <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:环形图表5VM/>
+                            </Grid.DataContext>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                                 <RowDefinition />
@@ -52,17 +74,14 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
                             <!--normal gauge-->
-                            <lChart:Gauge Grid.Row="0" Grid.Column="0" Margin="5"
-                   Uses360Mode="True"
-                   From="0" To="100" Value="50" />
+                            <lChart:Gauge Grid.Row="0" Grid.Column="0" Margin="5" Uses360Mode="True" From="0" To="100" Value="50" />
 
                             <!--this gauge is rotated 90° and has an inverted clockwise fill-->
-                            <lChart:Gauge Grid.Row="0" Grid.Column="1" Margin="5"
-                   Uses360Mode="True"
-                   From="0" To="100" Value="50" >
+                            <lChart:Gauge Grid.Row="0" Grid.Column="1" Margin="5" Uses360Mode="True" From="0" To="100" Value="50" >
                                 <lChart:Gauge.GaugeRenderTransform>
                                     <TransformGroup>
                                         <RotateTransform Angle="90"></RotateTransform>
@@ -71,29 +90,16 @@
                                 </lChart:Gauge.GaugeRenderTransform>
                             </lChart:Gauge>
 
-                            <lChart:Gauge Grid.Row="1" Grid.Column="0" Margin="5"
-                   Uses360Mode="True"
-                   From="0" To="100" Value="20"
-                   HighFontSize="60" Foreground="White"
-                   InnerRadius="0" GaugeBackground="#BE54A3E9"/>
+                            <lChart:Gauge Grid.Row="1" Grid.Column="0" Margin="5" Uses360Mode="True" From="0" To="100" Value="80" HighFontSize="60" Foreground="White" InnerRadius="0" GaugeBackground="#BE54A3E9"/>
 
                             <!--the next gauge interpolates from color white, to color black according to the current value in the gauge-->
-                            <lChart:Gauge Grid.Row="1" Grid.Column="1" Margin="5"
-                   Uses360Mode="True"
-                   From="0" To="100" Value="50"
-                   HighFontSize="60" Foreground="#424242"
-                   FromColor="White" ToColor="Black"
-                   InnerRadius="0" GaugeBackground="Transparent">
-                            </lChart:Gauge>
+                            <lChart:Gauge Grid.Row="1" Grid.Column="1" Margin="5" Uses360Mode="True" From="0" To="100" Value="50" HighFontSize="60" Foreground="#424242" FromColor="White" ToColor="Black" InnerRadius="0" GaugeBackground="Transparent"/>
 
                             <!--standard gauge-->
-                            <lChart:Gauge Grid.Row="2" Grid.Column="0" Margin="5"
-                   From="0" To="100" Value="50"/>
+                            <lChart:Gauge Grid.Row="2" Grid.Column="0" Margin="5" From="0" To="100" Value="50"/>
 
                             <!--custom fill gauge-->
-                            <lChart:Gauge Grid.Row="2" Grid.Column="1"
-                   From="0" To="100" Value="50"
-                   LabelsVisibility="Collapsed">
+                            <lChart:Gauge Grid.Row="2" Grid.Column="1" From="0" To="100" Value="80" LabelsVisibility="Collapsed">
                                 <lChart:Gauge.GaugeActiveFill>
                                     <LinearGradientBrush>
                                         <GradientStop Color="Yellow" Offset="0.0" />
@@ -102,20 +108,105 @@
                                     </LinearGradientBrush>
                                 </lChart:Gauge.GaugeActiveFill>
                             </lChart:Gauge>
+
+                            <lChart:Gauge Grid.Row="0" Grid.Column="2" Value=".20"  Uses360Mode="True" Margin="5" LabelFormatter="{Binding LabFormatter}"/>
+                            <lChart:Gauge Grid.Row="1" Grid.Column="2" Value=".80"  Uses360Mode="True" Margin="5" LabelFormatter="{Binding LabFormatter}" FromColor="IndianRed" ToColor="IndianRed"/>
+                            <lChart:Gauge Grid.Row="2" Grid.Column="2" Value=".70"  Uses360Mode="True" Margin="5" LabelFormatter="{Binding LabFormatter}"
+                       FromColor="LightSeaGreen" ToColor="LightSeaGreen"/>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="线形图表" Style="{StaticResource MyTabItem}" Margin="5,0">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:线形图表1VM/>
+                            </Grid.DataContext>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <lChart:CartesianChart Grid.Column="0" Background="White"
+                            DataTooltip="{Binding ElementName=CurrentTooltip}">
+                                <lChart:CartesianChart.Series>
+                                    <lChart:LineSeries Values="1,2,3,4,5" LabelPoint="{Binding LabelPoint}"></lChart:LineSeries>
+                                </lChart:CartesianChart.Series>
+                            </lChart:CartesianChart>
+                            <lChart:CartesianChart Grid.Column="1" Background="White"
+                            DataTooltip="{Binding ElementName=CurrentTooltip}">
+                                <lChart:CartesianChart.Series>
+                                    <lChart:LineSeries Values="1,2,3,4,5" LabelPoint="{Binding LabelPoint}"></lChart:LineSeries>
+                                </lChart:CartesianChart.Series>
+                            </lChart:CartesianChart>
+                            <lChart:CartesianChart Grid.Column="2" Background="White"
+                            DataTooltip="{Binding ElementName=CurrentTooltip}">
+                                <lChart:CartesianChart.Series>
+                                    <lChart:LineSeries Values="1,2,3,4,5" LabelPoint="{Binding LabelPoint}" ></lChart:LineSeries>
+                                </lChart:CartesianChart.Series>
+                            </lChart:CartesianChart>
                         </Grid>
                         <Grid Margin="5" Height="300">
-                            <lChart:AngularGauge Grid.Row="1" Value="{Binding Value}" FromValue="50" ToValue="250" 
-                          LabelsStep="50" TicksStep="25" Wedge="300"
-                          TicksForeground="White" Foreground="White" 
-                          FontWeight="Bold" FontSize="16"
-                          SectionsInnerRadius=".5">
-                                <lChart:AngularGauge.Sections>
-                                    <lChart:AngularSection FromValue="50" ToValue="200" Fill="#F8A725"/>
-                                    <lChart:AngularSection FromValue="200" ToValue="250" Fill="#FF3939"/>
-                                </lChart:AngularGauge.Sections>
-                            </lChart:AngularGauge>
+                            <Grid.DataContext>
+                                <vm:线形图表2VM/>
+                            </Grid.DataContext>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Click, hold and drag any section =></TextBlock>
+                                <TextBlock>X:</TextBlock>
+                                <TextBlock Text="{Binding XSection}"></TextBlock>
+                                <TextBlock>, Y:</TextBlock>
+                                <TextBlock Text="{Binding YSection}"></TextBlock>
+                            </StackPanel>
+                            <lChart:CartesianChart Grid.Row="1">
+                                <lChart:CartesianChart.Series>
+                                    <lChart:LineSeries Values="7,2,8,2,7,4,9,4,2,8"></lChart:LineSeries>
+                                </lChart:CartesianChart.Series>
+                                <lChart:CartesianChart.AxisX>
+                                    <lChart:Axis>
+                                        <lChart:Axis.Sections>
+                                            <lChart:AxisSection Draggable="True" Value="{Binding XSection, Mode=TwoWay}" StrokeThickness="4" Stroke="DarkSlateBlue" Panel.ZIndex="99"/>
+                                        </lChart:Axis.Sections>
+                                    </lChart:Axis>
+                                </lChart:CartesianChart.AxisX>
+                                <lChart:CartesianChart.AxisY>
+                                    <lChart:Axis>
+                                        <lChart:Axis.Sections>
+                                            <lChart:AxisSection Draggable="True" Value="{Binding YSection, Mode=TwoWay}" StrokeThickness="4" Stroke="DarkSlateBlue" Panel.ZIndex="99"/>
+                                        </lChart:Axis.Sections>
+                                    </lChart:Axis>
+                                </lChart:CartesianChart.AxisY>
+                            </lChart:CartesianChart>
+                        </Grid>
+                        <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:线形图表3VM/>
+                            </Grid.DataContext>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <lChart:CartesianChart Grid.Row="2">
+                                <lChart:CartesianChart.Series>
+                                    <lChart:VerticalLineSeries Values="{Binding Values}" DataLabels="True" />
+                                </lChart:CartesianChart.Series>
+                                <lChart:CartesianChart.DataTooltip>
+                                    <!--The Selection mode property should be done automatically in future versions-->
+                                    <lChart:DefaultTooltip SelectionMode="SharedYValues"></lChart:DefaultTooltip>
+                                </lChart:CartesianChart.DataTooltip>
+                            </lChart:CartesianChart>
                         </Grid>
                         <Grid Margin="5" Height="300" Background="#7EBE8E">
+                            <Grid.DataContext>
+                                <vm:线形图表4VM/>
+                            </Grid.DataContext>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width=".7*"></ColumnDefinition>
                                 <ColumnDefinition Width=".3*"></ColumnDefinition>
@@ -134,9 +225,7 @@
                             </StackPanel>
                             <lChart:CartesianChart Name="Chart1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="15">
                                 <lChart:CartesianChart.Series>
-                                    <lChart:LineSeries Values="{Binding Values}" LineSmoothness="1" StrokeThickness="10" 
-                                DataLabels="True" FontSize="20" Foreground="#6B303030"
-                                Stroke="White" Fill="Transparent" PointGeometrySize="0"/>
+                                    <lChart:LineSeries Values="{Binding Values}" LineSmoothness="1" StrokeThickness="10" DataLabels="True" FontSize="20" Foreground="#6B303030" Stroke="White" Fill="Transparent" PointGeometrySize="0"/>
                                 </lChart:CartesianChart.Series>
                                 <lChart:CartesianChart.AxisX>
                                     <lChart:Axis IsEnabled="False" ShowLabels="False"/>
@@ -168,133 +257,11 @@
 
                                             </Ellipse>
                                             <Path Width="20" Height="20" Stretch="Fill" Fill="White" Data="F1 M 58,33.5001L 58,27L 49,19L 40,27.5001L 40,33.5001L 46,28.2097L 46,40.5C 46,46.299 41.299,51 35.5,51C 29.701,51 25,46.299 25,40.5C 25,34.8686 29.4332,30.2727 35,30.0117L 35,24.0074C 26.1186,24.2718 19,31.5546 19,40.5C 19,49.6127 26.3873,57 35.5,57C 44.6127,57 52,49.6127 52,40.5L 52,28.125L 58,33.5001 Z "/>
-                                            <ContentPresenter HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"/>
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Grid>
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
-                        </Grid>
-                        <Grid Margin="5" Height="300" Background="#7EBE8E">
-                            <lChart:CartesianChart DataTooltip="{x:Null}">
-                                <lChart:CartesianChart.Series>
-                                    <lChart:ColumnSeries Values="5,6,7,9,2,4,6,5,9,7,5,10"/>
-                                </lChart:CartesianChart.Series>
-                                <lChart:CartesianChart.AxisY>
-                                    <lChart:Axis LabelFormatter="{Binding Formatter}">
-                                        <lChart:Axis.Sections>
-                                            <lChart:AxisSection Value="{Binding YPointer}" 
-                                         DataLabel="True"
-                                         StrokeThickness="1"
-                                         Stroke="#ff5722"
-                                         DisableAnimations="True"
-                                         DataLabelForeground="White"
-                                         Panel.ZIndex="1"/>
-                                        </lChart:Axis.Sections>
-                                    </lChart:Axis>
-                                </lChart:CartesianChart.AxisY>
-                                <lChart:CartesianChart.AxisX>
-                                    <lChart:Axis LabelsRotation="-25" Labels="January, February, March, April, May, Jun, July, Agust, September, October, November, December">
-                                        <lChart:Axis.Sections>
-                                            <lChart:AxisSection Value="{Binding XPointer}"
-                                         SectionWidth="1"
-                                         SectionOffset="-0.5"
-                                         Fill="#59FF5722"
-                                         Stroke="#ff5722"
-                                         StrokeThickness=".5"
-                                         DataLabelForeground="White"
-                                         DataLabel="True"/>
-                                        </lChart:Axis.Sections>
-                                        <lChart:Axis.Separator>
-                                            <lChart:Separator Step="1" />
-                                        </lChart:Axis.Separator>
-                                    </lChart:Axis>
-                                </lChart:CartesianChart.AxisX>
-                            </lChart:CartesianChart>
-                        </Grid>
-                        <Grid Margin="5" Height="300">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-
-                            <lChart:CartesianChart Grid.Column="0" Background="White"
-                            DataTooltip="{Binding ElementName=CurrentTooltip}">
-                                <lChart:CartesianChart.Series>
-                                    <lChart:LineSeries Values="1,2,3,4,5" LabelPoint="{Binding LabelPoint}"></lChart:LineSeries>
-                                </lChart:CartesianChart.Series>
-                            </lChart:CartesianChart>
-                            <lChart:CartesianChart Grid.Column="1" Background="White"
-                            DataTooltip="{Binding ElementName=CurrentTooltip}">
-                                <lChart:CartesianChart.Series>
-                                    <lChart:LineSeries Values="1,2,3,4,5" LabelPoint="{Binding LabelPoint}"></lChart:LineSeries>
-                                </lChart:CartesianChart.Series>
-                            </lChart:CartesianChart>
-                            <lChart:CartesianChart Grid.Column="2" Background="White"
-                            DataTooltip="{Binding ElementName=CurrentTooltip}">
-                                <lChart:CartesianChart.Series>
-                                    <lChart:LineSeries Values="1,2,3,4,5" LabelPoint="{Binding LabelPoint}" ></lChart:LineSeries>
-                                </lChart:CartesianChart.Series>
-                            </lChart:CartesianChart>
-                        </Grid>
-                        <Grid Margin="5" Height="300">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock>Click, hold and drag any section =></TextBlock>
-                                <TextBlock>X:</TextBlock>
-                                <TextBlock Text="{Binding XSection}"></TextBlock>
-                                <TextBlock>, Y:</TextBlock>
-                                <TextBlock Text="{Binding YSection}"></TextBlock>
-                            </StackPanel>
-                            <lChart:CartesianChart Grid.Row="1">
-                                <lChart:CartesianChart.Series>
-                                    <lChart:LineSeries Values="7,2,8,2,7,4,9,4,2,8"></lChart:LineSeries>
-                                </lChart:CartesianChart.Series>
-                                <lChart:CartesianChart.AxisX>
-                                    <lChart:Axis>
-                                        <lChart:Axis.Sections>
-                                            <lChart:AxisSection Draggable="True" 
-                                         Value="{Binding XSection, Mode=TwoWay}"
-                                         StrokeThickness="4"
-                                         Stroke="DarkSlateBlue"
-                                         Panel.ZIndex="99"/>
-                                        </lChart:Axis.Sections>
-                                    </lChart:Axis>
-                                </lChart:CartesianChart.AxisX>
-                                <lChart:CartesianChart.AxisY>
-                                    <lChart:Axis>
-                                        <lChart:Axis.Sections>
-                                            <lChart:AxisSection Draggable="True" 
-                                         Value="{Binding YSection, Mode=TwoWay}" 
-                                         StrokeThickness="4"
-                                         Stroke="DarkSlateBlue"
-                                         Panel.ZIndex="99"/>
-                                        </lChart:Axis.Sections>
-                                    </lChart:Axis>
-                                </lChart:CartesianChart.AxisY>
-                            </lChart:CartesianChart>
-                        </Grid>
-                        <Grid Margin="5" Height="300">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Button Grid.Row="0" Margin="10" >Randomize</Button>
-                            <lChart:CartesianChart Grid.Row="1" LegendLocation="Bottom">
-                                <lChart:CartesianChart.Series>
-                                    <lChart:ScatterSeries Title="Series A" Values="{Binding ValuesA}" />
-                                    <lChart:ScatterSeries Title="Series B" Values="{Binding ValuesB}" PointGeometry="{x:Static lChart:DefaultGeometries.Diamond}" />
-                                    <lChart:ScatterSeries Title="Series C" Values="{Binding ValuesC}" PointGeometry="{x:Static lChart:DefaultGeometries.Triangle}" StrokeThickness="2" Fill="Transparent"/>
-                                </lChart:CartesianChart.Series>
-                                <lChart:CartesianChart.AxisY>
-                                    <!--setting the axis unit improved the labels rounding rule-->
-                                    <lChart:Axis Unit="1"></lChart:Axis>
-                                </lChart:CartesianChart.AxisY>
-                            </lChart:CartesianChart>
                         </Grid>
                         <Grid Margin="5" Height="300">
                             <Grid.Resources>
@@ -334,23 +301,56 @@
                                 </lChart:CartesianChart.Series>
                             </lChart:CartesianChart>
                         </Grid>
-                        <Grid Margin="5" Height="300">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <lChart:CartesianChart Grid.Row="2">
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="方形图表" Style="{StaticResource MyTabItem}" Margin="5,0">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid Margin="5" Height="300" Background="#7EBE8E">
+                            <Grid.DataContext>
+                                <vm:方形图表1VM/>
+                            </Grid.DataContext>
+                            <lChart:CartesianChart DataTooltip="{x:Null}">
                                 <lChart:CartesianChart.Series>
-                                    <lChart:VerticalLineSeries Values="{Binding Values}" DataLabels="True" />
+                                    <lChart:ColumnSeries Values="5,6,7,9,2,4,6,5,9,7,5,10"/>
                                 </lChart:CartesianChart.Series>
-                                <lChart:CartesianChart.DataTooltip>
-                                    <!--The Selection mode property should be done automatically in future versions-->
-                                    <lChart:DefaultTooltip SelectionMode="SharedYValues"></lChart:DefaultTooltip>
-                                </lChart:CartesianChart.DataTooltip>
+                                <lChart:CartesianChart.AxisY>
+                                    <lChart:Axis LabelFormatter="{Binding Formatter}">
+                                        <lChart:Axis.Sections>
+                                            <lChart:AxisSection Value="{Binding YPointer}" 
+                                         DataLabel="True"
+                                         StrokeThickness="1"
+                                         Stroke="#ff5722"
+                                         DisableAnimations="True"
+                                         DataLabelForeground="White"
+                                         Panel.ZIndex="1"/>
+                                        </lChart:Axis.Sections>
+                                    </lChart:Axis>
+                                </lChart:CartesianChart.AxisY>
+                                <lChart:CartesianChart.AxisX>
+                                    <lChart:Axis LabelsRotation="-25" Labels="January, February, March, April, May, Jun, July, Agust, September, October, November, December">
+                                        <lChart:Axis.Sections>
+                                            <lChart:AxisSection Value="{Binding XPointer}"
+                                         SectionWidth="1"
+                                         SectionOffset="-0.5"
+                                         Fill="#59FF5722"
+                                         Stroke="#ff5722"
+                                         StrokeThickness=".5"
+                                         DataLabelForeground="White"
+                                         DataLabel="True"/>
+                                        </lChart:Axis.Sections>
+                                        <lChart:Axis.Separator>
+                                            <lChart:Separator Step="1" />
+                                        </lChart:Axis.Separator>
+                                    </lChart:Axis>
+                                </lChart:CartesianChart.AxisX>
                             </lChart:CartesianChart>
                         </Grid>
                         <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:方形图表2VM/>
+                            </Grid.DataContext>
                             <lChart:CartesianChart>
                                 <lChart:CartesianChart.Series>
                                     <lChart:RowSeries Values="{Binding Values2}" Panel.ZIndex="1"></lChart:RowSeries>
@@ -372,6 +372,52 @@
                             </lChart:CartesianChart>
                         </Grid>
                         <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:方形图表3VM/>
+                            </Grid.DataContext>
+                            <lChart:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Bottom">
+                                <lChart:CartesianChart.AxisX>
+                                    <lChart:Axis Title="Salesman" LabelFormatter="{Binding Formatter}"></lChart:Axis>
+                                </lChart:CartesianChart.AxisX>
+                                <lChart:CartesianChart.AxisY>
+                                    <lChart:Axis Title="Sold Apps" Labels="{Binding Labels}"></lChart:Axis>
+                                </lChart:CartesianChart.AxisY>
+                                <lChart:CartesianChart.DataTooltip>
+                                    <lChart:DefaultTooltip SelectionMode="SharedYValues"></lChart:DefaultTooltip>
+                                </lChart:CartesianChart.DataTooltip>
+                            </lChart:CartesianChart>
+                        </Grid>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="其它图表" Style="{StaticResource MyTabItem}" Margin="5,0">
+                <ScrollViewer>
+                    <StackPanel>
+                        <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:其它图表1VM/>
+                            </Grid.DataContext>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" Margin="10" >Randomize</Button>
+                            <lChart:CartesianChart Grid.Row="1" LegendLocation="Bottom">
+                                <lChart:CartesianChart.Series>
+                                    <lChart:ScatterSeries Title="Series A" Values="{Binding ValuesA}" />
+                                    <lChart:ScatterSeries Title="Series B" Values="{Binding ValuesB}" PointGeometry="{x:Static lChart:DefaultGeometries.Diamond}" />
+                                    <lChart:ScatterSeries Title="Series C" Values="{Binding ValuesC}" PointGeometry="{x:Static lChart:DefaultGeometries.Triangle}" StrokeThickness="2" Fill="Transparent"/>
+                                </lChart:CartesianChart.Series>
+                                <lChart:CartesianChart.AxisY>
+                                    <!--setting the axis unit improved the labels rounding rule-->
+                                    <lChart:Axis Unit="1"></lChart:Axis>
+                                </lChart:CartesianChart.AxisY>
+                            </lChart:CartesianChart>
+                        </Grid>
+                        <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:其它图表2VM/>
+                            </Grid.DataContext>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
                                 <RowDefinition Height="*"></RowDefinition>
@@ -400,6 +446,31 @@
                                     <lChart:Axis Labels="{Binding Days}"></lChart:Axis>
                                 </lChart:CartesianChart.AxisY>
                             </lChart:CartesianChart>
+                        </Grid>
+                        <Grid Margin="5" Height="300">
+                            <Grid.DataContext>
+                                <vm:其它图表3VM/>
+                            </Grid.DataContext>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <Label Content="Series Period: "></Label>
+                                <Label Content="{Binding Period}"></Label>
+                                <Label Content="Seperator window: "></Label>
+                                <Label Content="{Binding SelectedWindow, Mode=TwoWay}"></Label>
+                            </StackPanel>
+                            <lChart:CartesianChart Zoom="X" Grid.Row="1" DisableAnimations="False" Series="{Binding SeriesCollection}">
+                                <lChart:CartesianChart.AxisX>
+                                    <lChart:DateAxis MinValue="0" MaxValue="60" Foreground="DarkSlateBlue" HeaderForeground="Black" Period="{Binding Period, Mode=TwoWay}" ShowLabels="True" SelectedWindow="{Binding SelectedWindow, Mode=TwoWay}" InitialDateTime="{Binding InitialDateTime}">
+                                        <lChart:DateAxis.Separator>
+                                            <lChart:Separator StrokeThickness="30" Stroke="Black"/>
+                                        </lChart:DateAxis.Separator>
+                                    </lChart:DateAxis>
+                                </lChart:CartesianChart.AxisX>
+                            </lChart:CartesianChart>
+
                         </Grid>
                         <Grid Margin="5" Height="300" Background="#14144B">
                             <Grid.Resources>
@@ -477,79 +548,6 @@
                                         </lChart:VisualElement.UIElement>
                                     </lChart:VisualElement>
                                 </lChart:CartesianChart.VisualElements>
-                            </lChart:CartesianChart>
-                        </Grid>
-                        <Grid Margin="5" Height="300">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Background="#FFC107" HorizontalAlignment="Right" Padding="10 5" FontWeight="Bold">Experimental</TextBlock>
-
-                            <StackPanel Grid.Row="1">
-                                <Label>Set `DateAxis.InitialDateTime` to configure the starting point (X=0) dateTime.</Label>
-                                <Label>Configure the DateAxis.Period to the PeriodUnit of your axis values. Use the buttons below to configure this property for the X axis.</Label>
-                            </StackPanel>
-
-                            <StackPanel Grid.Row="2" Orientation="Horizontal">
-                                <Button >
-                                    Millisecond
-                                </Button>
-                                <Button >
-                                    Second
-                                </Button>
-                                <Button >
-                                    Minute
-                                </Button>
-                                <Button>
-                                    Hour
-                                </Button>
-                                <Button>
-                                    Day
-                                </Button>
-                            </StackPanel>
-
-                            <StackPanel Grid.Row="3" Orientation="Horizontal">
-                                <Label Content="Series Period: "></Label>
-                                <Label Content="{Binding Period}"></Label>
-                                <Label Content="Seperator window: "></Label>
-                                <Label Content="{Binding SelectedWindow, Mode=TwoWay}"></Label>
-                            </StackPanel>
-
-                            <lChart:CartesianChart Zoom="X" Grid.Row="4" DisableAnimations="False" Series="{Binding SeriesCollection}">
-                                <lChart:CartesianChart.AxisX>
-                                    <lChart:DateAxis
-                    MinValue="0"
-                    MaxValue="60"
-                    Foreground="DarkSlateBlue"
-                    HeaderForeground="Black"
-                    Period="{Binding Period, Mode=TwoWay}"
-                    ShowLabels="True"           
-                    SelectedWindow="{Binding SelectedWindow, Mode=TwoWay}"
-                    InitialDateTime="{Binding InitialDateTime}">
-                                        <lChart:DateAxis.Separator>
-                                            <lChart:Separator StrokeThickness="10" Stroke="Black"/>
-                                        </lChart:DateAxis.Separator>
-                                    </lChart:DateAxis>
-                                </lChart:CartesianChart.AxisX>
-                            </lChart:CartesianChart>
-
-                        </Grid>
-                        <Grid Margin="5" Height="300">
-                            <lChart:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Bottom">
-                                <lChart:CartesianChart.AxisX>
-                                    <lChart:Axis Title="Salesman" LabelFormatter="{Binding Formatter}"></lChart:Axis>
-                                </lChart:CartesianChart.AxisX>
-                                <lChart:CartesianChart.AxisY>
-                                    <lChart:Axis Title="Sold Apps" Labels="{Binding Labels}"></lChart:Axis>
-                                </lChart:CartesianChart.AxisY>
-                                <lChart:CartesianChart.DataTooltip>
-                                    <lChart:DefaultTooltip SelectionMode="SharedYValues"></lChart:DefaultTooltip>
-                                </lChart:CartesianChart.DataTooltip>
                             </lChart:CartesianChart>
                         </Grid>
                     </StackPanel>

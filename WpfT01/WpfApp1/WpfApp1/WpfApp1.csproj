@@ -58,8 +58,15 @@
     <Compile Include="Comm\MenuManager.cs" />
     <Compile Include="Mods\MenuInfo.cs" />
     <Compile Include="Mods\SeriesData.cs" />
+    <Compile Include="ViewModels\IndexPageVM.cs" />
     <Compile Include="ViewModels\LiveChartsPageVM.cs" />
     <Compile Include="ViewModels\ModernChartsPageVM.cs" />
+    <Compile Include="Views\Pages\HeatingArea1Page.xaml.cs">
+      <DependentUpon>HeatingArea1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\HeatingArea2Page.xaml.cs">
+      <DependentUpon>HeatingArea2Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\IndexPage.xaml.cs">
       <DependentUpon>IndexPage.xaml</DependentUpon>
     </Compile>
@@ -105,6 +112,14 @@
     <Page Include="Themes\Default.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\HeatingArea1Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\HeatingArea2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\IndexPage.xaml">
       <SubType>Designer</SubType>
@@ -157,10 +172,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Mycontrols\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Control\MyCustomControl\MyCustomControl.csproj">
+      <Project>{0817022d-65f2-494a-9762-df4d1eb480f5}</Project>
+      <Name>MyCustomControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Control\MyUserControl\MyUserControl.csproj">
+      <Project>{1453a7b8-38a4-4248-824e-c10516e6a683}</Project>
+      <Name>MyUserControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lib\LiveCharts\LiveCharts.csproj">
       <Project>{253dd2c6-9848-449d-9f77-387db582e212}</Project>
       <Name>LiveCharts</Name>
@@ -175,6 +196,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imgs\MinMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Maps\WorldMap.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imgs\Line1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
