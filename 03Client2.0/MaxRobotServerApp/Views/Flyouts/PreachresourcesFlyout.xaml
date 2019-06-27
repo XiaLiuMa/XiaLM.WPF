@@ -1,0 +1,41 @@
+﻿<mcc:CBaseFlyout x:Class="MaxRobotServerApp.Views.Flyouts.PreachresourcesFlyout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaxRobotServerApp.Views.Flyouts"
+             xmlns:mcc="clr-namespace:MyCustomControl;assembly=MyCustomControl"
+             xmlns:ext="clr-namespace:MaxRobotServerApp.Extensions"
+             xmlns:selectFile="MyCustomControl"
+             mc:Ignorable="d"  
+             Title="编辑宣讲资源" Width="480" Height="252.531" ResizeMode="NoResize">
+    <StackPanel Margin="50,5,20,5">
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="文件类型:" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <ComboBox x:Name="filetypeComBox" SelectionChanged="FiletypeComBox_SelectionChanged" MinWidth="200" FontSize="16" Style="{StaticResource DefaultComboBox}">
+                <ComboBoxItem>视频</ComboBoxItem>
+                <ComboBoxItem>音频</ComboBoxItem>
+                <ComboBoxItem>文本</ComboBoxItem>
+                <ComboBoxItem>图片</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="选择文件:" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <mcc:SelectPathControl Name="selectpath" SelectMode="SelectFile" MinWidth="200" FontSize="16"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="文件描述:" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <TextBox x:Name="filedesc" MinWidth="200" FontSize="16" Style="{StaticResource dTextBox}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="上传进度:" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <ProgressBar Minimum="0" Maximum="100" x:Name="ProgressBar" MinWidth="200" Height="18" Style="{StaticResource GreenBackground}">
+                <i:Interaction.Behaviors>
+                    <ext:ProgresBarAnimateBehavior x:Name="AnimateBehavior" />
+                </i:Interaction.Behaviors>
+            </ProgressBar>
+        </StackPanel>
+        <Button Content="确定" Click="ConfirmBtn_Click" Width="60" Margin="0,20" Style="{StaticResource dButton}"/>
+    </StackPanel>
+</mcc:CBaseFlyout>

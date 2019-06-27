@@ -1,0 +1,38 @@
+﻿<Application x:Class="MaxRobotServerApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MaxRobotServerApp">
+    <!--StartupUri="LoginWindow.xaml">-->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--项目控件样式-->
+                <ResourceDictionary Source="/MaxRobotServerApp;component/Views/Themes/Generic.xaml"/>
+                <!--自定义控件样式-->
+                <ResourceDictionary Source="/MyCustomControl;component/Themes/Default.xaml" />
+                <!--自定义控件样式-->
+                <ResourceDictionary Source="/SpecialEffectsControl;component/Themes/Default.xaml" />
+
+                <!--UtilControls样式-->
+                <!--<ResourceDictionary Source="pack://application:,,,/UtilControls;component/Style/Colors.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/UtilControls;component/Style/Global.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/UtilControls;component/Style/Themes/FIcon.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/UtilControls;component/Control/FButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/UtilControls;component/Style/Style.xaml"/>-->
+            </ResourceDictionary.MergedDictionaries>
+            
+
+            <!--全局样式-->
+            <!--<Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBox}"/>-->
+
+            <!--<Style TargetType="{x:Type Label}" BasedOn="{StaticResource dLabel}"/>
+            <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource dTextBlock}"/>
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource dTextBox}"/>
+            <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource dPasswordBox}"/>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource dButton}"/>
+            <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource DefaultComboBox}"/>
+            <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource dDataGrid}"/>
+            <Style TargetType="{x:Type DataGridTextColumn}" BasedOn="{StaticResource dDataGridTextColumn}"/>-->
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

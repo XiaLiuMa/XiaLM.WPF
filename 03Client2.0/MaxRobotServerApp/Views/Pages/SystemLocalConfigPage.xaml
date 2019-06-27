@@ -1,0 +1,35 @@
+﻿<Page x:Class="MaxRobotServerApp.Views.Pages.SystemLocalConfigPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:muc="clr-namespace:MyUserControl;assembly=MyUserControl"
+      xmlns:time="clr-namespace:MyUserControl.TimePicker;assembly=MyUserControl"
+      xmlns:local="clr-namespace:MaxRobotServerApp.Views.Pages"
+      mc:Ignorable="d" Style="{StaticResource MyPage}" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="系统管理  >>  本地配置" Style="{StaticResource dLabel}" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="360,5">
+                <Label Content="服务器配置:" FontSize="24" Style="{StaticResource dLabel}"/>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="IP地址" FontSize="16" Style="{StaticResource dLabel}"/>
+                        <TextBox x:Name="t1serverIp" MinWidth="200" FontSize="16" Style="{StaticResource dTextBox}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="端口号" FontSize="16" Style="{StaticResource dLabel}"/>
+                        <TextBox x:Name="t1serverPort" MinWidth="200" FontSize="16" Style="{StaticResource dTextBox}" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <Button Content="保存配置" Height="30" Width="80" Margin="0,20" Click="T1SaveConfig_Click" Style="{StaticResource dButton}"/>
+        </StackPanel>
+    </Grid>
+</Page>

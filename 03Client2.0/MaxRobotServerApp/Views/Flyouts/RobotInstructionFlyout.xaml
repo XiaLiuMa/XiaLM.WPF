@@ -1,0 +1,76 @@
+﻿<Window x:Class="MaxRobotServerApp.Views.Flyouts.RobotInstructionFlyout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaxRobotServerApp.Views.Flyouts"
+             xmlns:ext="clr-namespace:MaxRobotServerApp.Extensions"
+             xmlns:selectFile="MyCustomControl"
+             xmlns:wfc="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             xmlns:wfh="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+             mc:Ignorable="d"
+             Width="900" Height="680" WindowStyle="None" ResizeMode="NoResize" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="指令视频" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="36" />
+        <Image Grid.Row="0" Grid.Column="4" Margin="10" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/MaxRobotServerApp;component/Views/Imgs/close2.png" MouseDown="CloseDialog_Click" Cursor="Hand"/>
+        <Grid Grid.Row="1" Grid.RowSpan="10" Grid.Column="0" Grid.ColumnSpan="4">
+            <TabControl x:Name="tbControl" SelectionChanged="TbControl_SelectionChanged">
+                <TabItem x:Name="tbItem1" Header="分屏视频">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.1*"/>
+                            <RowDefinition Height="0.1*"/>
+                        </Grid.RowDefinitions>
+                        <WindowsFormsHost Grid.Row="0" Margin="180,0">
+                            <wfc:Panel x:Name="tbItem11Panle"/>
+                        </WindowsFormsHost>
+                        <WindowsFormsHost Grid.Row="1" Margin="180,0">
+                            <wfc:Panel x:Name="tbItem12Panle"/>
+                        </WindowsFormsHost>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="tbItem2" Header="实时视频">
+                    <WindowsFormsHost>
+                        <wfc:Panel x:Name="tbItem2Panle"/>
+                    </WindowsFormsHost>
+                </TabItem>
+                <TabItem x:Name="tbItem3" Header="红外视频">
+                    <WindowsFormsHost>
+                        <wfc:Panel x:Name="tbItem3Panle"/>
+                    </WindowsFormsHost>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Button Content="抬头" Grid.Row="1" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="TaiTou_Click"/>
+        <Button Content="低头" Grid.Row="2" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="DiTou_Click"/>
+        <Button Content="向左看" Grid.Row="3" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="ZuoKan_Click"/>
+        <Button Content="向右看" Grid.Row="4" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="YouKan_Click"/>
+        <Button Content="回原位" Grid.Row="5" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="HuiYuanWei_Click"/>
+        <Button Content="前进" Grid.Row="6" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="QianJin_Click"/>
+        <Button Content="左转" Grid.Row="7" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="ZuoZhuan_Click"/>
+        <Button Content="右转" Grid.Row="8" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="YouZhuan_Click"/>
+        <Button Content="向后转" Grid.Row="9" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="HouZhuan_Click"/>
+        <Button Content="停止" Grid.Row="10" Grid.Column="4" FontSize="20" Margin="16,8" Background="#EABA19" Padding="0" BorderThickness="0" Height="Auto" Click="TingZhi_Click"/>
+    </Grid>
+</Window>

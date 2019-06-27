@@ -1,0 +1,180 @@
+﻿<controls:MetroWindow  x:Class="MaxRobotServerApp.Views.MainWindow备份"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"    
+        xmlns:maxRobotServerApp="clr-namespace:MaxRobotServerApp.Views"
+        xmlns:ucontrol="clr-namespace:UControl;assembly=UControl"
+        WindowTransitionsEnabled="False"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"					  
+        GlowBrush="{DynamicResource AccentColorBrush}"					  
+        FontFamily="{StaticResource DefaultFont}"
+        Height="640" Width="960" WindowStyle="None"  ShowTitleBar="False" ResizeMode="NoResize" ShowCloseButton="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.12*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--背景-->
+        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Source="/MaxRobotServerApp;component/imgs/background.png" Stretch="Fill"/>
+        <!--logo-->
+        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Source="/MaxRobotServerApp;component/imgs/indexlogo.png" Margin="12,5,0,5" />
+        <!--用户信息-->
+        <Grid Grid.Row="0" Grid.Column="2" Margin="5,0,0,0" >
+            <Image HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Source="/MaxRobotServerApp;component/imgs/user.png" />
+            <Label Content="admin" Height="22" Margin="0,7,25,29" HorizontalAlignment="Right"/>
+            <Label Content="管理员" Height="22" Margin="0,31,23,5" HorizontalAlignment="Right"/>
+        </Grid>
+        <!--退出系统-->
+        <Image Grid.Row="0" Grid.Column="3" Margin="2" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/MaxRobotServerApp;component/imgs/indexexit.png" MouseDown="IndexExit_Click"/>
+
+        <!--菜单-->
+        <StackPanel x:Name="menu" Grid.Row="1" Grid.Column="0" Margin="5,5" Width="160" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+            <!--机器人管理-->
+            <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Center" SnapsToDevicePixels="True" PreviewMouseDown="MenuExpanderEvent">
+                <Expander.Header>
+                    <Image Source="/MaxRobotServerApp;component/imgs/timg.png"/>
+                </Expander.Header>
+                <Expander.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ucontrol:MenuTextBox Grid.Row="0" Text="机器人管理1" Margin="8,8" FontSize="18" FontWeight="Bold" PreviewMouseDown="MenuSelectEvent" MouseDown="Robotmanager_Click"/>
+                        <ucontrol:MenuTextBox Grid.Row="1" Text="机器人管理2" Margin="8,8" FontSize="18" FontWeight="Bold" MouseDown="Robotmanager_Click"/>
+                    </Grid>
+                </Expander.Content>
+            </Expander>
+
+            <!--语义管理-->
+            <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Center" SnapsToDevicePixels="True" PreviewMouseDown="MenuExpanderEvent">
+                <Expander.Header>
+                    <Image Source="/MaxRobotServerApp;component/imgs/timg.png"/>
+                </Expander.Header>
+                <Expander.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ucontrol:MenuTextBox Grid.Row="0" Text="语义库管理" Margin="8,8" FontSize="18" FontWeight="Bold" MouseDown="Semanticlibrarymanager_Click"/>
+                        <ucontrol:MenuTextBox Grid.Row="1" Text="语义管理" Margin="8,8" FontSize="18" FontWeight="Bold" MouseDown="Semanticmanager_Click"/>
+                    </Grid>
+                </Expander.Content>
+            </Expander>
+
+            <!--资源管理-->
+            <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Center" SnapsToDevicePixels="True" PreviewMouseDown="MenuExpanderEvent">
+                <Expander.Header>
+                    <Image Source="/MaxRobotServerApp;component/imgs/timg.png"/>
+                </Expander.Header>
+                <Expander.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ucontrol:MenuTextBox Grid.Row="0" Text="宣讲资源" Margin="8,8" FontSize="18" FontWeight="Bold" MouseDown="Preachresources_Click"/>
+                        <ucontrol:MenuTextBox Grid.Row="1" Text="App管理" Margin="8,8" FontSize="18" FontWeight="Bold" MouseDown="Appsources_Click"/>
+                        <ucontrol:MenuTextBox Grid.Row="2" Text="下载管理" Margin="8,8" FontSize="18" FontWeight="Bold" MouseDown="DownloadManage_Click"/>
+                    </Grid>
+                </Expander.Content>
+            </Expander>
+
+            <!--用户管理-->
+            <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Center" SnapsToDevicePixels="True" PreviewMouseDown="MenuExpanderEvent">
+                <Expander.Header>
+                    <Image Source="/MaxRobotServerApp;component/imgs/timg.png"/>
+                </Expander.Header>
+                <Expander.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ucontrol:MenuTextBox Grid.Row="0" Text="用户配置" Margin="8,8" FontSize="18" FontWeight="Bold" MouseDown="Userconfig_Click"/>
+                        <ucontrol:MenuTextBox Grid.Row="1" Text="修改密码" Margin="8,8" FontSize="18" FontWeight="Bold"  MouseDown="Changepwd_Click"/>
+                        <ucontrol:MenuTextBox Grid.Row="2" Text="退出登陆" Margin="8,8" FontSize="18" FontWeight="Bold"  MouseDown="Logout_Click"/>
+                    </Grid>
+                </Expander.Content>
+            </Expander>
+
+            <!--系统设置-->
+            <Expander VerticalAlignment="Stretch" ExpandDirection="Down" HorizontalContentAlignment="Center" SnapsToDevicePixels="True" PreviewMouseDown="MenuExpanderEvent">
+                <Expander.Header>
+                    <Image Source="/MaxRobotServerApp;component/imgs/timg.png"/>
+                </Expander.Header>
+                <Expander.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ucontrol:MenuTextBox Grid.Row="0" Text="主题设置" Margin="8,8" FontSize="18" FontWeight="Bold"  MouseDown="Themesetting_Click"/>
+                        <ucontrol:MenuTextBox Grid.Row="1" Text="系统配置" Margin="8,8" FontSize="18" FontWeight="Bold"  MouseDown="SystemConfig_Click"/>
+                    </Grid>
+                </Expander.Content>
+            </Expander>
+        </StackPanel>
+        <!--Body-->
+        <Frame x:Name="mainFrame" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"  Source="/Views/Bodys/Index.xaml"  NavigationUIVisibility="Hidden"/>
+
+
+        <!--菜单-->
+        <!--
+        <Menu Name="menu1" Grid.Row="1" Grid.Column="0" Margin="5,5" Width="160" Height="48" HorizontalAlignment ="Left" Background="{DynamicResource MaterialDesignPaper}">
+            <MenuItem Header="机器人管理" Width="60">
+                -->
+        <!--<MenuItem Header="新增设备" Click="MenuItem_Click" />-->
+        <!--
+                <MenuItem  Name="robotmanager" Header="机器人管理"  Click="Robotmanager_Click"/>
+            </MenuItem>
+            <MenuItem Header="语义管理" >
+                <MenuItem Header="语义库管理" Click="Semanticlibrarymanager_Click" />
+                <MenuItem Header="语义管理" Click="Semanticmanager_Click" />
+            </MenuItem>
+            <MenuItem Header="资源管理" >
+                <MenuItem Name="preachresources" Header="宣讲资源" Click="Preachresources_Click" />
+                <MenuItem Name="appsources" Header="app管理" Click="Appsources_Click"/>
+                <MenuItem Name="downloadManage" Header="下载管理" Click="DownloadManage_Click" />
+            </MenuItem>
+
+            <MenuItem Header="报警管理"/>
+            <MenuItem Header="用户管理">
+                <MenuItem Name="userconfig" Header="用户配置" Click="Userconfig_Click" />
+                <MenuItem Name="changepwd" Header="修改密码" Click="Changepwd_Click"/>
+                <MenuItem Name="logout" Header="退出登陆" Click="Logout_Click" />
+            </MenuItem>
+            <MenuItem Header="系统设置" />
+            -->
+        <!--<MenuItem Header="帮助" />
+            <MenuItem Header="关于" />-->
+        <!--
+            <MenuItem Name="themesetting" Header="主题设置" Click="Themesetting_Click"/>
+        </Menu>-->
+        <!--Body--><!--
+        <Frame x:Name="mainFrame" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Source="/Views/Bodys/Index.xaml"  NavigationUIVisibility="Hidden"/>-->
+    </Grid>
+    <!--底部弹框-->
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout x:Name="BottomFlyout" Position="Bottom" Header="报警管理">
+                <maxRobotServerApp:FlyoutContent />
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+</controls:MetroWindow>

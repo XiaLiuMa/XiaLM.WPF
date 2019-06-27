@@ -1,0 +1,100 @@
+﻿<Page x:Class="MaxRobotServerApp.Views.Pages.IndexPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:muc="clr-namespace:MyUserControl;assembly=MyUserControl"
+      xmlns:time="clr-namespace:MyUserControl.TimePicker;assembly=MyUserControl"
+      xmlns:lChart="clr-namespace:LiveCharts.View;assembly=LiveCharts"
+      xmlns:local="clr-namespace:MaxRobotServerApp.Views.Pages"
+      mc:Ignorable="d" Style="{StaticResource MyPage}" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Margin="5" Height="300" Grid.Row="0">
+            <Grid.DataContext>
+                <local:Chart1ViewModel/>
+            </Grid.DataContext>
+            <lChart:PieChart Name="圆饼图表1" Series="{Binding SeriesCollection}" LegendLocation="Right" InnerRadius="100">
+                <lChart:PieChart.ChartLegend>
+                    <lChart:DefaultLegend BulletSize="20"></lChart:DefaultLegend>
+                </lChart:PieChart.ChartLegend>
+                <lChart:PieChart.DataTooltip>
+                    <lChart:DefaultTooltip BulletSize="20"></lChart:DefaultTooltip>
+                </lChart:PieChart.DataTooltip>
+            </lChart:PieChart>
+        </Grid>
+        
+
+        <Grid Grid.Row="1" Margin="5" Height="300">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <StackPanel.DataContext>
+                    <local:Chart2ViewModel/>
+                </StackPanel.DataContext>
+                <TextBlock TextWrapping="Wrap" Text="报警统计" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <lChart:CartesianChart Height="278">
+                    <lChart:CartesianChart.AxisX>
+                        <lChart:Axis Foreground="Red" Title="X轴Axis" LabelsRotation="20">
+                            <lChart:Axis.Separator>
+                                <lChart:Separator Step="1"/>
+                            </lChart:Axis.Separator>
+                        </lChart:Axis>
+                    </lChart:CartesianChart.AxisX>
+                    <lChart:CartesianChart.AxisY>
+                        <lChart:Axis Foreground="DodgerBlue" Title="Blue Axis">
+                            <lChart:Axis.Separator>
+                                <lChart:Separator Step="100"/>
+                            </lChart:Axis.Separator>
+                        </lChart:Axis>
+                    </lChart:CartesianChart.AxisY>
+                    <lChart:CartesianChart.Series>
+                        <lChart:LineSeries Values="{Binding Values}" ScalesYAt="0"/>
+                        <lChart:LineSeries Values="20,300,70,20,100" ScalesYAt="0"/>
+                        <lChart:LineSeries Values="600,300,200,600,800"  ScalesYAt="0"/>
+                        <lChart:LineSeries Values="20,50,30,500,300" ScalesYAt="0"/>
+                        <lChart:LineSeries Values="20,30,70,20,10" ScalesYAt="0"/>
+                        <lChart:LineSeries Values="60,300,20,600,80"  ScalesYAt="0"/>
+                    </lChart:CartesianChart.Series>
+                </lChart:CartesianChart>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <StackPanel.DataContext>
+                    <local:Chart3ViewModel/>
+                </StackPanel.DataContext>
+                <TextBlock TextWrapping="Wrap" Text="报警统计" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <lChart:CartesianChart Height="278">
+                    <lChart:CartesianChart.AxisY>
+                        <lChart:Axis Foreground="DodgerBlue" Title="Blue Axis"/>
+                        <lChart:Axis Foreground="IndianRed" Title="Red Axis" Position="RightTop">
+                        <lChart:Axis.Separator>
+                                <lChart:Separator IsEnabled="False"/>
+                        </lChart:Axis.Separator>
+                    </lChart:Axis>
+                    <lChart:Axis Foreground="DarkOliveGreen" Title="Green Axis" Position="RightTop">
+                        <lChart:Axis.Separator>
+                                <lChart:Separator IsEnabled="False"/>
+                        </lChart:Axis.Separator>
+                    </lChart:Axis>
+                    </lChart:CartesianChart.AxisY>
+                    <lChart:CartesianChart.Series>
+                        <lChart:LineSeries Values="1,5,3,5,3" ScalesYAt="0"/>
+                        <!--Scales at blue axis, Axis[0]-->
+                        <lChart:LineSeries Values="20,30,70,20,10"  ScalesYAt="1"/>
+                        <!--Scales at red axis, Axis[1]-->
+                        <lChart:LineSeries Values="600,300,200,600,800"  ScalesYAt="2"/>
+                        <!--Scales at green axis, Axis[2]-->
+                    </lChart:CartesianChart.Series>
+                </lChart:CartesianChart>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,210 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--DefaultLabel-->
+    <Style TargetType="{x:Type Label}" x:Key="dLabel">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="#1E1E1E"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <!--DefaultTextBlock-->
+    <Style TargetType="{x:Type TextBlock}" x:Key="dTextBlock">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="#1E1E1E"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <!--DefaultTextBox-->
+    <Style TargetType="{x:Type TextBox}" x:Key="dTextBox">
+        <Setter Property="BorderThickness" Value="0,0,0,1.5"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="#1E1E1E"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="Bd" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="#2DC049"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="#FF00EE51"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--DefaultPasswordBox-->
+    <Style TargetType="{x:Type PasswordBox}" x:Key="dPasswordBox">
+        <Setter Property="BorderThickness" Value="0,0,0,1.5"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="#1E1E1E"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                    <Border x:Name="Bd" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="#2DC049"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="#FF00EE51"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--DefaultComboBox-->
+    <Style TargetType="{x:Type ComboBox}" x:Key="dComboBox">
+        <Setter Property="BorderThickness" Value="0,0,0,1.5"/>
+        <Setter Property="BorderBrush" Value="#2DC049"/>
+        <Setter Property="IsTextSearchEnabled" Value="True"/>
+        <Setter Property="IsEditable" Value="True"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Foreground" Value="#1E1E1E"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <!--DefaultButton-->
+    <Style TargetType="{x:Type Button}" x:Key="dButton">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Background" Value="#2DC049"/>
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="0" CornerRadius="2,2,2,2">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#2DC049" Offset="0.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--DefaultDataGrid-->
+    <Style TargetType="{x:Type DataGrid}" x:Key="dDataGrid">
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <Setter Property="GridLinesVisibility" Value="None"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="AllowDrop" Value="False"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+    </Style>
+
+    <!--菜单按钮-->
+    <Style x:Key="MenuButton" TargetType="{x:Type Button}" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Rectangle>
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="/MaxRobotServerApp;component/Views/Imgs/menuBtu.png"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"></ContentPresenter>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--模板按钮-->
+    <Style TargetType="{x:Type Button}" x:Key="DefaultButton">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderBrush="{TemplateBinding Control.BorderBrush}" BorderThickness="0" CornerRadius="5,5,5,5">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FF32515B" Offset="0.0" />
+                                <GradientStop Color="#FF274954" Offset="0.2" />
+                                <GradientStop Color="#FF32515B" Offset="0.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentPresenter Content="{TemplateBinding ContentControl.Content}" HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <!--绿色背景-->
+    <Style TargetType="{x:Type Control}" x:Key="GreenBackground">
+        <Setter Property="Background" Value="#2DC049"/>
+    </Style>
+    <!--绿色画笔-->
+    <Style TargetType="{x:Type Control}" x:Key="GreenForeground">
+        <Setter Property="Foreground" Value="#2DC049"/>
+    </Style>
+
+    <!--Page-->
+    <Style TargetType="{x:Type Page}" x:Key="MyPage">
+        <Setter Property="Height" Value="622"/>
+        <Setter Property="Width" Value="1190"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="#FFFFFF"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <!--Flyout-->
+    <Style TargetType="{x:Type Window}" x:Key="dFlyout">
+        <Setter Property="Height" Value="240"/>
+        <Setter Property="Width" Value="480"/>
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="AllowsTransparency" Value="True"/>
+        <Setter Property="Background" Value="#FFFFFF"/>
+    </Style>
+
+</ResourceDictionary>

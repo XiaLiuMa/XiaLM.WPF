@@ -1,0 +1,75 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cc="clr-namespace:SpecialEffectsControl.Ccontrols">
+    
+    <Style TargetType="{x:Type cc:DropdownItem}">
+        <Setter Property="Padding" Value="2,4"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="NormalBrush" Value="Blue"/>
+        <Setter Property="FilterBrush" Value="Red"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type cc:DropdownItem}">
+                    <Border x:Name="bd" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <TextBlock x:Name="PART_Textpresenter" Margin="{TemplateBinding Padding}"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   FontFamily="{TemplateBinding FontFamily}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Padding" Value="3,5"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#72E3F5C4" Offset="0"/>
+                            <GradientStop Color="#7FC6FF61" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type cc:DropdownTextBox}">
+        <Setter Property="MinDropdownHeighte" Value="8"/>
+        <Setter Property="MaxDropdownHeight" Value="150"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type cc:DropdownTextBox}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <TextBox x:Name="PART_InputBox" Foreground="Black" BorderThickness="0,0,0,1.5" FontSize="{TemplateBinding FontSize}" Text="{Binding Text, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type cc:DropdownTextBox}}, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Popup IsOpen="{Binding IsDropdownOpened, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type cc:DropdownTextBox}}, UpdateSourceTrigger=PropertyChanged}" AllowsTransparency="True" MaxHeight="{Binding MaxDropdownHeight, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type cc:DropdownTextBox}}}" Width="{TemplateBinding ActualWidth}" StaysOpen="False" PopupAnimation="Fade" MinHeight="{Binding MinDropdownHeighte, Mode=TwoWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type cc:DropdownTextBox}}}" >
+                                <Border Background="White" Margin="3">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                        <VirtualizingStackPanel x:Name="PART_ItemPanel" Orientation="Vertical" />
+                                    </ScrollViewer>
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="8" ShadowDepth="6" Opacity="0.8" Color="#FF939090" />
+                                    </Border.Effect>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#2DC049"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#FF00EE51"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

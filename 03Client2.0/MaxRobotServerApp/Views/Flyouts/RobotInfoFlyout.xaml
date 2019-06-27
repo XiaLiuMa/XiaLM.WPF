@@ -1,0 +1,20 @@
+﻿<mcc:CBaseFlyout x:Class="MaxRobotServerApp.Views.Flyouts.RobotInfoFlyout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaxRobotServerApp.Views.Flyouts"
+             xmlns:mcc="clr-namespace:MyCustomControl;assembly=MyCustomControl"
+             xmlns:ext="clr-namespace:MaxRobotServerApp.Extensions"
+             xmlns:selectFile="MyCustomControl"
+             mc:Ignorable="d"  
+             Title="编辑机器人信息" Width="395" Height="132">
+    <StackPanel Margin="10,5,10,5">
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="机器人名称:" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <TextBox x:Name="name" MinWidth="200" FontSize="16" Style="{StaticResource dTextBox}"/>
+        </StackPanel>
+        <Button Content="确定" Click="ConfirmBtn_Click" Width="60" Margin="0,20" Style="{StaticResource dButton}"/>
+    </StackPanel>
+</mcc:CBaseFlyout>

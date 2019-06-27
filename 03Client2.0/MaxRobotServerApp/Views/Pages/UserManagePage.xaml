@@ -1,0 +1,62 @@
+﻿<Page x:Class="MaxRobotServerApp.Views.Pages.UserManagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:muc="clr-namespace:MyUserControl;assembly=MyUserControl"
+      xmlns:time="clr-namespace:MyUserControl.TimePicker;assembly=MyUserControl"
+      xmlns:local="clr-namespace:MaxRobotServerApp.Views.Pages"
+      mc:Ignorable="d" Style="{StaticResource MyPage}" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0">
+            <Label Content="用户管理  >>  用户管理" Style="{StaticResource dLabel}" HorizontalAlignment="Left"/>
+            <Button x:Name="addBtn" Content="添加" Click="AddBtn_Click" Margin="900,0,5,0" Style="{StaticResource dButton}"/>
+            <Button x:Name="deleteBtn" Content="删除" Click="DeleteBtn_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+        </StackPanel>
+        <DataGrid x:Name="dataGrid1" ItemsSource="{Binding FakeSource}" Grid.Row="1" Margin="10,5" Style="{StaticResource DefaultDataGrid}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="用户名" Width="0.3*" Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="密码" Width="0.3*" Binding="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="用户类型" Width="0.3*" Binding="{Binding UserType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTemplateColumn Header="操作" Width="0.1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="15" Height="15" Margin="5,0" Source="/MaxRobotServerApp;component/Views/Imgs/delete.png" MouseDown="DeleteBtn_Click" Cursor="Hand"/>
+                                <Image Width="15" Height="15" Margin="5,0" Source="/MaxRobotServerApp;component/Views/Imgs/edit.png" MouseDown="Edit_Click" Cursor="Hand"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="20,0" HorizontalAlignment="Left">
+            <Button x:Name="selectAll" Content="全选" Click="SelectAll_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <Button x:Name="selectInvert" Content="反选" Click="SelectInvert_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <muc:Pager x:Name="pager1" HorizontalAlignment="Center" FontSize="16" TotalPage="{Binding TotalPage}" CurrentPage="{Binding CurrentPage, Mode=TwoWay}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="FirstPage">
+                        <i:InvokeCommandAction Command="{Binding FirstPageCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="PreviousPage">
+                        <i:InvokeCommandAction Command="{Binding PreviousPageCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="NextPage">
+                        <i:InvokeCommandAction Command="{Binding NextPageCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="LastPage">
+                        <i:InvokeCommandAction Command="{Binding LastPageCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </muc:Pager>
+        </StackPanel>
+    </Grid>
+</Page>

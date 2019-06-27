@@ -1,0 +1,79 @@
+﻿<mcc:CBaseFlyout x:Class="MaxRobotServerApp.Views.Flyouts.TaskPositionFlyout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaxRobotServerApp.Views.Flyouts"
+             xmlns:mcc="clr-namespace:MyCustomControl;assembly=MyCustomControl"
+             xmlns:ext="clr-namespace:MaxRobotServerApp.Extensions"
+             xmlns:selectFile="MyCustomControl"
+             mc:Ignorable="d"
+             Title="地图点任务配置" Width="700" Height="635">
+    <mcc:CBaseFlyout.Resources>
+        <DataTemplate x:Key="mapSlect">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}"></TextBlock>
+                <TextBlock Text="("></TextBlock>
+                <TextBlock Text="{Binding EnName}"></TextBlock>
+                <TextBlock Text=")"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="cmdSlect">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Name}"></TextBlock>
+                <TextBlock Text="("></TextBlock>
+                <TextBlock Text="{Binding Id}"></TextBlock>
+                <TextBlock Text=")"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </mcc:CBaseFlyout.Resources>
+
+    <StackPanel Margin="20,5">
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="名称：" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <TextBox Name="txtName" MinWidth="400" FontSize="16" Style="{StaticResource dTextBox}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="描述：" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <TextBox  Name="txtDesc" MinWidth="400" MinHeight="120" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" FontSize="16" Style="{StaticResource dTextBox}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="地图：" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <ComboBox x:Name="cbMapSelect" SelectedIndex="0" ItemsSource="{Binding MapInfos}" ItemTemplate="{StaticResource mapSlect}" MinWidth="200" FontSize="16" Style="{StaticResource DefaultComboBox}"/>
+            <Label Content="添加子任务：" MinWidth="50" FontSize="16" Style="{StaticResource dLabel}" Margin="55,0,0,0"/>
+            <Button x:Name="btnAddTask" Content="添加" Click="BtnAddTask_Click" Style="{StaticResource dButton}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="循环次数：" MinWidth="100" FontSize="16" Style="{StaticResource dLabel}"/>
+            <TextBox  Name="txtCirculateCount" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="TxtCirculateCount_PreviewTextInput" Text="0" FontSize="16" MinWidth="200" Style="{StaticResource dTextBox}"/>
+            <Label Content="如果为0，则一直循环" Foreground="Red" Margin="38,0,0,0" FontSize="16" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <DataGrid  x:Name="dataGrid1" ItemsSource="{Binding SubTaskMods}" Margin="5" MinHeight="280" Style="{StaticResource dDataGrid}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="序号" Width="0.05*" Binding="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="类型" Width="0.1*" Binding="{Binding CmdTypeStr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="点名称" Width="0.1*" Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="资源名称" Width="0.1*" Binding="{Binding RecName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="命令" Width="0.1*" Binding="{Binding CmdStr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="角度" Width="0.05*" Binding="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTemplateColumn Header="操作" Width="0.2*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition  Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Content="编辑" Grid.Column="0" Grid.Row="0"   Margin="10,5"  Click="Edit_Click"/>
+                                <Button Content="删除" Grid.Column="1" Grid.Row="0"  Margin="10,5"  Click="Del_Click"/>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnOK" Content="确定" Width="60" Margin="0,20" Click="BtnOK_Click" Style="{StaticResource dButton}"/>
+    </StackPanel>
+</mcc:CBaseFlyout>

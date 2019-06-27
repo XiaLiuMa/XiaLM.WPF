@@ -1,0 +1,23 @@
+﻿<Page x:Class="MaxRobotServerApp.Views.Pages.RobotMapPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:muc="clr-namespace:MyUserControl;assembly=MyUserControl"
+      xmlns:time="clr-namespace:MyUserControl.TimePicker;assembly=MyUserControl"
+      xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+      xmlns:local="clr-namespace:MaxRobotServerApp.Views.Pages"
+      mc:Ignorable="d" Style="{StaticResource MyPage}" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="机器人管理  >>  实时地图" Style="{StaticResource dLabel}" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+        <DockPanel Name="mapwebpanel" Grid.Row="1">
+            <wpf:ChromiumWebBrowser x:Name="mapBrowser"></wpf:ChromiumWebBrowser>
+        </DockPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,57 @@
+﻿<Page x:Class="MaxRobotServerApp.Views.Pages.SemanticPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:muc="clr-namespace:MyUserControl;assembly=MyUserControl"
+      xmlns:time="clr-namespace:MyUserControl.TimePicker;assembly=MyUserControl"
+      xmlns:local="clr-namespace:MaxRobotServerApp.Views.Pages"
+      mc:Ignorable="d" Style="{StaticResource MyPage}" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0">
+            <Label Content="语义库管理  >>  语义管理" Style="{StaticResource dLabel}" HorizontalAlignment="Left"/>
+            <Label Content="语义库" FontSize="16" Style="{StaticResource dLabel}" Margin="650,0,0,0"/>
+            <ComboBox x:Name="semanticgenre2" ItemsSource="{Binding ComboxSource}" DisplayMemberPath="Name" SelectedIndex="0" MinWidth="120" FontSize="16" Style="{StaticResource DefaultComboBox}"/>
+            <Button Content="查询" Click="T2SelectBtn_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <Button Content="导入" Click="T2ImportBtn_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <Button Content="删除" Click="T2DeleteBtn_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+        </StackPanel>
+        <DataGrid x:Name="dataGrid2" ItemsSource="{Binding FakeSource}" Grid.Row="1" Margin="10,5" Style="{StaticResource DefaultDataGrid}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Guid" Binding="{Binding Guid}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="问题" Width="0.2*" Binding="{Binding Question, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="答案" Width="0.4*" Binding="{Binding Answer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="类型" Width="0.1*" Binding="{Binding Genre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="关键字" Width="0.3*" Binding="{Binding Keyword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="20,0" HorizontalAlignment="Left">
+            <Button Content="全选" Click="T2SelectAll_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <Button Content="反选" Click="T2SelectInvert_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <muc:Pager x:Name="pager2" HorizontalAlignment="Center" FontSize="16" TotalPage="{Binding TotalPage}" CurrentPage="{Binding CurrentPage, Mode=TwoWay}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="FirstPage">
+                        <i:InvokeCommandAction Command="{Binding FirstPageCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="PreviousPage">
+                        <i:InvokeCommandAction Command="{Binding PreviousPageCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="NextPage">
+                        <i:InvokeCommandAction Command="{Binding NextPageCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="LastPage">
+                        <i:InvokeCommandAction Command="{Binding LastPageCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </muc:Pager>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,74 @@
+﻿<mcc:CBaseFlyout x:Class="MaxRobotServerApp.Views.Flyouts.MapInfoFlyout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaxRobotServerApp.Views.Flyouts"
+             xmlns:mcc="clr-namespace:MyCustomControl;assembly=MyCustomControl"
+             xmlns:ext="clr-namespace:MaxRobotServerApp.Extensions"
+             xmlns:selectFile="MyCustomControl"
+             mc:Ignorable="d"
+             Title="添加地图信息" Width="542.5" Height="477.5">
+    <StackPanel Margin="50,0,0,0">
+        <StackPanel Orientation="Horizontal" Margin="25,10,25,5">
+            <Label Content="选择文件:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <mcc:SelectPathControl Name="selectpath" OnSelected="Selectpath_OnSelected" SelectMode="SelectFile" MinWidth="240" Filter="图片|*.png;*.jpg;*.bmp;*.jpeg;*.gif"/>
+            <Label x:Name="selectpath_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="地图高度:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <TextBox x:Name="txtMapHeight" MinWidth="240" PreviewTextInput="TxtMapHeight_PreviewTextInput" InputMethod.IsInputMethodEnabled="False" Text="0" Style="{StaticResource dTextBox}"/>
+            <Label x:Name="txtMapHeight_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="地图宽度:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <TextBox x:Name="txtMapWidth" MinWidth="240" PreviewTextInput="TxtMapWidth_PreviewTextInput" InputMethod.IsInputMethodEnabled="False" Text="0" Style="{StaticResource dTextBox}"/>
+            <Label x:Name="txtMapWidth_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="地图编号:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <TextBox x:Name="mapid" MinWidth="240" TextChanged="Mapid_TextChanged" Style="{StaticResource dTextBox}"/>
+            <Label x:Name="mapid_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="名称:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <TextBox x:Name="name" MinWidth="240" Style="{StaticResource dTextBox}"/>
+            <Label x:Name="name_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="英文名称:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <TextBox x:Name="enname" MinWidth="240" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="Enname_PreviewTextInput" TextChanged="Enname_TextChanged" Style="{StaticResource dTextBox}"/>
+            <Label x:Name="enname_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="最小缩放等级:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <Slider x:Name="minZoom" FontSize="18" MinWidth="240" VerticalAlignment="Center" Minimum="1" Maximum="20" ValueChanged="MinZoom_ValueChanged" Foreground="#2DC049"/>
+            <Label x:Name="minZoom_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="最大缩放等级:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <Slider x:Name="maxZoom" FontSize="18" MinWidth="240" VerticalAlignment="Center"  Minimum="{Binding ElementName=minZoom,Path=Value}" Maximum="20"  ValueChanged="MaxZoom_ValueChanged" Value="20" Foreground="#2DC049"/>
+            <Label x:Name="maxZoom_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="缩放等级:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <Slider x:Name="zoom" FontSize="18" MinWidth="240" VerticalAlignment="Center" Minimum="{Binding ElementName=minZoom,Path=Value}" Maximum="{Binding ElementName=maxZoom,Path=Value}" ValueChanged="Zoom_ValueChanged" Foreground="#2DC049"/>
+            <Label x:Name="zoom_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="地图角度:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <TextBox x:Name="az" MinWidth="240" PreviewTextInput="Az_PreviewTextInput"  InputMethod.IsInputMethodEnabled="False" Text="0" Style="{StaticResource dTextBox}"/>
+            <Label x:Name="az_tip" Content="" MinWidth="100" Foreground="Red" Style="{StaticResource dLabel}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="25,5">
+            <Label Content="上传进度:" MinWidth="90" Style="{StaticResource dLabel}"/>
+            <ProgressBar Minimum="0" Maximum="100" x:Name="ProgressBar" VerticalAlignment="Center" MinWidth="240" Height="18" Style="{StaticResource GreenBackground}">
+                <i:Interaction.Behaviors>
+                    <ext:ProgresBarAnimateBehavior x:Name="AnimateBehavior" />
+                </i:Interaction.Behaviors>
+            </ProgressBar>
+        </StackPanel>
+        <Button x:Name="confirmBtn" Content="确定" Width="60" Margin="0,20" Click="ConfirmBtn_Click" Style="{StaticResource dButton}"/>
+    </StackPanel>
+</mcc:CBaseFlyout>

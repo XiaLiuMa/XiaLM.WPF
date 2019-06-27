@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="MyUserControl.Pager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyUserControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="360">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="22"/>
+            <Setter Property="Height" Value="22"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <StackPanel Orientation="Horizontal" Background="#FFFFFF">
+            <Label x:Name="label1" Content="每页行数：" HorizontalAlignment="Right" VerticalAlignment="Center" Foreground="#2DC049"/>
+            <ComboBox x:Name="rowsComBox" MinWidth="60" BorderThickness="0,0,0,1.5" SelectedIndex="1" Foreground="#2DC049" Height="26" SelectionChanged="RowsComBox_SelectionChanged" Style="{StaticResource DefaultComboBox}">
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+                <ComboBoxItem>25</ComboBoxItem>
+                <ComboBoxItem>50</ComboBoxItem>
+            </ComboBox>
+            <Border Margin="5,0" CornerRadius="2" Width="24" Height="24" Background="#2DC049">
+                <Button x:Name="FirstPageButton" Click="FirstPageButton_Click" Background="#2DC049" BorderThickness="0">
+                    <Path Width="7" Height="10" Data="M0,0L0,10 M0,5L6,2 6,8 0,5" Stroke="#FFFFFF" StrokeThickness="1" Fill="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Button>
+            </Border>
+            <Border CornerRadius="2" Width="24" Height="24" Background="#2DC049">
+                <Button x:Name="PreviousPageButton" Click="PreviousPageButton_Click" Background="#2DC049" BorderThickness="0">
+                    <Path Width="8" Height="8" Data="M0,4L8,0 8,8z" Stroke="#FFFFFF" Fill="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Button>
+            </Border>
+            <TextBlock VerticalAlignment="Center" Margin="5,0" Foreground="#2DC049">
+                <Run Text="第"/>
+                <Run x:Name="rCurrent" Text="0"/>
+                <Run Text="页"/>
+            </TextBlock>
+            <Border CornerRadius="2" Width="24" Height="24" Background="#2DC049">
+                <Button x:Name="NextPageButton" Click="NextPageButton_Click" Background="#2DC049" BorderThickness="0">
+                    <Path Width="8" Height="8" Data="M0,4L8,0 8,8z" Stroke="#FFFFFF" Fill="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="180" CenterX="4" CenterY="4" />
+                        </Path.RenderTransform>
+                    </Path>
+                </Button>
+            </Border>
+            <Border Margin="5,0"  CornerRadius="2" Width="24" Height="24" Background="#2DC049">
+                <Button x:Name="LastPageButton" Click="LastPageButton_Click" Background="#2DC049" BorderThickness="0">
+                    <Path x:Name="MainPath" Width="7" Height="10" Data="M0,0L0,10 M0,5 L6,2 6,8 0,5" Stroke="#FFFFFF" StrokeThickness="1" Fill="#FFFFFF" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Path.RenderTransform>
+                            <RotateTransform Angle="180" CenterX="3" CenterY="5" />
+                        </Path.RenderTransform>
+                    </Path>
+                </Button>
+            </Border>
+            <TextBlock VerticalAlignment="Center" Foreground="#2DC049">
+                <Run Text="共"/>
+                <Run x:Name="rTotal" Text="0"/>
+                <Run Text="页"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</UserControl>

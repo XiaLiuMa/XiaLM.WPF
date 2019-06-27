@@ -1,0 +1,64 @@
+﻿<Page x:Class="MaxRobotServerApp.Views.Pages.AlarmSmartFigurePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:muc="clr-namespace:MyUserControl;assembly=MyUserControl"
+      xmlns:time="clr-namespace:MyUserControl.TimePicker;assembly=MyUserControl"
+      xmlns:local="clr-namespace:MaxRobotServerApp.Views.Pages"
+      mc:Ignorable="d" Style="{StaticResource MyPage}" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0">
+            <Label Content="报警管理  >>  智能判图报警" Style="{StaticResource dLabel}" HorizontalAlignment="Left"/>
+            <Label Content="机器人标识" FontSize="16" Style="{StaticResource dLabel}" Margin="280,0,0,0"/>
+            <TextBox x:Name="t4robotTag" MinWidth="100" FontSize="16" Style="{StaticResource dTextBox}"/>
+            <Label Content="报警时间" FontSize="16" Style="{StaticResource dLabel}"/>
+            <time:DateTimePicker x:Name="t4startTime" IsStartTime="True"/>
+            <Label Content="至" FontSize="16" Style="{StaticResource dLabel}"/>
+            <time:DateTimePicker x:Name="t4endTime" />
+            <Button Content="查询" Click="T4SelectBtu_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <Button Content="删除" Click="T4DeleteBtn_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+        </StackPanel>
+        <DataGrid x:Name="t4dataGrid" ItemsSource="{Binding FakeSource}" Grid.Row="1" Margin="10,5" Style="{StaticResource DefaultDataGrid}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="机器人标识" Width="0.1*" Binding="{Binding RobotTag, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTemplateColumn Width="100" Header="现场图">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding AlarmImgUrl}" Width="25" Height="25" MouseDown="T4xct_Click" Cursor="Hand"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="报警时间" Width="0.1*" Binding="{Binding Time, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="20,0" HorizontalAlignment="Left">
+            <Button Content="全选" Click="T4SelectAll_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <Button Content="反选" Click="T4SelectInvert_Click" Margin="5,0" Style="{StaticResource dButton}"/>
+            <muc:Pager x:Name="t4pager" HorizontalAlignment="Center" FontSize="16" TotalPage="{Binding TotalPage}" CurrentPage="{Binding CurrentPage, Mode=TwoWay}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="FirstPage">
+                        <i:InvokeCommandAction Command="{Binding FirstPageCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="PreviousPage">
+                        <i:InvokeCommandAction Command="{Binding PreviousPageCommand}"/>
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="NextPage">
+                        <i:InvokeCommandAction Command="{Binding NextPageCommand}" />
+                    </i:EventTrigger>
+                    <i:EventTrigger EventName="LastPage">
+                        <i:InvokeCommandAction Command="{Binding LastPageCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </muc:Pager>
+        </StackPanel>
+    </Grid>
+</Page>

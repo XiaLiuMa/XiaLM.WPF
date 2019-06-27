@@ -1,0 +1,769 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\CefSharp.Wpf.73.1.130\build\CefSharp.Wpf.props" Condition="Exists('..\..\packages\CefSharp.Wpf.73.1.130\build\CefSharp.Wpf.props')" />
+  <Import Project="..\..\packages\CefSharp.Common.73.1.130\build\CefSharp.Common.props" Condition="Exists('..\..\packages\CefSharp.Common.73.1.130\build\CefSharp.Common.props')" />
+  <Import Project="..\..\packages\cef.redist.x86.73.1.13\build\cef.redist.x86.props" Condition="Exists('..\..\packages\cef.redist.x86.73.1.13\build\cef.redist.x86.props')" />
+  <Import Project="..\..\packages\cef.redist.x64.73.1.13\build\cef.redist.x64.props" Condition="Exists('..\..\packages\cef.redist.x64.73.1.13\build\cef.redist.x64.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E294C88C-916C-431D-9FB6-FAE5CD82C502}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MaxRobotServerApp</RootNamespace>
+    <AssemblyName>MaxRobotServerApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MaxRobotServerApp.App</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bogus, Version=26.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Bogus.26.0.2\lib\net40\Bogus.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.2.0.2\lib\net47\CommonServiceLocator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ControlzEx.3.0.2.4\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpZipLib.1.0.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Windows.Shell.3.0.1.0\lib\net40\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.4.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Core.1.0.110.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.EF6.1.0.110.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.110.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SQLite.Linq.1.0.110.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reactive, Version=4.1.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Reactive.4.1.5\lib\net46\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Extensions\Comm\ConfigManager.cs" />
+    <Compile Include="Extensions\Comm\MenuManager.cs" />
+    <Compile Include="Extensions\Comm\UserManager.cs" />
+    <Compile Include="Extensions\Comm\ViewUtil.cs" />
+    <Compile Include="Dals\AppresourceDal.cs" />
+    <Compile Include="Dals\LocalDal\LoginRecordDal.cs" />
+    <Compile Include="Dals\MapResourceDal.cs" />
+    <Compile Include="Dals\PreachresourceDal.cs" />
+    <Compile Include="Dals\RobotMangerDal.cs" />
+    <Compile Include="Dals\AlarmmanagerDal.cs" />
+    <Compile Include="Dals\SemanticmanagerDal.cs" />
+    <Compile Include="Dals\Sql\SqliteSqlOperate.cs" />
+    <Compile Include="Dals\TaskMangerDal.cs" />
+    <Compile Include="Dals\UserManageDal.cs" />
+    <Compile Include="Extensions\ProgresBarAnimateBehavior.cs" />
+    <Compile Include="Extensions\SemanticNpoi.cs" />
+    <Compile Include="Mods\CmdMod.cs" />
+    <Compile Include="Mods\Config\SystemConfig.cs" />
+    <Compile Include="Mods\MapInfoList.cs" />
+    <Compile Include="Mods\MapLineMod.cs" />
+    <Compile Include="Mods\MapPositionMod.cs" />
+    <Compile Include="Mods\MapResource.cs" />
+    <Compile Include="Mods\MenuInfo.cs" />
+    <Compile Include="Mods\SubTaskMod.cs" />
+    <Compile Include="Mods\TaskInfoMod.cs" />
+    <Compile Include="Extensions\Utils\NpoiUtil.cs" />
+    <Compile Include="Extensions\Utils\SelectPathUtil.cs" />
+    <Compile Include="Views\Flyouts\AddMapPositionSubtaskFlyout.xaml.cs">
+      <DependentUpon>AddMapPositionSubtaskFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\MapBrowserFlyout.xaml.cs">
+      <DependentUpon>MapBrowserFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\SelectMapLineFlyout.xaml.cs">
+      <DependentUpon>SelectMapLineFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\AddMapLineSubtaskFlyout.xaml.cs">
+      <DependentUpon>AddMapLineSubtaskFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\SelectMapPositionFlyout.xaml.cs">
+      <DependentUpon>SelectMapPositionFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\SelectResourcesFlyout.xaml.cs">
+      <DependentUpon>SelectResourcesFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\RobotErrorStateFlyout.xaml.cs">
+      <DependentUpon>RobotErrorStateFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\RobotInstructionFlyout.xaml.cs">
+      <DependentUpon>RobotInstructionFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\MapInfoFlyout.xaml.cs">
+      <DependentUpon>MapInfoFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\RobotInfoFlyout.xaml.cs">
+      <DependentUpon>RobotInfoFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\SemanticlibrarymanagerFlyout.xaml.cs">
+      <DependentUpon>SemanticlibrarymanagerFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\TaskCruiseFlyout.xaml.cs">
+      <DependentUpon>TaskCruiseFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\TaskLineFlyout.xaml.cs">
+      <DependentUpon>TaskLineFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\TaskPositionFlyout.xaml.cs">
+      <DependentUpon>TaskPositionFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\TaskTypeSelectFlyout.xaml.cs">
+      <DependentUpon>TaskTypeSelectFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\UserconfigFlyout.xaml.cs">
+      <DependentUpon>UserconfigFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\RemindFlyout.xaml.cs">
+      <DependentUpon>RemindFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\LoginSettingFlyout.xaml.cs">
+      <DependentUpon>LoginSettingFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\ShowImgFlyout.xaml.cs">
+      <DependentUpon>ShowImgFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\Warning.xaml.cs">
+      <DependentUpon>Warning.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\ChangepwdFlyout.xaml.cs">
+      <DependentUpon>ChangepwdFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\DownloadFlyout.xaml.cs">
+      <DependentUpon>DownloadFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\AppresourcesFlyout.xaml.cs">
+      <DependentUpon>AppresourcesFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flyouts\PreachresourcesFlyout.xaml.cs">
+      <DependentUpon>PreachresourcesFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\UAlarmInfo.xaml.cs">
+      <DependentUpon>UAlarmInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\URobotInfo.xaml.cs">
+      <DependentUpon>URobotInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Mods\DownloadInfo.cs" />
+    <Compile Include="Mods\Appresource.cs" />
+    <Compile Include="Mods\Preachresource.cs" />
+    <Compile Include="Mods\Userinfo.cs" />
+    <Compile Include="Dals\Sql\ISqlOperate.cs" />
+    <Compile Include="Mods\Vmod\LoginRecord.cs" />
+    <Compile Include="Extensions\Utils\ConvertUtil.cs" />
+    <Compile Include="Extensions\Utils\DataSetUtil.cs" />
+    <Compile Include="Extensions\Utils\WindowsThumbnailProvider.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Pages\MapManagePage.xaml.cs">
+      <DependentUpon>MapManagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\TaskManagePage.xaml.cs">
+      <DependentUpon>TaskManagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SystemServerConfigPage.xaml.cs">
+      <DependentUpon>SystemServerConfigPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SystemLocalConfigPage.xaml.cs">
+      <DependentUpon>SystemLocalConfigPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ResourcesAppPage.xaml.cs">
+      <DependentUpon>ResourcesAppPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ResourcesPreachPage.xaml.cs">
+      <DependentUpon>ResourcesPreachPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserPermissionsPage.xaml.cs">
+      <DependentUpon>UserPermissionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserManagePage.xaml.cs">
+      <DependentUpon>UserManagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\RobotMapPage.xaml.cs">
+      <DependentUpon>RobotMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\RobotManagePage.xaml.cs">
+      <DependentUpon>RobotManagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SemanticPage.xaml.cs">
+      <DependentUpon>SemanticPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SemanticLibraryPage.xaml.cs">
+      <DependentUpon>SemanticLibraryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\NoPermissionPage.xaml.cs">
+      <DependentUpon>NoPermissionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\IndexPage.xaml.cs">
+      <DependentUpon>IndexPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AlarmSmartFigurePage.xaml.cs">
+      <DependentUpon>AlarmSmartFigurePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AlarmNuclearRadiationPage.xaml.cs">
+      <DependentUpon>AlarmNuclearRadiationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AlarmLowTemperaturePage.xaml.cs">
+      <DependentUpon>AlarmLowTemperaturePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AlarmFaceContrastPage.xaml.cs">
+      <DependentUpon>AlarmFaceContrastPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AlarmBlackListPage.xaml.cs">
+      <DependentUpon>AlarmBlackListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AlarmAreaMonitoringPage.xaml.cs">
+      <DependentUpon>AlarmAreaMonitoringPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewModels\AlarmFaceContrastViewModel.cs" />
+    <Compile Include="Views\ViewModels\AlarmBlacklistViewModel.cs" />
+    <Compile Include="Views\ViewModels\AlarmNuclearRadiationViewModel.cs" />
+    <Compile Include="Views\ViewModels\AlarmSmartFigureViewModel.cs" />
+    <Compile Include="Views\ViewModels\AlarmLowTemperatureViewModel.cs" />
+    <Compile Include="Views\ViewModels\MapBrowserViewModel.cs" />
+    <Compile Include="Views\ViewModels\MapManagerViewModel.cs" />
+    <Compile Include="Views\ViewModels\AlarmAreaMonitoringViewModel.cs" />
+    <Compile Include="Views\ViewModels\SelectMapLineViewModel.cs" />
+    <Compile Include="Views\ViewModels\SelectMapPositionViewModel.cs" />
+    <Compile Include="Views\ViewModels\SemanticLibraryViewModel.cs" />
+    <Compile Include="Views\ViewModels\SemanticViewModel.cs" />
+    <Compile Include="Views\ViewModels\TaskConfigurationViewModel.cs" />
+    <Compile Include="Views\ViewModels\TaskManagerViewModel.cs" />
+    <Compile Include="Views\ViewModels\UAlarmInfoViewModel.cs" />
+    <Compile Include="Views\ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\ViewModels\UserconfigViewModel.cs" />
+    <Compile Include="Views\ViewModels\DownloadFlyoutViewModel.cs" />
+    <Compile Include="Views\ViewModels\Ext\DelegateCommand.cs" />
+    <Compile Include="Views\ViewModels\Ext\Extension.cs" />
+    <Compile Include="Views\ViewModels\Ext\ViewModel.cs" />
+    <Page Include="Views\Flyouts\AddMapPositionSubtaskFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\MapBrowserFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\TaskPositionFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\Pages\MapManagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\TaskManagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\SystemServerConfigPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\SystemLocalConfigPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\ResourcesAppPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\ResourcesPreachPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\UserPermissionsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\UserManagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\RobotMapPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\RobotManagePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\SemanticPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\SemanticLibraryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\NoPermissionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\IndexPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\AlarmSmartFigurePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\AlarmNuclearRadiationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\AlarmLowTemperaturePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\AlarmFaceContrastPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\AlarmBlackListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\AlarmAreaMonitoringPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Themes\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Themes\Expander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Themes\DataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Themes\MenuStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Themes\SelfAppTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Themes\SelfAccent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\SelectMapLineFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\AddMapLineSubtaskFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\SelectMapPositionFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\SelectResourcesFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\RobotErrorStateFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\RobotInstructionFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\MapInfoFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\RobotInfoFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\SemanticlibrarymanagerFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\TaskCruiseFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\TaskLineFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\TaskTypeSelectFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flyouts\UserconfigFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\RemindFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\LoginSettingFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\ShowImgFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\Warning.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\ChangepwdFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\DownloadFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\AppresourcesFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flyouts\PreachresourcesFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\UAlarmInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Infos\URobotInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\ViewModels\AppsourcesViewModel.cs" />
+    <Compile Include="Views\ViewModels\PreachresourcesViewModel.cs" />
+    <Compile Include="Views\ViewModels\URobotInfoViewModel.cs" />
+    <Page Include="Views\Themes\TabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Themes\BaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mods\Robot.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Resource Include="Views\Imgs\download.png" />
+    <Resource Include="Views\Imgs\delete.png" />
+    <Resource Include="Views\Imgs\edit.png" />
+    <Resource Include="Views\Imgs\alarm.png" />
+    <Resource Include="Views\Imgs\background.png" />
+    <Resource Include="Views\Imgs\bjOFF.png" />
+    <Resource Include="Views\Imgs\bjON.png" />
+    <Resource Include="Views\Imgs\close.png" />
+    <Resource Include="Views\Imgs\close2.png" />
+    <Resource Include="Views\Imgs\dtOFF.png" />
+    <Resource Include="Views\Imgs\dtON.png" />
+    <Resource Include="Views\Imgs\guzhang.png" />
+    <Resource Include="Views\Imgs\indexexit.png" />
+    <Resource Include="Views\Imgs\indexlogo.png" />
+    <Resource Include="Views\Imgs\jqrOFF.png" />
+    <Resource Include="Views\Imgs\jqrON.png" />
+    <Resource Include="Views\Imgs\loginexit.png" />
+    <Resource Include="Views\Imgs\logo.png" />
+    <Resource Include="Views\Imgs\main1.png" />
+    <Resource Include="Views\Imgs\main2.png" />
+    <Resource Include="Views\Imgs\main3.png" />
+    <Resource Include="Views\Imgs\main4a.png" />
+    <Resource Include="Views\Imgs\main4b.png" />
+    <Resource Include="Views\Imgs\main5.png" />
+    <Resource Include="Views\Imgs\menuBtu.png" />
+    <Resource Include="Views\Imgs\offline.png" />
+    <Resource Include="Views\Imgs\online.png" />
+    <Resource Include="Views\Imgs\rwOFF.png" />
+    <Resource Include="Views\Imgs\rwON.png" />
+    <Resource Include="Views\Imgs\user.png" />
+    <Resource Include="Views\Imgs\wClose.png" />
+    <Resource Include="Views\Imgs\wMax.png" />
+    <Resource Include="Views\Imgs\wMin.png" />
+    <Resource Include="Views\Imgs\xtOFF.png" />
+    <Resource Include="Views\Imgs\xtON.png" />
+    <Resource Include="Views\Imgs\yhOFF.png" />
+    <Resource Include="Views\Imgs\yhON.png" />
+    <Resource Include="Views\Imgs\yykOFF.png" />
+    <Resource Include="Views\Imgs\yykON.png" />
+    <Resource Include="Views\Imgs\zaixian.png" />
+    <Resource Include="Views\Imgs\zyOFF.png" />
+    <Resource Include="Views\Imgs\zyON.png" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Content Include="CopyFolder\config\SystemConfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="CopyFolder\db\MRobotServer.db" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Maxvision.Robot\Maxvision.Robot.NetSdk\Maxvision.Robot.NetSdk.csproj">
+      <Project>{F0D65E90-70A4-4BA5-9FFC-F250EBDEA1C3}</Project>
+      <Name>Maxvision.Robot.NetSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\EasyPlayerSdk\EasyPlayerSdk.csproj">
+      <Project>{28626587-26a7-48f3-8dc5-c2aced85b84d}</Project>
+      <Name>EasyPlayerSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\LiveCharts\LiveCharts.csproj">
+      <Project>{253dd2c6-9848-449d-9f77-387db582e212}</Project>
+      <Name>LiveCharts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\MyCustomControl\MyCustomControl.csproj">
+      <Project>{558c8905-2008-4258-aa85-5ec36822a01b}</Project>
+      <Name>MyCustomControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\MyUserControl\MyUserControl.csproj">
+      <Project>{5d7d4ff7-7a6f-4c18-a199-d0556cd9bfd7}</Project>
+      <Name>MyUserControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\SpecialEffectsControl\SpecialEffectsControl.csproj">
+      <Project>{8fe0c11a-c6c1-432e-aa43-eda3d7571a17}</Project>
+      <Name>SpecialEffectsControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\UtilControls\UtilControls.csproj">
+      <Project>{343f577e-6388-442c-b725-2ea6893ab221}</Project>
+      <Name>UtilControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CopyFolder\Lib\msvcp140d.dll" />
+    <Content Include="CopyFolder\Lib\ucrtbased.dll" />
+    <Content Include="CopyFolder\Lib\vcruntime140d.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CopyFolder\Lib\avcodec-57.dll" />
+    <Content Include="CopyFolder\Lib\avdevice-57.dll" />
+    <Content Include="CopyFolder\Lib\avfilter-6.dll" />
+    <Content Include="CopyFolder\Lib\avformat-57.dll" />
+    <Content Include="CopyFolder\Lib\avutil-55.dll" />
+    <Content Include="CopyFolder\Lib\D3DRender.dll" />
+    <Content Include="CopyFolder\Lib\D3DX9_43.dll" />
+    <Content Include="CopyFolder\Lib\dxva2.dll" />
+    <Content Include="CopyFolder\Lib\FFDecoder.dll" />
+    <Content Include="CopyFolder\Lib\ImageOle.dll" />
+    <Content Include="CopyFolder\Lib\IntelHardCodec.dll" />
+    <Content Include="CopyFolder\Lib\js.dll" />
+    <Content Include="CopyFolder\Lib\libEasyAACEncoder.dll" />
+    <Content Include="CopyFolder\Lib\libEasyPlayer-RTSP.dll" />
+    <Content Include="CopyFolder\Lib\libEasyRTSPClient.dll" />
+    <Content Include="CopyFolder\Lib\libeay32.dll" />
+    <Content Include="CopyFolder\Lib\libgcc_s_sjlj-1.dll" />
+    <Content Include="CopyFolder\Lib\libgpac.dll" />
+    <Content Include="CopyFolder\Lib\libmfxsw32.dll" />
+    <Content Include="CopyFolder\Lib\libstdc++-6.dll" />
+    <Content Include="CopyFolder\Lib\msvcp140d.dll" />
+    <Content Include="CopyFolder\Lib\npEasyPlayerPlugin.dll" />
+    <Content Include="CopyFolder\Lib\ssleay32.dll" />
+    <Content Include="CopyFolder\Lib\swresample-2.dll" />
+    <Content Include="CopyFolder\Lib\swscale-4.dll" />
+    <Content Include="CopyFolder\Lib\ucrtbased.dll" />
+    <Content Include="CopyFolder\Lib\vcruntime140d.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy  $(ProjectDir)CopyFolder /e /i /y /f</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\..\packages\cef.redist.x64.73.1.13\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\cef.redist.x64.73.1.13\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\..\packages\cef.redist.x86.73.1.13\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\cef.redist.x86.73.1.13\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\..\packages\CefSharp.Common.73.1.130\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Common.73.1.130\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\..\packages\CefSharp.Common.73.1.130\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Common.73.1.130\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\..\packages\CefSharp.Wpf.73.1.130\build\CefSharp.Wpf.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Wpf.73.1.130\build\CefSharp.Wpf.props'))" />
+    <Error Condition="!Exists('..\..\packages\CefSharp.Wpf.73.1.130\build\CefSharp.Wpf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\CefSharp.Wpf.73.1.130\build\CefSharp.Wpf.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\CefSharp.Common.73.1.130\build\CefSharp.Common.targets" Condition="Exists('..\..\packages\CefSharp.Common.73.1.130\build\CefSharp.Common.targets')" />
+  <Import Project="..\..\packages\CefSharp.Wpf.73.1.130\build\CefSharp.Wpf.targets" Condition="Exists('..\..\packages\CefSharp.Wpf.73.1.130\build\CefSharp.Wpf.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

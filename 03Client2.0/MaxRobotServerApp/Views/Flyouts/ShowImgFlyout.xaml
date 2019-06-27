@@ -1,0 +1,14 @@
+﻿<Window  x:Class="MaxRobotServerApp.Views.Flyouts.ShowImgFlyout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpf="http://materialdesigninxaml.net/winfx/xaml/themes"    
+        xmlns:maxRobotServerApp="clr-namespace:MaxRobotServerApp"
+        BorderBrush="#2DC049" Height="480" Width="640" 
+        WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+        <Image x:Name="showImg"/>
+        <Image Margin="5" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Source="/MaxRobotServerApp;component/Views/Imgs/close2.png" MouseDown="CloseDialog_Click" Cursor="Hand"/>
+    </Grid>
+</Window>

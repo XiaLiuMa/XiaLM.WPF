@@ -1,0 +1,18 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:MyCustomControl">
+    <Style TargetType="{x:Type local:SelectPathControl}">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:SelectPathControl}">
+                    <DockPanel>
+                        <Button x:Name="SelectBtn" Background="#2DC049" DockPanel.Dock="Right"  Height="{TemplateBinding Height}" Width="{Binding RelativeSource={RelativeSource Self},Path=Height}" Content=""/>
+                        <TextBox Text="{TemplateBinding Path}" IsReadOnly="True" Margin="0,0,5,0" MinWidth="80"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,35 @@
+﻿<Page x:Class="MaxRobotServerApp.Views.Pages.SystemServerConfigPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:muc="clr-namespace:MyUserControl;assembly=MyUserControl"
+      xmlns:time="clr-namespace:MyUserControl.TimePicker;assembly=MyUserControl"
+      xmlns:local="clr-namespace:MaxRobotServerApp.Views.Pages"
+      mc:Ignorable="d" Style="{StaticResource MyPage}" Loaded="Page_Loaded">
+
+    <Grid x:Name="grid2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="系统管理  >>  服务配置" Style="{StaticResource dLabel}" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="360,5">
+                <Label Content="报警配置:" FontSize="24" Style="{StaticResource dLabel}"/>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="是否启用自动删除？" FontSize="16" Style="{StaticResource dLabel}"/>
+                        <CheckBox x:Name="t2alarmDeleteEnable" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Label Content="存储时间(毫秒)" FontSize="16" Style="{StaticResource dLabel}"/>
+                        <TextBox x:Name="t2alarmDeleteTime" FontSize="16" MinWidth="120" Style="{StaticResource dTextBox}"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Content="保存配置" Click="T2SaveAlarmConfig_Click" Margin="5,0" Height="30" Width="80" Style="{StaticResource dButton}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

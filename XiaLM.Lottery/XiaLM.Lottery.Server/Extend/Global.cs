@@ -28,8 +28,8 @@ namespace XiaLM.Lottery.Server.Extend
                     for (int i = 1; i <= obj.data.totalPage; i++)
                     {
                         string tapi = $@"http://www.mxnzp.com/api/lottery/ssq/lottery_list?page={i}";
-                        string tjson = new HttpUtil().Post(api);
-                        var tobj = JsonUtil.StrToObject<ApiSsqSelectResult>(resultJson);
+                        string tjson = new HttpUtil().Post(tapi);
+                        var tobj = JsonUtil.StrToObject<ApiSsqSelectResult>(tjson);
                         foreach (var item in tobj.data.list)
                         {
                             string[] tstrs = item.openCode.Split(',', '+');
@@ -49,7 +49,7 @@ namespace XiaLM.Lottery.Server.Extend
                             bool flag = new SsqDal().RefreshData(enty);
                             Console.WriteLine($"{i}:{item.expect}:{flag}");
                         }
-                        Thread.Sleep(2 * 1000);    //10秒钟请求一次
+                        Thread.Sleep(2 * 1000);    //2秒钟请求一次
                     }
                 }
             });

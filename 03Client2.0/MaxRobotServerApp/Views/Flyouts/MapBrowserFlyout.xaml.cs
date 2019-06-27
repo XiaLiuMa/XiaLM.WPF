@@ -1,0 +1,43 @@
+﻿using CefSharp;
+
+using MaxRobotServerApp.Views.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace MaxRobotServerApp.Views.Flyouts
+{
+    /// <summary>
+    /// MapBrowserFlyout.xaml 的交互逻辑
+    /// </summary>
+    public partial class MapBrowserFlyout : Window
+    {
+        public MapBrowserFlyout()
+        {
+            InitializeComponent();
+
+        }
+        public MapBrowserFlyout(string mapid):this()
+        {
+            Task.Factory.StartNew(async () =>
+                     {
+                         this.Dispatcher?.Invoke(() =>
+                         {
+                             CefSharpSettings.LegacyJavascriptBindingEnabled = true;
+                             this.mapBrowser.RegisterJsObject("jsObj", new MapBrowserViewModel(mapid), BindingOptions.DefaultBinder);
+                             this.mapBrowser.Address = (AppDomain.CurrentDomain.BaseDirectory + @"html\map\Index.html");
+                         });
+                     });
+        }
+    }
+}
